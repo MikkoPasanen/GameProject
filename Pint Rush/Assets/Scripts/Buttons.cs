@@ -8,6 +8,7 @@ namespace PintRush
     public class Buttons : MonoBehaviour
     {
         public GameObject options;
+        public GameObject bottle;
 
         public void OnPlay()
         {
@@ -47,6 +48,12 @@ namespace PintRush
         public void OnExitOptions() {
             Debug.Log("Options exited!");
             options.SetActive(false);
+        }
+
+        public void OnBarrel()
+        {
+            Debug.Log("Barrels clicked!");
+            bottle.SetActive(true);
         }
     }
 }
