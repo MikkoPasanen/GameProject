@@ -50,6 +50,12 @@ TagManager:
   - name: Barrel2
     uniqueID: 1303766379
     locked: 0
+  - name: ChainFront
+    uniqueID: 607420885
+    locked: 0
+  - name: ChainSide
+    uniqueID: 994098719
+    locked: 0
   - name: Name
     uniqueID: 3046196899
     locked: 0

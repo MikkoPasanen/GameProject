@@ -9,6 +9,7 @@ namespace PintRush
     {
         public GameObject options;
         public GameObject bottle;
+        public GameObject playButton;
 
         public void OnPlay()
         {
@@ -27,6 +28,7 @@ namespace PintRush
         {
             Debug.Log("Options clicked!");
             options.SetActive(true);
+            playButton.SetActive(false);
             
         }
         public void OnEnglish()
@@ -48,6 +50,7 @@ namespace PintRush
         public void OnExitOptions() {
             Debug.Log("Options exited!");
             options.SetActive(false);
+            playButton.SetActive(true);
         }
 
         public void OnBarrel()
