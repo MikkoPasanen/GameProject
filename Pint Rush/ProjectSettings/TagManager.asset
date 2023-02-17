@@ -59,3 +59,6 @@ TagManager:
   - name: Name
     uniqueID: 3046196899
     locked: 0
+  - name: BlackFade
+    uniqueID: 567719673
+    locked: 0
