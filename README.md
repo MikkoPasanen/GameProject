@@ -1,5 +1,5 @@
 # GameProject
-TAMK's Business Information Systems first year's game project for Narvas kyläpanimo oy.
+TAMK's Business Information Systems first year's game project for Narvan kyläpanimo oy.
 
 Devs:
   Mikko Pasanen - Programmer  |
