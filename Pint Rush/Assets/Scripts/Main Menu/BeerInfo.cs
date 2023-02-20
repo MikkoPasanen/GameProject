@@ -4,8 +4,6 @@ namespace PintRush
 {
     public class BeerInfo : MonoBehaviour
     {
-        [SerializeField] private GameObject playButton;
-        [SerializeField] private GameObject optionsButton;
         [SerializeField] private GameObject infoScreen;
         [SerializeField] private GameObject paleAle;
         [SerializeField] private GameObject stout;

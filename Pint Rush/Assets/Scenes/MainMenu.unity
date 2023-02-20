@@ -461,7 +461,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnPaleAle
         m_Mode: 1
@@ -579,7 +579,6 @@ GameObject:
   - component: {fileID: 104613766}
   - component: {fileID: 104613768}
   - component: {fileID: 104613767}
-  - component: {fileID: 104613769}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -597,7 +596,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 594265607}
   - {fileID: 97017650}
@@ -654,27 +653,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &104613769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104613765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79470ca7199b204084f132b6b11f29a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
-  optionsButton: {fileID: 0}
-  infoScreen: {fileID: 244481096}
-  paleAle: {fileID: 848142321}
-  stout: {fileID: 1675023218}
-  porter: {fileID: 1147327347}
-  whiteAle: {fileID: 1052797218}
-  brownAle: {fileID: 355397249}
-  strongGoldenAle: {fileID: 1176209379}
 --- !u!1 &151757948
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +847,10 @@ PrefabInstance:
     - target: {fileID: 2096047017494654828, guid: 768228e27875caf43a3f11874d8492c9, type: 3}
       propertyPath: m_Name
       value: OptionsScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096047017494654828, guid: 768228e27875caf43a3f11874d8492c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2096047017494654829, guid: 768228e27875caf43a3f11874d8492c9, type: 3}
       propertyPath: gameManagement
@@ -1126,7 +1108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1391,7 +1373,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6643,7 +6625,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6908,7 +6890,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12185,7 +12167,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -12242,7 +12224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnPorter
         m_Mode: 1
@@ -12606,15 +12588,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79470ca7199b204084f132b6b11f29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
-  optionsButton: {fileID: 0}
-  infoScreen: {fileID: 0}
-  paleAle: {fileID: 0}
-  stout: {fileID: 0}
-  porter: {fileID: 0}
-  whiteAle: {fileID: 0}
-  brownAle: {fileID: 0}
-  strongGoldenAle: {fileID: 0}
+  infoScreen: {fileID: 244481096}
+  paleAle: {fileID: 848142321}
+  stout: {fileID: 1675023218}
+  porter: {fileID: 1147327347}
+  whiteAle: {fileID: 1052797218}
+  brownAle: {fileID: 355397249}
+  strongGoldenAle: {fileID: 1176209379}
 --- !u!1 &481981496
 GameObject:
   m_ObjectHideFlags: 0
@@ -12686,7 +12666,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13036,7 +13016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -10.819744}
+  m_AnchoredPosition: {x: 50, y: -10.819748}
   m_SizeDelta: {x: 199.4, y: 90.262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &594265608
@@ -13078,7 +13058,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13135,9 +13115,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
-        m_MethodName: OnInfoScreen
+        m_MethodName: OnBeerInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13760,7 +13740,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14742,7 +14722,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14799,7 +14779,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnStrongGoldenAle
         m_Mode: 1
@@ -15413,7 +15393,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16280,7 +16260,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -16337,7 +16317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnWhiteAle
         m_Mode: 1
@@ -16976,8 +16956,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.59, y: 3}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 6.48, y: 3.1}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1533009240
 MonoBehaviour:
@@ -17144,7 +17124,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17319,7 +17299,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18179,7 +18159,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18328,7 +18308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5566038, g: 0.5539783, b: 0.5539783, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18431,7 +18411,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18655,7 +18635,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18712,7 +18692,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnBrownAle
         m_Mode: 1
@@ -18917,7 +18897,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994887111
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 832159c4943cf2b44b6dfacbe8165877, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18959,8 +18939,8 @@ RectTransform:
   m_GameObject: {fileID: 1873813661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25842243, y: 0.99975765, z: 0.7311687}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.21, y: 0.812426, z: 0.59416443}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 104613766}
   m_Father: {fileID: 1693888083}
@@ -18968,7 +18948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.8, y: 0.339}
+  m_AnchoredPosition: {x: -27.2, y: 0.339}
   m_SizeDelta: {x: 100, y: 81.718}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873813663
@@ -19508,7 +19488,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19565,7 +19545,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104613769}
+      - m_Target: {fileID: 462429867}
         m_TargetAssemblyTypeName: PintRush.BeerInfo, Assembly-CSharp
         m_MethodName: OnStout
         m_Mode: 1
@@ -19828,7 +19808,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 472480935
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
