@@ -10,12 +10,14 @@ namespace PintRush
         public void OnBeerInfo()
         {
             //Debug.Log("Beer info clicked!");
+
             gameObject.SetActive(true);
         }
 
         public void OnExitBeerInfo()
         {
             //Debug.Log("Beer info exited!");
+
             gameObject.SetActive(false);
         }
     }
