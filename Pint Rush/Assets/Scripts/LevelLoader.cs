@@ -7,9 +7,9 @@ namespace PintRush
 {
     public class LevelLoader : MonoBehaviour
     {
-        public Animator transition;
-        public string levelToLoad;
-        public float transitionWaitTime = 1f;
+        [SerializeField] private Animator transition;
+        [SerializeField] private string levelToLoad;
+        [SerializeField] private float transitionWaitTime = 1f;
 
         public void LoadLevel()
         {

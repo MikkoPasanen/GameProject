@@ -1,29 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PintRush
 {
     public class BeerInfo : MonoBehaviour
     {
-        public GameObject beerInfo;
-        public GameObject playButton;
-        public GameObject optionsButton;
+        [SerializeField] private GameObject playButton;
+        [SerializeField] private GameObject optionsButton;
 
         public void OnBeerInfo()
         {
-            Debug.Log("Beer info clicked!");
-            beerInfo.SetActive(true);
-            playButton.SetActive(false);
-            optionsButton.SetActive(false);
+            //Debug.Log("Beer info clicked!");
+            gameObject.SetActive(true);
         }
 
         public void OnExitBeerInfo()
         {
-            Debug.Log("Beer info exited!");
-            beerInfo.SetActive(false);
-            playButton.SetActive(true);
-            optionsButton.SetActive(true);
+            //Debug.Log("Beer info exited!");
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,25 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PintRush
 {
     public class Options : MonoBehaviour
     {
-        public GameObject options;
-        public GameObject playButton;
+        [SerializeField] private GameManagement gameManagement;
+        [SerializeField] private GameObject muteButton;
+        [SerializeField] private GameObject unmuteButton;
 
         public void OnEnglish()
         {
-            Debug.Log("Language changed to English!");
+            //Debug.Log("Language changed to English!");
+            gameManagement.SetLanguage("eng");
         }
         public void OnFinnish()
         {
-            Debug.Log("Language changed to Finnish!");
+            //Debug.Log("Language changed to Finnish!");
+            gameManagement.SetLanguage("fin");
         }
         public void OnMute()
         {
-            Debug.Log("Mute clicked!");
+            //Debug.Log("Mute clicked!");
+            gameManagement.SetMuteState(true);
+            unmuteButton.SetActive(true);
+            muteButton.SetActive(false);
+        }
+        public void OnUnmute()
+        {
+            //Debug.Log("Unmute clicked!");
+            gameManagement.SetMuteState(false);
+            unmuteButton.SetActive(false);
+            muteButton.SetActive(true);
         }
         public void OnCredits()
         {
@@ -27,15 +38,23 @@ namespace PintRush
         }
         public void OnExitOptions()
         {
-            Debug.Log("Options exited!");
-            options.SetActive(false);
-            playButton.SetActive(true);
+            //Debug.Log("Options exited!");
+            gameObject.SetActive(false);
         }
         public void OnOptions()
         {
-            Debug.Log("Options clicked!");
-            options.SetActive(true);
-            playButton.SetActive(false);
+            //Debug.Log("Options clicked!");
+            if(gameManagement.GetMuteState())
+            {
+                unmuteButton.SetActive(true);
+                muteButton.SetActive(false);
+            }
+            if(!gameManagement.GetMuteState())
+            {
+                unmuteButton.SetActive(false);
+                muteButton.SetActive(true);
+            }
+            gameObject.SetActive(true);
 
         }
     }
