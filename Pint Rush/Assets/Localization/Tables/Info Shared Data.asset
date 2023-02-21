@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Info Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Info
+  m_TableCollectionNameGuidString: 70534d7b2fe240a42bbf2d9da64d251d
+  m_Entries:
+  - m_Id: 12147481669632
+    m_Key: Kajo Pale Ale Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12374187995136
+    m_Key: Kiulu Pale Ale Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12580702941184
+    m_Key: Stout Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12954272821248
+    m_Key: Porter Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13287015346176
+    m_Key: Lento White Ale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13504754249728
+    m_Key: Halla White Ale Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13661407309824
+    m_Key: Brown Ale Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13866005458944
+    m_Key: Strong Golden Ale Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14945048883200
+    m_Key: Info Screen Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15151601577984
+    m_Key: Info Screen Title
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7758915404609880090
+  references:
+    version: 2
+    RefIds:
+    - rid: 7758915404609880090
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1677019084833

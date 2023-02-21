@@ -5,12 +5,14 @@ namespace PintRush
     public class BeerInfo : MonoBehaviour
     {
         [SerializeField] private GameObject infoScreen;
-        [SerializeField] private GameObject paleAle;
+        [SerializeField] private GameObject kajoPaleAle;
         [SerializeField] private GameObject stout;
         [SerializeField] private GameObject porter;
-        [SerializeField] private GameObject whiteAle;
+        [SerializeField] private GameObject lentoWhiteAle;
         [SerializeField] private GameObject brownAle;
         [SerializeField] private GameObject strongGoldenAle;
+        [SerializeField] private GameObject hallaWhiteAle;
+        [SerializeField] private GameObject kiuluPaleAle;
 
         public void OnBeerInfo()
         {
@@ -25,78 +27,118 @@ namespace PintRush
         public void OnInfoScreen()
         {
             infoScreen.SetActive(true);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(false);
             porter.SetActive(false);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle?.SetActive(false);
         }
 
-        public void OnPaleAle()
+        public void OnKajoPaleAle()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(true);
+            kajoPaleAle.SetActive(true);
             stout.SetActive(false);
             porter.SetActive(false);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle?.SetActive(false);
         }
 
         public void OnStout()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(true);
             porter.SetActive(false);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle?.SetActive(false);
         }
 
         public void OnPorter()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(false);
             porter.SetActive(true);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle?.SetActive(false);
         }
 
-        public void OnWhiteAle()
+        public void OnLentoWhiteAle()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(false);
             porter.SetActive(false);
-            whiteAle.SetActive(true);
+            lentoWhiteAle.SetActive(true);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle?.SetActive(false);
         }
 
         public void OnBrownAle()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(false);
             porter.SetActive(false);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(true);
             strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle.SetActive(false);
         }
 
         public void OnStrongGoldenAle()
         {
             infoScreen.SetActive(false);
-            paleAle.SetActive(false);
+            kajoPaleAle.SetActive(false);
             stout.SetActive(false);
             porter.SetActive(false);
-            whiteAle.SetActive(false);
+            lentoWhiteAle.SetActive(false);
             brownAle.SetActive(false);
             strongGoldenAle.SetActive(true);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle.SetActive(false);
+        }
+
+        public void OnKiuluPaleAle()
+        {
+            infoScreen.SetActive(false);
+            kajoPaleAle.SetActive(false);
+            stout.SetActive(false);
+            porter.SetActive(false);
+            lentoWhiteAle.SetActive(false);
+            brownAle.SetActive(false);
+            strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(false);
+            kiuluPaleAle.SetActive(true);
+        }
+
+        public void OnHallaWhiteAle()
+        {
+            infoScreen.SetActive(false);
+            kajoPaleAle.SetActive(false);
+            stout.SetActive(false);
+            porter.SetActive(false);
+            lentoWhiteAle.SetActive(false);
+            brownAle.SetActive(false);
+            strongGoldenAle.SetActive(false);
+            hallaWhiteAle.SetActive(true);
+            kiuluPaleAle.SetActive(false);
         }
     }
 }
