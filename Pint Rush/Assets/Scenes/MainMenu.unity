@@ -13198,7 +13198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956958533086, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -7.278652
+      value: -7.278656
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956984758516, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_Camera
@@ -13342,7 +13342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818966957416268895, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -40.859898
+      value: -74.33839
       objectReference: {fileID: 0}
     - target: {fileID: 1880521009750485764, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_SortingLayer
@@ -13534,7 +13534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8003091122323214490, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5.15
+      value: -5.1500015
       objectReference: {fileID: 0}
     - target: {fileID: 9105940779737245584, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_SortingLayer
