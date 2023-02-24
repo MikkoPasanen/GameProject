@@ -22,6 +22,12 @@ MonoBehaviour:
     m_Localized: Credits
     m_Metadata:
       m_Items: []
+  - m_Id: 27548617830400
+    m_Localized: 'Mikko Pasanen
+
+'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
