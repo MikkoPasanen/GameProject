@@ -35,18 +35,18 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13287015346176
-    m_Localized: "Helmeilev\xE4n kepe\xE4 White Ale on maustettu raikkaasti korianterinsiemenell\xE4
-      ja appelsiininkuorella"
+    m_Localized: "HEMEILEV\xC4N KEPE\xC4 WHITE ALE JOKA ON MAUSTETTU RAIKKAASTI KORIANTERINSIEMENELL\xC4
+      JA APPELSIININKUORELLA"
     m_Metadata:
       m_Items: []
   - m_Id: 13504754249728
-    m_Localized: "Raikas, kevyesti inkiv\xE4\xE4rill\xE4 ja kanelilla maustettu white
-      ale"
+    m_Localized: "RAIKAS, KEVYESTI INKIV\xC4\xC4RILL\xC4 JA KANELILLA MAUSTETTU WHITE
+      ALE"
     m_Metadata:
       m_Items: []
   - m_Id: 13661407309824
-    m_Localized: "Kevyt medosti humaloitu ja \rkaurakeksinen kastanjanruskea brown
-      ale "
+    m_Localized: "Kevyt medosti \nhumaloitu ja \r\nkaurakeksinen kastanjanruskea
+      brown ale "
     m_Metadata:
       m_Items: []
   - m_Id: 13866005458944
@@ -58,7 +58,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15151601577984
-    m_Localized: Narvan panimo
+    m_Localized: "NARVAN KYL\xC4PANIMO"
     m_Metadata:
       m_Items: []
   references:

@@ -10,20 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: Settings_fi
+  m_Name: Credits_en
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: fi
-  m_SharedData: {fileID: 11400000, guid: 2715504c4eeb14a4688fe23d0465564a, type: 2}
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 63cb2b4366786664d9254869ca218d80, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 2992444305408
-    m_Localized: Asetukset
-    m_Metadata:
-      m_Items: []
-  - m_Id: 3241690820608
-    m_Localized: "TEKIJ\xC4T"
+  - m_Id: 67676434432
+    m_Localized: Credits
     m_Metadata:
       m_Items: []
   references:
