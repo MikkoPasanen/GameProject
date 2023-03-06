@@ -28,6 +28,28 @@ MonoBehaviour:
 '
     m_Metadata:
       m_Items: []
+  - m_Id: 3571914301009920
+    m_Localized: 'Santtu Lattunen
+
+      Scrum master'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3572315800760320
+    m_Localized: 'Teemu Tontti
+
+      Programmer'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3572901526925312
+    m_Localized: 'Mikko Pasanen
+
+      Programmer'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3573091742806016
+    m_Localized: "Riku SAARIJ\xC4RVI\nArtist"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
