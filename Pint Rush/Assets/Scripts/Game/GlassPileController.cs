@@ -24,7 +24,7 @@ namespace PintRush
                 Vector2 canvasPos;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPos, Camera.main, out canvasPos);
 
-                // Instantiate the glass prefab at the converted position
+                // Instantiate the glass prefab at the converted position and add +1 to the current glasses
                 GameObject glass = Instantiate(glassPrefab, canvasPos, Quaternion.identity);
                 currentGlasses++;
 

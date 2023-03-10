@@ -17,6 +17,7 @@ namespace PintRush
 
         private void OnMouseDown()
         {
+            //Disable the glass piles collider so you cant spawn new glasses when dragging the newly spawned glass
             isDragging = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             boxCollider.enabled = false;
@@ -24,6 +25,8 @@ namespace PintRush
 
         private void OnMouseDrag()
         {
+
+            //Move the glass
             if (isDragging)
             {
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
