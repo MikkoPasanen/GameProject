@@ -7,6 +7,7 @@ namespace PintRush
 {
     public class InputReader : MonoBehaviour
     {
+        
         private PlayerInput playerInput;
 
         // Piste pelimaailmassa, johon käyttäjä haluaa hahmon liikkuvan
@@ -33,18 +34,18 @@ namespace PintRush
 
         public void OnPress(InputAction.CallbackContext context)
         {
-            if(context.started)
+            if (context.started)
             {
                 Debug.Log("Press started!");
                 tapping = true;
                 startPosition = worldTouchPosition;
             }
-            if(context.performed)
+            if (context.performed)
             {
                 Debug.Log("Pressing...");
                 tapping = true;
             }
-            if(context.canceled)
+            if (context.canceled)
             {
                 Debug.Log("Press ended!");
                 tapping = false;
@@ -71,6 +72,7 @@ namespace PintRush
         {
             return tapping;
         }
+        
     }
 }
 
