@@ -31,22 +31,22 @@ namespace PintRush
             }
         }
 
-        public void OnTap(InputAction.CallbackContext context)
+        public void OnPress(InputAction.CallbackContext context)
         {
             if(context.started)
             {
-                Debug.Log("Tap started!");
+                Debug.Log("Press started!");
                 tapping = true;
                 startPosition = worldTouchPosition;
             }
             if(context.performed)
             {
-                Debug.Log("Tapping...tapping...");
+                Debug.Log("Pressing...");
                 tapping = true;
             }
             if(context.canceled)
             {
-                Debug.Log("Tap ended!");
+                Debug.Log("Press ended!");
                 tapping = false;
                 endPosition = worldTouchPosition;
             }

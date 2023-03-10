@@ -15,13 +15,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Tap",
+                    "name": "Press",
                     "type": "Button",
                     "id": "528af7d3-71a2-4fa9-926b-2e1b34a570c0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Drag",
+                    "type": "Value",
+                    "id": "aaf96d5d-d621-4f64-ab20-f6e688930ba9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -43,7 +52,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Tap",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "932857cc-1ce7-4a5d-9d33-0cc78f0c4372",
+                    "path": "<Touchscreen>/primaryTouch/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -405,8 +405,8 @@ GameObject:
   - component: {fileID: 364086022}
   - component: {fileID: 364086021}
   - component: {fileID: 364086018}
-  - component: {fileID: 364086017}
   - component: {fileID: 364086023}
+  - component: {fileID: 364086024}
   m_Layer: 5
   m_Name: HallaBottleButton
   m_TagString: Bottle
@@ -431,23 +431,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -161.56, y: 0}
-  m_SizeDelta: {x: 120, y: 260}
+  m_AnchoredPosition: {x: -330, y: -39.8}
+  m_SizeDelta: {x: 87.9, y: 169.79}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &364086017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364086015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6cf0e266e7c0cd468d555f90906a18c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 37113588}
-  inputReader: {fileID: 475477508}
 --- !u!50 &364086018
 Rigidbody2D:
   serializedVersion: 4
@@ -533,6 +519,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 42.321404, y: 152.62593}
   m_EdgeRadius: 0
+--- !u!114 &364086024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364086015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cf0e266e7c0cd468d555f90906a18c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 475477508}
 --- !u!1 &382951585
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,7 +770,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 475477508}
         m_TargetAssemblyTypeName: PintRush.InputReader, Assembly-CSharp
-        m_MethodName: OnTap
+        m_MethodName: OnPress
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -783,6 +782,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 528af7d3-71a2-4fa9-926b-2e1b34a570c0
     m_ActionName: GameTouch/Tap[/Device Simulator Touchscreen/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aaf96d5d-d621-4f64-ab20-f6e688930ba9
+    m_ActionName: GameTouch/Drag[/Device Simulator Touchscreen/primaryTouch/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: GameTouch
