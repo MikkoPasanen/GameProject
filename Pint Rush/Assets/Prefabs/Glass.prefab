@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3981718366474747520}
   m_Layer: 0
   m_Name: Glass
-  m_TagString: Bottle
+  m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCollider: {fileID: 0}
+  snapToCoordinates: {x: 5.67, y: -1.17, z: 0}
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0

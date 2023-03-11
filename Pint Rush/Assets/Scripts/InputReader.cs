@@ -36,18 +36,18 @@ namespace PintRush
         {
             if (context.started)
             {
-                Debug.Log("Press started!");
+                //Debug.Log("Press started!");
                 tapping = true;
                 startPosition = worldTouchPosition;
             }
             if (context.performed)
             {
-                Debug.Log("Pressing...");
+                //Debug.Log("Pressing...");
                 tapping = true;
             }
             if (context.canceled)
             {
-                Debug.Log("Press ended!");
+                //Debug.Log("Press ended!");
                 tapping = false;
                 endPosition = worldTouchPosition;
             }
