@@ -13,22 +13,18 @@ namespace PintRush
         [SerializeField] private TextMeshProUGUI timerText;
 
         private Vector3 offset;
-        [SerializeField] private BoxCollider2D boxCollider;
         [SerializeField] private Vector3 snapToCoordinates;
 
         private void Awake()
         {
-            boxCollider = GetComponent<BoxCollider2D>();
             isInsideTapArea = false;
             isUnderTap = false;
         }
 
         private void OnMouseDown()
         {
-            //Disable the glass piles collider so you cant spawn new glasses when dragging the newly spawned glass
             isDragging = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            boxCollider.enabled = false;
         }
 
         private void OnMouseDrag()
@@ -38,7 +34,6 @@ namespace PintRush
             {
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
                 transform.position = new Vector3(newPosition.x, newPosition.y, 0);
-                boxCollider.enabled = true;
             }
         }
 
