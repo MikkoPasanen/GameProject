@@ -422,7 +422,8 @@ MonoBehaviour:
   happinessStateThree: {fileID: 7174234000425078699}
   happinessStateFour: {fileID: 9050653854816597777}
   happinessStateFive: {fileID: 1002899788129961643}
-  patience: 100
+  patience: 50
+  spawnController: {fileID: 0}
 --- !u!1 &9050653854816597777
 GameObject:
   m_ObjectHideFlags: 0
