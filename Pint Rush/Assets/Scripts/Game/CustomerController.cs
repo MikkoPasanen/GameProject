@@ -12,18 +12,43 @@ namespace PintRush
 
         [SerializeField] private int patience;
 
+        private Vector2 startPos;
+        private Vector2 currentPos;
+        [SerializeField] private Vector2 direction = Vector2.zero;
+        [SerializeField] private Vector2 targetPos;
+        [SerializeField] private float speed;
+
         private int happinessTimer;
-        private bool happinessTimerActive = true;
-
-
+        private bool happinessTimerActive = false;
 
         private void Awake()
         {
-            happinessStateOne.SetActive(true);
+            happinessStateOne.SetActive(false);
             happinessStateTwo.SetActive(false);
             happinessStateThree.SetActive(false);
             happinessStateFour.SetActive(false);
             happinessStateFive.SetActive(false);
+        }
+
+        private void Start()
+        {
+            startPos = transform.position;
+            direction = direction.normalized;
+        }
+
+        private void Update()
+        {
+            Vector2 movement = direction * speed * Time.deltaTime;
+            currentPos = transform.position;
+
+            if(currentPos.x >= targetPos.x)
+            {
+                happinessTimerActive = true;
+            }
+            if(currentPos.x <= targetPos.x)
+            {
+                transform.Translate(movement);
+            }
         }
 
         private void FixedUpdate()
@@ -33,8 +58,8 @@ namespace PintRush
                 // Second state
                 if (happinessTimer > patience)
                 {
-                    happinessStateOne.SetActive(false);
-                    happinessStateTwo.SetActive(true);
+                    happinessStateOne.SetActive(true);
+                    happinessStateTwo.SetActive(false);
                     happinessStateThree.SetActive(false);
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
@@ -43,8 +68,8 @@ namespace PintRush
                 if (happinessTimer > patience * 2)
                 {
                     happinessStateOne.SetActive(false);
-                    happinessStateTwo.SetActive(false);
-                    happinessStateThree.SetActive(true);
+                    happinessStateTwo.SetActive(true);
+                    happinessStateThree.SetActive(false);
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
                 }
@@ -53,8 +78,8 @@ namespace PintRush
                 {
                     happinessStateOne.SetActive(false);
                     happinessStateTwo.SetActive(false);
-                    happinessStateThree.SetActive(false);
-                    happinessStateFour.SetActive(true);
+                    happinessStateThree.SetActive(true);
+                    happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
                 }
                 // Fifth state
@@ -63,15 +88,28 @@ namespace PintRush
                     happinessStateOne.SetActive(false);
                     happinessStateTwo.SetActive(false);
                     happinessStateThree.SetActive(false);
+                    happinessStateFour.SetActive(true);
+                    happinessStateFive.SetActive(false);
+                }
+                if(happinessTimer > patience * 5)
+                {
+                    happinessStateOne.SetActive(false);
+                    happinessStateTwo.SetActive(false);
+                    happinessStateThree.SetActive(false);
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(true);
                 }
-                if (happinessTimer > patience * 5)
+                if (happinessTimer > patience * 6)
                 {
                     Destroy(gameObject);
                     transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
                 }
             }
+        }
+
+        public void StartHappiness()
+        {
+            happinessTimerActive = true;
         }
     }
 }

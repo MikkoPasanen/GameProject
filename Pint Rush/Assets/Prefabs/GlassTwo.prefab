@@ -55,6 +55,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
   snapToCoordinates: {x: 5.67, y: -1.17, z: 0}
+  leftBorder: -420
+  rightBorder: 420
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -11,9 +11,11 @@ namespace PintRush
 
         private int pourTimer = 0;
         [SerializeField] private TextMeshProUGUI timerText;
-
+        private Vector3 snapToTap; 
         private Vector3 offset;
-        [SerializeField] private Vector3 snapToCoordinates;
+
+        [SerializeField] private float leftBorder;
+        [SerializeField] private float rightBorder;
 
         private void Awake()
         {
@@ -42,8 +44,9 @@ namespace PintRush
             isDragging = false;
             if(isInsideTapArea)
             {
-                transform.position = snapToCoordinates;
                 isUnderTap = true;
+                this.gameObject.transform.position = snapToTap;
+
             }
         }
 
@@ -65,6 +68,11 @@ namespace PintRush
             this.isUnderTap = isUnderTap;
         }
 
+        public void SnapUnderTap(Vector3 tapPosition)
+        {
+            snapToTap = tapPosition;
+        }
+
         private void FixedUpdate()
         {
             if(isUnderTap)
@@ -75,6 +83,12 @@ namespace PintRush
             else
             {
                 pourTimer = 0;
+            }
+
+            if(gameObject.transform.position.x <= leftBorder || gameObject.transform.position.x >= rightBorder)
+            {
+                Debug.Log("uiffasfjahf");
+                Destroy(gameObject);
             }
         }
     }

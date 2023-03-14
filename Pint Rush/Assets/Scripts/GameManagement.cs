@@ -10,7 +10,8 @@ namespace PintRush
         [SerializeField] private static bool isMuted = false;
         // Language set by default to finnish!
         [SerializeField] private static string language = "fin";
-
+        private int currentGlasses;
+        [SerializeField] private int maxGlasses;
         private bool active = false;
 
         private void Awake()
@@ -54,6 +55,26 @@ namespace PintRush
             yield return LocalizationSettings.InitializationOperation;
             LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
             active= false;
+        }
+
+        public void RemoveGlass()
+        {
+            this.currentGlasses -= 1;
+        }
+
+        public void AddGlass()
+        {
+            this.currentGlasses += 1;
+        }
+
+        public int GetMaxGlasses()
+        {
+            return this.maxGlasses;
+        }
+
+        public int GetCurrentGlasses()
+        {
+            return this.currentGlasses;
         }
     }
 }
