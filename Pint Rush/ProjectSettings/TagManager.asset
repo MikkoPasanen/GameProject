@@ -44,6 +44,18 @@ TagManager:
   - name: Clouds
     uniqueID: 125378903
     locked: 0
+  - name: Wall
+    uniqueID: 1864018123
+    locked: 0
+  - name: Customer
+    uniqueID: 494143697
+    locked: 0
+  - name: Chimney n stuff
+    uniqueID: 3251309387
+    locked: 0
+  - name: Bar
+    uniqueID: 3124665749
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

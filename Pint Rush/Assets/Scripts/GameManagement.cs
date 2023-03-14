@@ -8,7 +8,6 @@ namespace PintRush
     {
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
-        // Language set by default to finnish!
         [SerializeField] private static string language = "fin";
         private int currentGlasses;
         [SerializeField] private int maxGlasses;
@@ -16,7 +15,7 @@ namespace PintRush
 
         private void Awake()
         {
-            Debug.Log($"Values fetched from previous scene: \nmuted: " + isMuted+ ", language: " + language);
+            //Debug.Log($"Values fetched from previous scene: \nmuted: " + isMuted+ ", language: " + language);
         }
 
         public bool GetMuteState()
@@ -60,11 +59,13 @@ namespace PintRush
         public void RemoveGlass()
         {
             this.currentGlasses -= 1;
+            Debug.Log("Current glass amount decreased");
         }
 
         public void AddGlass()
         {
             this.currentGlasses += 1;
+            Debug.Log("Current glass amount increased");
         }
 
         public int GetMaxGlasses()

@@ -4,19 +4,15 @@ namespace PintRush
 {
     public class CustomerSpawnController : MonoBehaviour
     {
-        [SerializeField] private GameObject customerPrefad;
+        [SerializeField] private GameObject customerPrefab;
         [SerializeField] private GameObject customers;
         [SerializeField] private int customerPatience;
+        [SerializeField] private Transform[] endpointPositions;
         private float random;
         private int randomCustomer;
         private bool customerSpawned = false;
         private float timer = 0f;
         [SerializeField] float spawnRate;
-        [SerializeField] private Vector2 direction = Vector2.zero;
-        [SerializeField] private float speed = 1;
-        private Vector2 startPos;
-        private Vector2 currentPos;
-        [SerializeField] private Vector2 target;
         [SerializeField] CustomerController cc;
 
         // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
@@ -24,8 +20,6 @@ namespace PintRush
         private void Start()
         {
             SpawnCustomer();
-            startPos = transform.position;
-            direction = direction.normalized;
         }
         void Update()
         {
@@ -39,13 +33,6 @@ namespace PintRush
                 timer = 0;
             }
 
-            Vector2 movement = direction * speed * Time.deltaTime;
-            currentPos = transform.position;
-
-            if(currentPos == target)
-            {
-                cc.StartHappiness();
-            }
         }
         public void SpawnCustomer()
         {
@@ -55,7 +42,13 @@ namespace PintRush
                 randomCustomer = (int)random;
                 Debug.Log($"Random: {randomCustomer}");
                 Debug.Log("Customer spawned!");
-                GameObject customer = Instantiate(customerPrefad, customers.transform.position, Quaternion.identity);
+
+                GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+                CustomerController customerController = customer.GetComponent<CustomerController>();
+                
+                Transform randomEndpointPosition = endpointPositions[Random.Range(0, endpointPositions.Length)];
+
+                customerController.SetEndpoint(randomEndpointPosition);
                 customer.transform.SetParent(customers.transform, false);
                 customerSpawned = true;
             } 

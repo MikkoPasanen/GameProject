@@ -11,15 +11,18 @@ namespace PintRush
         [SerializeField] private GameObject happinessStateFive;
 
         [SerializeField] private int patience;
+        [SerializeField] BoxCollider2D bc2d;
+        [SerializeField] GameManagement gm;
 
-        private Vector2 startPos;
         private Vector2 currentPos;
         [SerializeField] private Vector2 direction = Vector2.zero;
-        [SerializeField] private Vector2 targetPos;
+        //[SerializeField] private Vector2 targetPos;
         [SerializeField] private float speed;
+        private Transform endpointPosition;
 
         private int happinessTimer;
         private bool happinessTimerActive = false;
+
 
         private void Awake()
         {
@@ -32,8 +35,12 @@ namespace PintRush
 
         private void Start()
         {
-            startPos = transform.position;
             direction = direction.normalized;
+        }
+
+        public void SetEndpoint(Transform endpointPosition)
+        {
+            this.endpointPosition = endpointPosition;
         }
 
         private void Update()
@@ -41,13 +48,15 @@ namespace PintRush
             Vector2 movement = direction * speed * Time.deltaTime;
             currentPos = transform.position;
 
-            if(currentPos.x >= targetPos.x)
+            if(currentPos.x >= endpointPosition.position.x)
             {
                 happinessTimerActive = true;
+                bc2d.enabled = true;
             }
-            if(currentPos.x <= targetPos.x)
+            if(currentPos.x <= endpointPosition.position.x)
             {
                 transform.Translate(movement);
+                bc2d.enabled = false;
             }
         }
 
@@ -55,11 +64,18 @@ namespace PintRush
         {
             if (happinessTimerActive) {
                 happinessTimer++;
+
+                happinessStateOne.SetActive(true);
+                happinessStateTwo.SetActive(false);
+                happinessStateThree.SetActive(false);
+                happinessStateFour.SetActive(false);
+                happinessStateFive.SetActive(false);
+                
                 // Second state
                 if (happinessTimer > patience)
                 {
-                    happinessStateOne.SetActive(true);
-                    happinessStateTwo.SetActive(false);
+                    happinessStateOne.SetActive(false);
+                    happinessStateTwo.SetActive(true);
                     happinessStateThree.SetActive(false);
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
@@ -68,8 +84,8 @@ namespace PintRush
                 if (happinessTimer > patience * 2)
                 {
                     happinessStateOne.SetActive(false);
-                    happinessStateTwo.SetActive(true);
-                    happinessStateThree.SetActive(false);
+                    happinessStateTwo.SetActive(false);
+                    happinessStateThree.SetActive(true);
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
                 }
@@ -78,20 +94,12 @@ namespace PintRush
                 {
                     happinessStateOne.SetActive(false);
                     happinessStateTwo.SetActive(false);
-                    happinessStateThree.SetActive(true);
-                    happinessStateFour.SetActive(false);
-                    happinessStateFive.SetActive(false);
-                }
-                // Fifth state
-                if (happinessTimer > patience * 4)
-                {
-                    happinessStateOne.SetActive(false);
-                    happinessStateTwo.SetActive(false);
                     happinessStateThree.SetActive(false);
                     happinessStateFour.SetActive(true);
                     happinessStateFive.SetActive(false);
                 }
-                if(happinessTimer > patience * 5)
+                //Fifth state
+                if(happinessTimer > patience * 4)
                 {
                     happinessStateOne.SetActive(false);
                     happinessStateTwo.SetActive(false);
@@ -99,10 +107,31 @@ namespace PintRush
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(true);
                 }
-                if (happinessTimer > patience * 6)
+
+                //If the customer has waited long enough, he will disappear
+                if (happinessTimer > patience * 5)
                 {
                     Destroy(gameObject);
                     transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
+                }
+            }
+        }
+
+        //If the customer gets his drink that is full, he will disappear
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.tag == "Glass")
+            {
+                GlassController glass = collision.gameObject.GetComponent<GlassController>();
+                if(glass.GetFill())
+                {
+                    Debug.Log("Customer served!");
+                    gm.RemoveGlass();
+                    Destroy(gameObject);
+                    Destroy(collision.gameObject);
+                    transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
+                    glass.SetFill(false);
+                    Debug.Log($"Glasses: {gm.GetCurrentGlasses()}");
                 }
             }
         }

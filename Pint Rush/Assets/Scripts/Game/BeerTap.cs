@@ -26,9 +26,11 @@ namespace PintRush
         {
             if(collision.gameObject.tag == "Glass")
             {
+                Debug.Log("Glass filled!");
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(false);
                 glassController.SetIsUnderTap(false);
+                glassController.SetFill(true);
             }
         }
     }
