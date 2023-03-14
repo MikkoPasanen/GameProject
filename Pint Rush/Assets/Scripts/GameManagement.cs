@@ -9,13 +9,33 @@ namespace PintRush
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
         [SerializeField] private static string language = "fin";
-        private int currentGlasses;
+        private int currentGlasses = 0;
         [SerializeField] private int maxGlasses;
         private bool active = false;
+
+        // Glasses
+        public Vector2 glassOneSpawn;
+        public Vector2 glassTwoSpawn;
+        public Vector2 glassThreeSpawn;
+        public GameObject glassOnePrefab;
+        public GameObject glassTwoPrefab;
+        public GameObject glassThreePrefab;
 
         private void Awake()
         {
             //Debug.Log($"Values fetched from previous scene: \nmuted: " + isMuted+ ", language: " + language);
+            //currentGlasses = 0;
+            Debug.Log("Current glasses: " + currentGlasses);
+        }
+
+        private void Start()
+        {
+            this.currentGlasses = 0;
+        }
+        private void Update()
+        {
+            //Debug.Log("Current glasses: " + currentGlasses);
+            //Debug.Log("Current glasses: " + GetCurrentGlasses());
         }
 
         public bool GetMuteState()
