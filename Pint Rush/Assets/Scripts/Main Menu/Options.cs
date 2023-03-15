@@ -57,12 +57,14 @@ namespace PintRush
                 muteButton.SetActive(true); // Setting mute button ACTIVE.
             }
             gameObject.SetActive(true); // Setting options screen ACTIVE.
+            Time.timeScale = 0f;
         }
         public void OnExitOptions()
         {
             //Debug.Log("Options exited!");
 
             gameObject.SetActive(false); // Setting options screen DEACTIVE.
+            Time.timeScale = 1f;
         }
     }
 }

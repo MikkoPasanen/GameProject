@@ -14,9 +14,9 @@ namespace PintRush
         private bool active = false;
 
         // Glasses
-        public Vector2 glassOneSpawn;
-        public Vector2 glassTwoSpawn;
-        public Vector2 glassThreeSpawn;
+        public Vector3 glassOneSpawn;
+        public Vector3 glassTwoSpawn;
+        public Vector3 glassThreeSpawn;
         public GameObject glassOnePrefab;
         public GameObject glassTwoPrefab;
         public GameObject glassThreePrefab;
@@ -24,14 +24,9 @@ namespace PintRush
         private void Awake()
         {
             //Debug.Log($"Values fetched from previous scene: \nmuted: " + isMuted+ ", language: " + language);
-            //currentGlasses = 0;
             Debug.Log("Current glasses: " + currentGlasses);
         }
 
-        private void Start()
-        {
-            this.currentGlasses = 0;
-        }
         private void Update()
         {
             //Debug.Log("Current glasses: " + currentGlasses);
@@ -86,6 +81,11 @@ namespace PintRush
         {
             this.currentGlasses += 1;
             Debug.Log("Current glass amount increased");
+        }
+
+        public void SetCurrentGlasses(int currentGlasses)
+        {
+            this.currentGlasses = currentGlasses;
         }
 
         public int GetMaxGlasses()

@@ -10,6 +10,11 @@ namespace PintRush
         [SerializeField] GameObject parent;
         [SerializeField] GameManagement gm;
 
+        private void Start()
+        {
+            gm.SetCurrentGlasses(0);
+        }
+
         //Instatiates the glass prefab in the location provided by the GlassSpawnInfo script
         //Sets the glass prefab as the child of canvas
         //Adds +1 to the current glass counter every time a glass is spawned

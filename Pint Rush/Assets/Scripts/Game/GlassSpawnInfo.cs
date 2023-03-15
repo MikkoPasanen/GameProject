@@ -7,9 +7,9 @@ namespace PintRush
     public class GlassSpawnInfo : MonoBehaviour
     {
         //Glasses references and their wished spawnpoints
-        public Vector2 glassOneSpawn;
-        public Vector2 glassTwoSpawn;
-        public Vector2 glassThreeSpawn;
+        public Vector3 glassOneSpawn;
+        public Vector3 glassTwoSpawn;
+        public Vector3 glassThreeSpawn;
         public GameObject glassOnePrefab;
         public GameObject glassTwoPrefab;
         public GameObject glassThreePrefab;
