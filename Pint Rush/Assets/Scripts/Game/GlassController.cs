@@ -9,24 +9,24 @@ namespace PintRush
         private bool isInsideTapArea;
         private bool isUnderTap;
         private bool filled = false;
-
         private int pourTimer = 0;
-        [SerializeField] private TextMeshProUGUI timerText;
         private Vector3 snapToTap; 
         private Vector3 offset;
-
+        public Rigidbody2D rb2d;
         private void Awake()
         {
             isInsideTapArea = false;
             isUnderTap = false;
         }
 
+        //When you hold your finger on the glass
         private void OnMouseDown()
         {
             isDragging = true;
             offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
+        //When you drag the glass around
         private void OnMouseDrag()
         {
             //Move the glass
@@ -37,6 +37,8 @@ namespace PintRush
             }
         }
 
+        //When you let go of the glass
+        //If the glass is under the tap, it snaps into place
         private void OnMouseUp()
         {
             isDragging = false;
@@ -81,6 +83,7 @@ namespace PintRush
             this.filled = filled;
         }
 
+        //Timer for the beer pouring
         private void FixedUpdate()
         {
             if(isUnderTap)

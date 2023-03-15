@@ -10,19 +10,20 @@ namespace PintRush
         [SerializeField] private GameObject happinessStateFour;
         [SerializeField] private GameObject happinessStateFive;
 
+        [SerializeField] private GameObject[] beerChoices;
+        private GameObject chosenBeer; 
+
         [SerializeField] private int patience;
         [SerializeField] BoxCollider2D bc2d;
         [SerializeField] GameManagement gm;
 
         private Vector2 currentPos;
         [SerializeField] private Vector2 direction = Vector2.zero;
-        //[SerializeField] private Vector2 targetPos;
         [SerializeField] private float speed;
         private Transform endpointPosition;
 
         private int happinessTimer;
         private bool happinessTimerActive = false;
-
 
         private void Awake()
         {
@@ -38,10 +39,19 @@ namespace PintRush
             direction = direction.normalized;
         }
 
+        //Set the endpoint that the customer will walk into
         public void SetEndpoint(Transform endpointPosition)
         {
             this.endpointPosition = endpointPosition;
         }
+
+        public void ChooseRandomBeer()
+        {
+            int randomIndex = Random.Range(0, beerChoices.Length);
+            chosenBeer = beerChoices[randomIndex];
+            Debug.Log("Chosen beer: " + chosenBeer.name);
+        }
+
 
         private void Update()
         {
@@ -118,12 +128,13 @@ namespace PintRush
         }
 
         //If the customer gets his drink that is full, he will disappear
+        //Checks if the glass is filled and if the drink is the same as what the customer ordered
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if(collision.gameObject.tag == "Glass")
             {
                 GlassController glass = collision.gameObject.GetComponent<GlassController>();
-                if(glass.GetFill())
+                if (glass.GetFill())
                 {
                     Debug.Log("Customer served!");
                     gm.RemoveGlass();
@@ -131,7 +142,6 @@ namespace PintRush
                     Destroy(collision.gameObject);
                     transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
                     glass.SetFill(false);
-                    Debug.Log($"Glasses: {gm.GetCurrentGlasses()}");
                 }
             }
         }

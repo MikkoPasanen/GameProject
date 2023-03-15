@@ -476,6 +476,9 @@ MonoBehaviour:
   happinessStateThree: {fileID: 7174234000425078699}
   happinessStateFour: {fileID: 9050653854816597777}
   happinessStateFive: {fileID: 1002899788129961643}
+  beerChoices:
+  - {fileID: 5788822397612179796, guid: 4439cdd41bfb0af49b967a22395226ee, type: 3}
+  - {fileID: 5788822397612179796, guid: bbb1b38ffeb17484895d99bed95b680a, type: 3}
   patience: 200
   bc2d: {fileID: 3409957584903607254}
   gm: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}

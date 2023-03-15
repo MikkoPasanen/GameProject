@@ -21,18 +21,6 @@ namespace PintRush
         public GameObject glassTwoPrefab;
         public GameObject glassThreePrefab;
 
-        private void Awake()
-        {
-            //Debug.Log($"Values fetched from previous scene: \nmuted: " + isMuted+ ", language: " + language);
-            Debug.Log("Current glasses: " + currentGlasses);
-        }
-
-        private void Update()
-        {
-            //Debug.Log("Current glasses: " + currentGlasses);
-            //Debug.Log("Current glasses: " + GetCurrentGlasses());
-        }
-
         public bool GetMuteState()
         {
             return isMuted;
@@ -74,13 +62,11 @@ namespace PintRush
         public void RemoveGlass()
         {
             this.currentGlasses -= 1;
-            Debug.Log("Current glass amount decreased");
         }
 
         public void AddGlass()
         {
             this.currentGlasses += 1;
-            Debug.Log("Current glass amount increased");
         }
 
         public void SetCurrentGlasses(int currentGlasses)

@@ -21,6 +21,8 @@ namespace PintRush
         {
             SpawnCustomer();
         }
+
+        //Timer for the customer spawns
         void Update()
         {
             if (timer < spawnRate)
@@ -32,16 +34,17 @@ namespace PintRush
                 SpawnCustomer();
                 timer = 0;
             }
-
         }
+
+        //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
             if (!customerSpawned)
             {
                 random = Random.Range(1, 3);
                 randomCustomer = (int)random;
-                Debug.Log($"Random: {randomCustomer}");
-                Debug.Log("Customer spawned!");
+                Debug.Log($"Random customer: {randomCustomer}");
+                cc.ChooseRandomBeer();
 
                 GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
                 CustomerController customerController = customer.GetComponent<CustomerController>();
