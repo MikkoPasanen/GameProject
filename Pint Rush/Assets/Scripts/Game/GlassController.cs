@@ -9,6 +9,7 @@ namespace PintRush
         private bool isInsideTapArea = false;
         private bool isUnderTap = false;
         private bool filled = false;
+        private bool fingerUp = false;
         private int pourTimer = 0;
         private Vector3 snapToTap; 
         private Vector3 offset;
@@ -39,16 +40,16 @@ namespace PintRush
 
         //When you let go of the glass
         //If the glass is under the tap, it snaps into place
+        //It starts the filling of the glass and  triggers the animation
         private void OnMouseUp()
         {
             isDragging = false;
             if(isInsideTapArea)
             {
-                Debug.Log("Its inside");
                 this.gameObject.transform.position = snapToTap;
                 SetFill(true);
-                Debug.Log("Filling...");
                 animator.SetTrigger("TapTrigger");
+                fingerUp = true;
             }
         }
 
@@ -59,6 +60,16 @@ namespace PintRush
         public int GetPourTimer()
         {
             return pourTimer;
+        }
+
+        public bool GetFingerUp()
+        {
+            return fingerUp;
+        }
+
+        public void SetFingerUp(bool fingerUp)
+        {
+            this.fingerUp = fingerUp;
         }
 
         public void SetIsInsideTapArea(bool isInsideTapArea)

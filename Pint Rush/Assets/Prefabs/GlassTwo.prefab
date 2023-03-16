@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 3981718366474747520}
   - component: {fileID: 5220893319052016712}
   - component: {fileID: 1495133877219510900}
-  - component: {fileID: 5531694094065955012}
   m_Layer: 0
   m_Name: GlassTwo
   m_TagString: Glass
@@ -160,31 +159,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5531694094065955012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5788822397612179796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a3f7c40bab16f941bd29c4e87fcbe7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 879095752, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: -612295261, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: -1360047297, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 1586568158, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 420381145, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: -510584232, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 1340893687, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: -441515640, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 2136472052, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 982045674, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: -1141446582, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  - {fileID: 1701568944, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  spritePerFrame: 24
-  loop: 0
-  gm: {fileID: 3189783438179332766}

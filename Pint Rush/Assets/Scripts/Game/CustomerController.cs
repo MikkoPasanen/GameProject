@@ -4,18 +4,22 @@ namespace PintRush
 {
     public class CustomerController : MonoBehaviour
     {
+        //Patience 
         [SerializeField] private GameObject happinessStateOne;
         [SerializeField] private GameObject happinessStateTwo;
         [SerializeField] private GameObject happinessStateThree;
         [SerializeField] private GameObject happinessStateFour;
         [SerializeField] private GameObject happinessStateFive;
 
+        //Beer choices
         [SerializeField] private GameObject chosenBeerOne;
         [SerializeField] private GameObject chosenBeerTwo;
         [SerializeField] private GameObject chosenBeerThree;
 
+        //Think bubble that showcases the patience and beer choice
         [SerializeField] private GameObject thinkBubble;
 
+        //List for the possible beer choices
         [SerializeField] private GameObject[] beerChoices;
         private GameObject chosenBeer; 
 
@@ -61,7 +65,6 @@ namespace PintRush
         {
             int randomIndex = Random.Range(0, beerChoices.Length);
             chosenBeer = beerChoices[randomIndex];
-            Debug.Log("Random drink number: " + randomIndex);
             switch (randomIndex)
             {
                 case 0:
@@ -164,12 +167,23 @@ namespace PintRush
                 GlassController glass = collision.gameObject.GetComponent<GlassController>();
                 if (glass.GetFill())
                 {
-                    Debug.Log("Customer served!");
-                    gm.RemoveGlass();
-                    Destroy(gameObject);
-                    Destroy(collision.gameObject);
-                    transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
-                    glass.SetFill(false);
+                    
+                    // Get the customer's chosen beer name
+                    string chosenBeerName = chosenBeer.name;
+
+                    // Get the name of the glass that collided with the customer
+                    string glassName = collision.gameObject.name;
+
+                    // Check if the glass name contains the name of the customer's chosen beer and that the finger is up when giving the drink
+                    if (glassName.Contains(chosenBeerName))
+                    {
+                        gm.RemoveGlass();
+                        Destroy(gameObject);
+                        Destroy(collision.gameObject);
+                        transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
+                        glass.SetFill(false);
+                        glass.SetFingerUp(false);
+                    }
                 }
             }
         }

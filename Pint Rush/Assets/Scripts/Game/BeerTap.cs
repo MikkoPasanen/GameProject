@@ -23,7 +23,6 @@ namespace PintRush
             // Disables the rb2d for the glass so that it cant be moved around by hitting it with another glass
             if(collision.gameObject.tag == "Glass")
             {
-                Debug.Log($"{id}");
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(true);
                 glassController.SnapUnderTap(snapPos.transform.position);
@@ -38,7 +37,6 @@ namespace PintRush
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(false);
                 glassController.SetIsUnderTap(false);
-                Debug.Log("Leaving tap area");
             }
         }
     }
