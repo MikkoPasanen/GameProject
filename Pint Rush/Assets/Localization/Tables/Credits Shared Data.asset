@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: Artman
     m_Metadata:
       m_Items: []
+  - m_Id: 7266908731895808
+    m_Key: CreditsBtnText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

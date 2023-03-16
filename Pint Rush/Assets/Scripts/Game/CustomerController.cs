@@ -61,6 +61,7 @@ namespace PintRush
         {
             int randomIndex = Random.Range(0, beerChoices.Length);
             chosenBeer = beerChoices[randomIndex];
+            Debug.Log("Random drink number: " + randomIndex);
             switch (randomIndex)
             {
                 case 0:

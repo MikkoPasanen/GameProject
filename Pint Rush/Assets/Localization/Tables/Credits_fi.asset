@@ -50,6 +50,10 @@ MonoBehaviour:
     m_Localized: "Riku SAARIJ\xC4RVI\nGraafikko"
     m_Metadata:
       m_Items: []
+  - m_Id: 7266908731895808
+    m_Localized: "TEKIJ\xC4T"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

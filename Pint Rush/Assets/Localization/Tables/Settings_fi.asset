@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: "TEKIJ\xC4T"
     m_Metadata:
       m_Items: []
+  - m_Id: 8247016112287744
+    m_Localized: Asetukset
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

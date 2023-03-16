@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 
 namespace PintRush
 {
@@ -7,6 +9,8 @@ namespace PintRush
         [SerializeField] private GameManagement gameManagement;
         [SerializeField] private GameObject muteButton;
         [SerializeField] private GameObject unmuteButton;
+        [SerializeField] private GameObject credits;
+        private bool active = false;
 
         public void OnEnglish()
         {
@@ -19,6 +23,26 @@ namespace PintRush
             //Debug.Log("Language changed to Finnish!");
 
             gameManagement.SetLanguage("fin"); // Pushing language to FINNISH to GameManagement.
+        }
+
+        //Change the locale aka language and make it that it is not called more than once
+        public void ChangeLocal(int localeID)
+        {
+            if (active == true)
+            {
+                return;
+            }
+
+            StartCoroutine(SetLocale(localeID));
+        }
+
+        //Select the locale aka language
+        IEnumerator SetLocale(int _localeID)
+        {
+            active = true;
+            yield return LocalizationSettings.InitializationOperation;
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[_localeID];
+            active = false;
         }
         public void OnMute()
         {
@@ -38,14 +62,14 @@ namespace PintRush
         }
         public void OnCredits()
         {
-            Debug.Log("Credits clicked!");
+            credits.SetActive(true);
         }
         
         public void OnOptions()
         {
-            //Debug.Log("Options clicked!");
+            Time.timeScale = 0;
 
-            if(gameManagement.GetMuteState()) // Game IS muted!
+            if (gameManagement.GetMuteState()) // Game IS muted!
             {
                 // Game IS muted, setting unmute button active.
                 unmuteButton.SetActive(true);
@@ -57,14 +81,13 @@ namespace PintRush
                 muteButton.SetActive(true); // Setting mute button ACTIVE.
             }
             gameObject.SetActive(true); // Setting options screen ACTIVE.
-            Time.timeScale = 0f;
         }
         public void OnExitOptions()
         {
             //Debug.Log("Options exited!");
 
             gameObject.SetActive(false); // Setting options screen DEACTIVE.
-            Time.timeScale = 1f;
+            Time.timeScale = 1;
         }
     }
 }
