@@ -41,11 +41,6 @@ namespace PintRush
         {
             if (!customerSpawned)
             {
-                random = Random.Range(1, 3);
-                randomCustomer = (int)random;
-                Debug.Log($"Random customer: {randomCustomer}");
-                cc.ChooseRandomBeer();
-
                 GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
                 CustomerController customerController = customer.GetComponent<CustomerController>();
                 

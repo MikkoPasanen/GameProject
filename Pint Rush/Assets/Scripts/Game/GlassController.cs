@@ -6,17 +6,17 @@ namespace PintRush
     public class GlassController : MonoBehaviour
     {
         private bool isDragging;
-        private bool isInsideTapArea;
-        private bool isUnderTap;
+        private bool isInsideTapArea = false;
+        private bool isUnderTap = false;
         private bool filled = false;
         private int pourTimer = 0;
         private Vector3 snapToTap; 
         private Vector3 offset;
-        public Rigidbody2D rb2d;
+        private Animator animator;
+
         private void Awake()
         {
-            isInsideTapArea = false;
-            isUnderTap = false;
+            animator = GetComponent<Animator>();
         }
 
         //When you hold your finger on the glass
@@ -44,9 +44,11 @@ namespace PintRush
             isDragging = false;
             if(isInsideTapArea)
             {
-                isUnderTap = true;
+                Debug.Log("Its inside");
                 this.gameObject.transform.position = snapToTap;
-
+                SetFill(true);
+                Debug.Log("Filling...");
+                animator.SetTrigger("TapTrigger");
             }
         }
 
@@ -66,6 +68,11 @@ namespace PintRush
         public void SetIsUnderTap(bool isUnderTap)
         {
             this.isUnderTap = isUnderTap;
+        }
+
+        public bool GetIsUnderTap()
+        {
+            return isUnderTap;
         }
 
         public void SnapUnderTap(Vector3 tapPosition)
@@ -89,7 +96,7 @@ namespace PintRush
             if(isUnderTap)
             {
                 pourTimer++;
-                Debug.Log($"{pourTimer}");
+                //Debug.Log($"{pourTimer}");
             }
             else
             {

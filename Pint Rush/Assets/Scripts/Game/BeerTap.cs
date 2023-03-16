@@ -8,6 +8,14 @@ namespace PintRush
     {
         GlassController glassController;
         [SerializeField] private int id;
+        [SerializeField] private GameObject snapPos;
+
+        [SerializeField] private enum BeerType {
+            None = 0,
+            Stout,
+            Wheat,
+            Lager
+        }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -18,10 +26,7 @@ namespace PintRush
                 Debug.Log($"{id}");
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(true);
-                glassController.SnapUnderTap(this.gameObject.transform.position);
-                collision.gameObject.transform.position = this.gameObject.transform.position;
-                glassController.SetFill(true);
-                glassController.rb2d.simulated = false;
+                glassController.SnapUnderTap(snapPos.transform.position);
             }
         }
 
@@ -33,7 +38,7 @@ namespace PintRush
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(false);
                 glassController.SetIsUnderTap(false);
-                glassController.rb2d.simulated = true;
+                Debug.Log("Leaving tap area");
             }
         }
     }

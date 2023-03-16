@@ -10,6 +10,12 @@ namespace PintRush
         [SerializeField] private GameObject happinessStateFour;
         [SerializeField] private GameObject happinessStateFive;
 
+        [SerializeField] private GameObject chosenBeerOne;
+        [SerializeField] private GameObject chosenBeerTwo;
+        [SerializeField] private GameObject chosenBeerThree;
+
+        [SerializeField] private GameObject thinkBubble;
+
         [SerializeField] private GameObject[] beerChoices;
         private GameObject chosenBeer; 
 
@@ -25,6 +31,8 @@ namespace PintRush
         private int happinessTimer;
         private bool happinessTimerActive = false;
 
+        private bool beerDecided = false;
+
         private void Awake()
         {
             happinessStateOne.SetActive(false);
@@ -32,6 +40,10 @@ namespace PintRush
             happinessStateThree.SetActive(false);
             happinessStateFour.SetActive(false);
             happinessStateFive.SetActive(false);
+            chosenBeerOne.SetActive(false);
+            chosenBeerTwo.SetActive(false);
+            chosenBeerThree.SetActive(false);
+            thinkBubble.SetActive(false);
         }
 
         private void Start()
@@ -49,7 +61,20 @@ namespace PintRush
         {
             int randomIndex = Random.Range(0, beerChoices.Length);
             chosenBeer = beerChoices[randomIndex];
+            switch (randomIndex)
+            {
+                case 0:
+                    chosenBeerOne.SetActive(true);
+                    break;
+                case 1:
+                    chosenBeerTwo.SetActive(true);
+                    break;
+                case 2:
+                    chosenBeerThree.SetActive(true);
+                    break;
+            }
             Debug.Log("Chosen beer: " + chosenBeer.name);
+            beerDecided = true;
         }
 
 
@@ -73,6 +98,8 @@ namespace PintRush
         private void FixedUpdate()
         {
             if (happinessTimerActive) {
+                thinkBubble.SetActive(true);
+                if (!beerDecided) { ChooseRandomBeer(); }
                 happinessTimer++;
 
                 happinessStateOne.SetActive(true);

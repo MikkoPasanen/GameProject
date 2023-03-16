@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2267064457281418478}
   - component: {fileID: 3003713240334176557}
   - component: {fileID: 3981718366474747520}
+  - component: {fileID: 5105033678040599505}
   m_Layer: 0
   m_Name: GlassOne
   m_TagString: Glass
@@ -48,13 +49,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5788822397612179796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fd1e92bade7c044289caaf6c52239af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3003713240334176557}
-  beerPrefab: {fileID: 5788822397612179796}
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -140,3 +140,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 42.11, y: 86.2}
   m_EdgeRadius: 0
+--- !u!95 &5105033678040599505
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788822397612179796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7d71e225b555f84797fbd6b4e656769, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

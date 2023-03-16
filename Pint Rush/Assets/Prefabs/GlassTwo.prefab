@@ -56,7 +56,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 3003713240334176557}
-  beerPrefab: {fileID: 5788822397612179796}
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -187,6 +186,6 @@ MonoBehaviour:
   - {fileID: 982045674, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
   - {fileID: -1141446582, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
   - {fileID: 1701568944, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
-  spritePerFrame: 12
+  spritePerFrame: 24
   loop: 0
   gm: {fileID: 3189783438179332766}
