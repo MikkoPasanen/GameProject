@@ -6,12 +6,12 @@ TagManager:
   tags:
   - Glass
   - Bottle
-  - Undefined
+  - Customer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Customer
   - Water
   - UI
   - 

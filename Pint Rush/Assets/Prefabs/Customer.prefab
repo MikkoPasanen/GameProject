@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3748834613999132461}
   - component: {fileID: 6055641392687380626}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tuoppi_Anim_V1_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7692483348208089094}
   - component: {fileID: 1698533262645973767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: State5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6462491901616435811}
   - component: {fileID: 4518306956838783094}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tulp_lasi_Anim_V1_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8337244094614392144}
   - component: {fileID: 7699559101404568911}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ajatus_kupla_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2655574803721191325}
   - component: {fileID: 4022500573308453298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: State2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1930680924725942560}
   - component: {fileID: 7003149549774599197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tukki_V2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5730178709509780078}
   - component: {fileID: 7813134827558111183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: State1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -602,7 +602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3132580539914218283}
   - component: {fileID: 8867140680981037349}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: State3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3098834819468957572}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Happiness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,9 +724,9 @@ GameObject:
   - component: {fileID: 5077180056951915515}
   - component: {fileID: 3961127811345502935}
   - component: {fileID: 3409957584903607254}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Customer
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,7 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 689345323060895893}
   - component: {fileID: 7648816466344843303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: State4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

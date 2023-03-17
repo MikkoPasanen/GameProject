@@ -160,7 +160,7 @@ namespace PintRush
 
         //If the customer gets his drink that is full, he will disappear
         //Checks if the glass is filled and if the drink is the same as what the customer ordered
-        private void OnTriggerEnter2D(Collider2D collision)
+        /*private void OnTriggerEnter2D(Collider2D collision)
         {
             if(collision.gameObject.tag == "Glass")
             {
@@ -182,10 +182,16 @@ namespace PintRush
                         Destroy(collision.gameObject);
                         transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
                         glass.SetFill(false);
-                        glass.SetFingerUp(false);
+                        glass.SetOnCustomer(false);
                     }
                 }
             }
+        }
+        */
+
+        public void GiveGlass()
+        {
+
         }
 
         public void StartHappiness()
