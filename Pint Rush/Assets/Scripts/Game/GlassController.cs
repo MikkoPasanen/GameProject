@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
+using JetBrains.Annotations;
 
 namespace PintRush
 {
@@ -10,15 +12,22 @@ namespace PintRush
         private bool isUnderTap = false;
         private bool filled = false;
         private bool onCustomer = false;
-        private int pourTimer = 0;
         private Vector3 snapToTap; 
         private Vector3 offset;
         private Animator animator;
         [SerializeField] GameManagement gm;
+        [SerializeField] CustomerController cc;
+        private string glassName;
+        [SerializeField] BoxCollider2D bc2d;
+        [SerializeField] Rigidbody2D rb2d;
+        [SerializeField] int beerPourTime;
+        private int pourTime;
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            glassName = this.name;
+            Debug.Log($"This glass name:" + glassName);
         }
 
         //When you hold your finger on the glass
@@ -54,34 +63,39 @@ namespace PintRush
             RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(1, 1), 0f, new Vector2(1, 0), distance: Mathf.Infinity, layerMask: mask);
             if(hit.collider != null)
             {
-                GiveGlass();
+                if(filled)
+                {
+                    CustomerController cc = hit.collider.gameObject.GetComponent<CustomerController>();
+                    CustomerSpawnController csc = hit.collider.gameObject.GetComponentInParent<CustomerSpawnController>();
+
+                    string chosenBeerName = cc.GetBeerName();
+                    string glassName = gameObject.name;
+
+                    if(glassName.Contains(chosenBeerName))
+                    {
+                        Destroy(gameObject);
+                        Destroy(hit.collider.gameObject);
+                        gm.RemoveGlass();
+                        filled = false;
+                        csc.SetCustomerSpawned(false);
+                    }
+                }
             }
+
             isDragging = false;
+
             if(isInsideTapArea)
             {
                 this.gameObject.transform.position = snapToTap;
-                SetFill(true);
-                animator.SetTrigger("TapTrigger");            
+                animator.SetTrigger("TapTrigger");
+                filled = true;
             }
-        }
-
-        public void GiveGlass()
-        {
-            gm.RemoveGlass();
-            //transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
-            SetFill(false);
-            SetOnCustomer(false);
-            Destroy(gameObject);
         }
 
 
         public bool GetDragState()
         {
             return isDragging;
-        }
-        public int GetPourTimer()
-        {
-            return pourTimer;
         }
 
         public bool GetOnCustomer()
@@ -118,22 +132,20 @@ namespace PintRush
             return filled;
         }
 
-        public void SetFill(bool filled)
-        {
-            this.filled = filled;
-        }
-
         //Timer for the beer pouring
         private void FixedUpdate()
         {
             if(isUnderTap)
             {
-                pourTimer++;
-                //Debug.Log($"{pourTimer}");
+                pourTime++;
+                Debug.Log($"{pourTime}");
+                if (pourTime >= beerPourTime)
+                {
+                }
             }
             else
             {
-                pourTimer = 0;
+                pourTime = 0;
             }
         }
     }

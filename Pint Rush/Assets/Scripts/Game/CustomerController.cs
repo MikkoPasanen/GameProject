@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace PintRush
@@ -36,6 +37,7 @@ namespace PintRush
         private bool happinessTimerActive = false;
 
         private bool beerDecided = false;
+        string chosenBeerName;
 
         private void Awake()
         {
@@ -65,6 +67,7 @@ namespace PintRush
         {
             int randomIndex = Random.Range(0, beerChoices.Length);
             chosenBeer = beerChoices[randomIndex];
+            chosenBeerName = chosenBeer.name;
             switch (randomIndex)
             {
                 case 0:
@@ -157,6 +160,12 @@ namespace PintRush
                 }
             }
         }
+        public string GetBeerName()
+        {
+            return chosenBeerName;
+        }
+
+        
 
         //If the customer gets his drink that is full, he will disappear
         //Checks if the glass is filled and if the drink is the same as what the customer ordered
@@ -188,15 +197,5 @@ namespace PintRush
             }
         }
         */
-
-        public void GiveGlass()
-        {
-
-        }
-
-        public void StartHappiness()
-        {
-            happinessTimerActive = true;
-        }
     }
 }

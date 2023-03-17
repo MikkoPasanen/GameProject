@@ -55,6 +55,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
+  cc: {fileID: 3961127811345502935, guid: 2257048655b5bab47afd607ad52fae0f, type: 3}
+  bc2d: {fileID: 3981718366474747520}
+  rb2d: {fileID: 3003713240334176557}
+  beerPourTime: 250
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0
