@@ -106,6 +106,22 @@ namespace PintRush
                 Debug.Log("Exiting...");
                 transform.Translate(movement);
                 bc2d.enabled = false;
+                if(happy)
+                {
+                    happinessStateOne.SetActive(true);
+                    happinessStateTwo.SetActive(false);
+                    happinessStateThree.SetActive(false);
+                    happinessStateFour.SetActive(false);
+                    happinessStateFive.SetActive(false);
+                }
+                else
+                {
+                    happinessStateOne.SetActive(false);
+                    happinessStateTwo.SetActive(false);
+                    happinessStateThree.SetActive(false);
+                    happinessStateFour.SetActive(false);
+                    happinessStateFive.SetActive(true);
+                }
             }
             if(exit && currentPos.x >= exitEndpoint.position.x)
             {
@@ -126,7 +142,7 @@ namespace PintRush
 
         private void FixedUpdate()
         {
-            if (happinessTimerActive) {
+            if (happinessTimerActive && !exit) {
                 thinkBubble.SetActive(true);
                 if (!beerDecided) { ChooseRandomBeer(); }
                 happinessTimer++;

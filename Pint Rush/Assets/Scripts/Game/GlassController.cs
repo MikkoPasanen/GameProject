@@ -15,7 +15,8 @@ namespace PintRush
         private Vector3 snapToTap; 
         private Vector3 offset;
         private Animator animator;
-        [SerializeField] CustomerController cc;
+        [SerializeField] private CustomerController cc;
+        [SerializeField] private GameManagement gm;
         private string glassName;
         [SerializeField] BoxCollider2D bc2d;
         [SerializeField] Rigidbody2D rb2d;
@@ -83,6 +84,7 @@ namespace PintRush
                         cc.SetExiting(true, false);
                     }
 
+                    gm.RemoveGlass();
                     Destroy(gameObject);
                     filled = false;
                 }
