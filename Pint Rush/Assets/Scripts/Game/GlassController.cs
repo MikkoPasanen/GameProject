@@ -15,13 +15,13 @@ namespace PintRush
         private Vector3 snapToTap; 
         private Vector3 offset;
         private Animator animator;
-        [SerializeField] GameManagement gm;
         [SerializeField] CustomerController cc;
         private string glassName;
         [SerializeField] BoxCollider2D bc2d;
         [SerializeField] Rigidbody2D rb2d;
         [SerializeField] int beerPourTime;
         private int pourTime;
+        [SerializeField] private bool filling = false;
 
         private void Awake()
         {
@@ -33,15 +33,18 @@ namespace PintRush
         //When you hold your finger on the glass
         private void OnMouseDown()
         {
-            isDragging = true;
-            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (!filling)
+            {
+                isDragging = true;
+                offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
         }
 
         //When you drag the glass around
         private void OnMouseDrag()
         {
             //Move the glass
-            if (isDragging)
+            if (!filling && isDragging)
             {
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
                 transform.position = new Vector3(newPosition.x, newPosition.y, 0);
@@ -71,14 +74,17 @@ namespace PintRush
                     string chosenBeerName = cc.GetBeerName();
                     string glassName = gameObject.name;
 
-                    if(glassName.Contains(chosenBeerName))
+                    if (glassName.Contains(chosenBeerName)) // CORRECT!
                     {
-                        Destroy(gameObject);
-                        Destroy(hit.collider.gameObject);
-                        gm.RemoveGlass();
-                        filled = false;
-                        csc.SetCustomerSpawned(false);
+                        cc.SetExiting(true, true);
                     }
+                    else // FALSE!
+                    {
+                        cc.SetExiting(true, false);
+                    }
+
+                    Destroy(gameObject);
+                    filled = false;
                 }
             }
 
@@ -89,9 +95,9 @@ namespace PintRush
                 this.gameObject.transform.position = snapToTap;
                 animator.SetTrigger("TapTrigger");
                 filled = true;
+
             }
         }
-
 
         public bool GetDragState()
         {
@@ -130,23 +136,6 @@ namespace PintRush
         public bool GetFill()
         {
             return filled;
-        }
-
-        //Timer for the beer pouring
-        private void FixedUpdate()
-        {
-            if(isUnderTap)
-            {
-                pourTime++;
-                Debug.Log($"{pourTime}");
-                if (pourTime >= beerPourTime)
-                {
-                }
-            }
-            else
-            {
-                pourTime = 0;
-            }
         }
     }
 }

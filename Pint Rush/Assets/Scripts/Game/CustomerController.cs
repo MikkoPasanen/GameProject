@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace PintRush
@@ -26,18 +25,24 @@ namespace PintRush
 
         [SerializeField] private int patience;
         [SerializeField] BoxCollider2D bc2d;
-        [SerializeField] GameManagement gm;
 
         private Vector2 currentPos;
         [SerializeField] private Vector2 direction = Vector2.zero;
         [SerializeField] private float speed;
-        private Transform endpointPosition;
+        [SerializeField] private Transform enterEndPosition;
+        private Transform exitEndpoint;
 
         private int happinessTimer;
         private bool happinessTimerActive = false;
+        private bool removedLife = false;
+        private bool exit = false;
+        private bool happy = false;
 
         private bool beerDecided = false;
         string chosenBeerName;
+
+        private CustomerSpawnController csc;
+        private int occupiedSpace;
 
         private void Awake()
         {
@@ -50,17 +55,12 @@ namespace PintRush
             chosenBeerTwo.SetActive(false);
             chosenBeerThree.SetActive(false);
             thinkBubble.SetActive(false);
+            removedLife = false;
         }
 
         private void Start()
         {
             direction = direction.normalized;
-        }
-
-        //Set the endpoint that the customer will walk into
-        public void SetEndpoint(Transform endpointPosition)
-        {
-            this.endpointPosition = endpointPosition;
         }
 
         public void ChooseRandomBeer()
@@ -90,15 +90,37 @@ namespace PintRush
             Vector2 movement = direction * speed * Time.deltaTime;
             currentPos = transform.position;
 
-            if(currentPos.x >= endpointPosition.position.x)
+            if(currentPos.x >= enterEndPosition.position.x)
             {
                 happinessTimerActive = true;
                 bc2d.enabled = true;
             }
-            if(currentPos.x <= endpointPosition.position.x)
+            if(currentPos.x <= enterEndPosition.position.x)
             {
                 transform.Translate(movement);
                 bc2d.enabled = false;
+            }
+
+            if(exit && currentPos.x <= exitEndpoint.position.x)
+            {
+                Debug.Log("Exiting...");
+                transform.Translate(movement);
+                bc2d.enabled = false;
+            }
+            if(exit && currentPos.x >= exitEndpoint.position.x)
+            {
+                Debug.Log("Exited");
+                transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
+                removedLife = true;
+                Destroy(gameObject);
+                if(happy)
+                {
+                    transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(true);
+                }
+                else
+                {
+                    transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(false);
+                }
             }
         }
 
@@ -108,14 +130,12 @@ namespace PintRush
                 thinkBubble.SetActive(true);
                 if (!beerDecided) { ChooseRandomBeer(); }
                 happinessTimer++;
-
                 happinessStateOne.SetActive(true);
                 happinessStateTwo.SetActive(false);
                 happinessStateThree.SetActive(false);
                 happinessStateFour.SetActive(false);
                 happinessStateFive.SetActive(false);
                 
-                // Second state
                 if (happinessTimer > patience)
                 {
                     happinessStateOne.SetActive(false);
@@ -124,7 +144,6 @@ namespace PintRush
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
                 }
-                // Third state
                 if (happinessTimer > patience * 2)
                 {
                     happinessStateOne.SetActive(false);
@@ -133,7 +152,6 @@ namespace PintRush
                     happinessStateFour.SetActive(false);
                     happinessStateFive.SetActive(false);
                 }
-                // Fourth state
                 if (happinessTimer > patience * 3)
                 {
                     happinessStateOne.SetActive(false);
@@ -142,7 +160,6 @@ namespace PintRush
                     happinessStateFour.SetActive(true);
                     happinessStateFive.SetActive(false);
                 }
-                //Fifth state
                 if(happinessTimer > patience * 4)
                 {
                     happinessStateOne.SetActive(false);
@@ -155,8 +172,8 @@ namespace PintRush
                 //If the customer has waited long enough, he will disappear
                 if (happinessTimer > patience * 5)
                 {
-                    Destroy(gameObject);
-                    transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
+                    happy = false;
+                    exit = true;
                 }
             }
         }
@@ -165,7 +182,29 @@ namespace PintRush
             return chosenBeerName;
         }
 
-        
+        public void SetExiting(bool exit, bool happy)
+        {
+            this.exit = exit;
+            this.happy = happy;
+        }
+
+        public void SetOccupiedSpace(int space)
+        {
+            this.occupiedSpace = space;
+        }
+
+        //Set the endpoint that the customer will walk into
+        public void SetEndpoint(Transform enterEndPosition, int occupiedSpace)
+        {
+            this.enterEndPosition = enterEndPosition;
+            this.occupiedSpace = occupiedSpace;
+        }
+        public void SetExitEndpoint(Transform exitEndpoint)
+        {
+            this.exitEndpoint = exitEndpoint;
+        }
+
+
 
         //If the customer gets his drink that is full, he will disappear
         //Checks if the glass is filled and if the drink is the same as what the customer ordered

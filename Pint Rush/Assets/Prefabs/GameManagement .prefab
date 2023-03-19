@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4112612057779676650}
   - component: {fileID: 4112612057779676649}
   - component: {fileID: 4112612057779676651}
-  - component: {fileID: 4112612057779676648}
   m_Layer: 0
   m_Name: 'GameManagement '
   m_TagString: Untagged
@@ -46,13 +45,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a8f196819826f4f80f0afd4eab5f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGlasses: 0
   maxGlasses: 3
+  gameOverScreen: {fileID: 1626986756348468171, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
+  lifeBar: {fileID: 8729742080608926342, guid: 864fec2b791f79643b36333f084af2bc, type: 3}
   glassOneSpawn: {x: -200, y: -320, z: 1}
   glassTwoSpawn: {x: -100, y: -320, z: 1}
   glassThreeSpawn: {x: 0, y: -320, z: 1}
   glassOnePrefab: {fileID: 5788822397612179796, guid: 4439cdd41bfb0af49b967a22395226ee, type: 3}
   glassTwoPrefab: {fileID: 5788822397612179796, guid: bbb1b38ffeb17484895d99bed95b680a, type: 3}
   glassThreePrefab: {fileID: 5788822397612179796, guid: 4439cdd41bfb0af49b967a22395226ee, type: 3}
+  maxLives: 3
 --- !u!114 &4112612057779676651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +83,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4112612057779676648}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PintRush.InputReader, Assembly-CSharp
         m_MethodName: OnTouch
         m_Mode: 0
@@ -96,7 +99,7 @@ MonoBehaviour:
     m_ActionName: GameTouch/TapMove[/Device Simulator Touchscreen/primaryTouch/position]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4112612057779676648}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PintRush.InputReader, Assembly-CSharp
         m_MethodName: OnPress
         m_Mode: 0
@@ -119,15 +122,3 @@ MonoBehaviour:
   m_DefaultActionMap: GameTouch
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &4112612057779676648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4112612057779676630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ac46194edb137241b5e092937e4f644, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -1,6 +1,3 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PintRush
@@ -8,11 +5,15 @@ namespace PintRush
     public class GlassSpawner : MonoBehaviour
     {
         [SerializeField] GameObject parent;
-        [SerializeField] GameManagement gm;
+        [SerializeField] private GameObject gmo;
+        private GameManagement gm;
 
         private void Start()
         {
-            gm.SetCurrentGlasses(0);
+            gm = gmo.GetComponent<GameManagement>();
+
+            // Turha?
+            //gm.SetCurrentGlasses(0);
         }
 
         //Instatiates the glass prefab in the location provided by the Game manager script
@@ -32,6 +33,7 @@ namespace PintRush
 
         public void OnGlassTwo()
         {
+            Debug.Log($"{gm.GetCurrentGlasses()} : {gm.GetMaxGlasses()}");
             if (gm.GetCurrentGlasses() < gm.GetMaxGlasses())
             {
                 Debug.Log("Glass 2 spawned at: " + gm.glassTwoSpawn);
@@ -43,6 +45,7 @@ namespace PintRush
 
         public void OnGlassThree()
         {
+            Debug.Log($"{gm.GetCurrentGlasses()} : {gm.GetMaxGlasses()}");
             if (gm.GetCurrentGlasses() < gm.GetMaxGlasses())
             {
                 Debug.Log("Glass 3 spawned at: " + gm.glassThreeSpawn);

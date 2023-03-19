@@ -8,28 +8,30 @@ namespace PintRush
         [SerializeField] private GameObject customers;
         [SerializeField] private int customerPatience;
         [SerializeField] private Transform[] endpointPositions;
-        private float random;
+        [SerializeField] private Transform exitEndPosition;
+        [SerializeField] private GameObject gmObject;
+        private GameManagement gameManagement;
+        private int random;
         private int randomCustomer;
-        private bool customerSpawned = false;
-        private float timer = 0f;
+        private bool[] occupiedSpace;
+        private int timer = 0;
         [SerializeField] float spawnRate;
-        [SerializeField] CustomerController cc;
 
         // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
 
         private void Start()
         {
+            gameManagement = gmObject.GetComponent<GameManagement>();
+            occupiedSpace = new bool[endpointPositions.Length];
+            Debug.Log("Endpoints length: "+endpointPositions.Length);
             SpawnCustomer();
         }
 
         //Timer for the customer spawns
-        void Update()
+        void FixedUpdate()
         {
-            if (timer < spawnRate)
-            {
-                timer += Time.deltaTime;
-            }
-            else
+            timer++;
+            if(timer >= spawnRate)
             {
                 SpawnCustomer();
                 timer = 0;
@@ -39,20 +41,37 @@ namespace PintRush
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
-            if (!customerSpawned)
+
+            if (!ScanOccupiedSpaces())
             {
+                random = Random.Range(0, endpointPositions.Length);
+                while (occupiedSpace[random] == true)
+                {
+                    random = Random.Range(0, endpointPositions.Length);
+                }
                 GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
                 CustomerController customerController = customer.GetComponent<CustomerController>();
-                
-                Transform randomEndpointPosition = endpointPositions[Random.Range(0, endpointPositions.Length)];
 
-                customerController.SetEndpoint(randomEndpointPosition);
+                Transform randomEndpointPosition = endpointPositions[random];
+
+                customerController.SetEndpoint(randomEndpointPosition, random);
+                customerController.SetExitEndpoint(exitEndPosition);
+                occupiedSpace[random] = true;
                 customer.transform.SetParent(customers.transform, false);
-                customerSpawned = true;
-            } 
+            }
+        }
+
+        public void CustomerLeftHappy(bool happy)
+        {
+            if (happy)
+            {
+                Debug.Log("CUSTOMER LEFT: Happy!");
+                gameManagement.AddPoint();
+            }
             else
             {
-                Debug.Log("Customer limit reached!");
+                Debug.Log("CUSTOMER LEFT: Not happy!");
+                gameManagement.RemoveLife();
             }
         }
 
@@ -61,9 +80,26 @@ namespace PintRush
             return customerPatience;
         }
 
-        public void SetCustomerSpawned(bool customerSpawned)
+        public void SetOccupiedSpace(int space, bool occupied)
         {
-            this.customerSpawned = customerSpawned;
+            this.occupiedSpace[space] = occupied;
+        }
+        public bool ScanOccupiedSpaces()
+        {
+            bool allOccupied = false;
+            for(int i=0; i<occupiedSpace.Length; i++)
+            {
+                if(occupiedSpace[i] == true)
+                {
+                    allOccupied = true;
+                }
+                else
+                {
+                    allOccupied = false;
+                    return allOccupied;
+                }
+            }
+            return allOccupied;
         }
     }
 }

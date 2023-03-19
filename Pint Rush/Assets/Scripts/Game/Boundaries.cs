@@ -6,13 +6,14 @@ namespace PintRush
 {
     public class Boundaries : MonoBehaviour
     {
-        [SerializeField] GameManagement gm;
+        [SerializeField] private GameObject gm;
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if(collision.gameObject.tag == "Glass")
             {
                 Destroy(collision.gameObject);
-                gm.RemoveGlass();
+                gm.GetComponent<GameManagement>().RemoveGlass();
             }
         }
     }
