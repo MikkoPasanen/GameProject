@@ -41,7 +41,10 @@ namespace PintRush
             gameOverScreen.SetActive(false);
             currentLives = maxLives;
             points = 0;
-            scoreText.text = $"Served: {points}";
+            if(SceneManager.GetActiveScene().name == "Game")
+            {
+                scoreText.text = $"Served: {points}";
+            }
             currentGlasses = 0;
             Debug.Log($"Start Currentlives: {currentLives}");
         }
