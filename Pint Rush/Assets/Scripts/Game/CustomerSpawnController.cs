@@ -14,8 +14,10 @@ namespace PintRush
         private int random;
         private int randomCustomer;
         private bool[] occupiedSpace;
-        private int timer = 0;
-        [SerializeField] float spawnRate;
+        private bool customerSpawned;
+        private int spawnTimer = 0;
+        private int gameTimer = 0;
+        [SerializeField] int spawnRate;
 
         // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
 
@@ -30,35 +32,53 @@ namespace PintRush
         //Timer for the customer spawns
         void FixedUpdate()
         {
-            timer++;
-            if(timer >= spawnRate)
+            gameTimer++;
+            spawnTimer++;
+            if(spawnTimer >= spawnRate)
             {
                 SpawnCustomer();
-                timer = 0;
+                spawnTimer = 0;
+            }
+            if(gameTimer >= 500) // Every 10 seconds
+            {
+                spawnRate = spawnRate - 10;
+                gameTimer = 0;
             }
         }
 
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
-
-            if (!ScanOccupiedSpaces())
+            // Because otherwise it would start another random generation
+            // Now if there is a customer random being generated in the while loop
+            // it doesn't start the process again.
+            if (!customerSpawned) 
             {
-                random = Random.Range(0, endpointPositions.Length);
-                while (occupiedSpace[random] == true)
+                if (!ScanOccupiedSpaces())
                 {
                     random = Random.Range(0, endpointPositions.Length);
+                    while (occupiedSpace[random] == true)
+                    {
+                        random = Random.Range(0, endpointPositions.Length);
+                        customerSpawned = true;
+                    }
+                    GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+                    CustomerController customerController = customer.GetComponent<CustomerController>();
+
+                    Transform randomEndpointPosition = endpointPositions[random];
+
+                    customerController.SetEndpoint(randomEndpointPosition, random);
+                    customerController.SetExitEndpoint(exitEndPosition);
+                    occupiedSpace[random] = true;
+                    customer.transform.SetParent(customers.transform, false);
                 }
-                GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
-                CustomerController customerController = customer.GetComponent<CustomerController>();
-
-                Transform randomEndpointPosition = endpointPositions[random];
-
-                customerController.SetEndpoint(randomEndpointPosition, random);
-                customerController.SetExitEndpoint(exitEndPosition);
-                occupiedSpace[random] = true;
-                customer.transform.SetParent(customers.transform, false);
             }
+            customerSpawned = false;
+        }
+
+        public void DespawnGlass()
+        {
+            gameManagement.RemoveGlass();
         }
 
         public void CustomerLeftHappy(bool happy)

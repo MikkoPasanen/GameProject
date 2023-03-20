@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 5788822397612179796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,11 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fd1e92bade7c044289caaf6c52239af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
-  cc: {fileID: 3961127811345502935, guid: 2257048655b5bab47afd607ad52fae0f, type: 3}
   bc2d: {fileID: 3981718366474747520}
   rb2d: {fileID: 3003713240334176557}
-  beerPourTime: 250
+  filling: 0
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0

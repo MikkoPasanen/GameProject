@@ -62,7 +62,7 @@ AnimatorController:
   m_Name: LifeOneController
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: FirstLife
+  - m_Name: PlayLifeLostAnimation
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -90,7 +90,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FirstLife
+    m_ConditionEvent: PlayLifeLostAnimation
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4130572075243042644}
@@ -120,7 +120,7 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4130572075243042644}
-    m_Position: {x: 446.9699, y: 52.551544, z: 0}
+    m_Position: {x: 460, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

@@ -28,7 +28,8 @@ namespace PintRush
 
         private Vector2 currentPos;
         [SerializeField] private Vector2 direction = Vector2.zero;
-        [SerializeField] private float speed;
+        [SerializeField] private float enterSpeed;
+        [SerializeField] private float exitSpeed;
         [SerializeField] private Transform enterEndPosition;
         private Transform exitEndpoint;
 
@@ -87,7 +88,8 @@ namespace PintRush
 
         private void Update()
         {
-            Vector2 movement = direction * speed * Time.deltaTime;
+            Vector2 enterMovement = direction * enterSpeed * Time.deltaTime;
+            Vector2 exitMovement = direction * exitSpeed * Time.deltaTime;
             currentPos = transform.position;
 
             if(currentPos.x >= enterEndPosition.position.x)
@@ -97,14 +99,13 @@ namespace PintRush
             }
             if(currentPos.x <= enterEndPosition.position.x)
             {
-                transform.Translate(movement);
+                transform.Translate(enterMovement);
                 bc2d.enabled = false;
             }
 
             if(exit && currentPos.x <= exitEndpoint.position.x)
             {
-                Debug.Log("Exiting...");
-                transform.Translate(movement);
+                transform.Translate(exitMovement);
                 bc2d.enabled = false;
                 if(happy)
                 {

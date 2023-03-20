@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace PintRush
 {
@@ -15,6 +16,8 @@ namespace PintRush
         private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
         private bool gameOver = false;
+
+        [SerializeField] TextMeshProUGUI scoreText;
 
         [SerializeField] GameObject lifeBarOne;
         [SerializeField] GameObject lifeBarTwo;
@@ -38,6 +41,7 @@ namespace PintRush
             gameOverScreen.SetActive(false);
             currentLives = maxLives;
             points = 0;
+            scoreText.text = $"Served: {points}";
             currentGlasses = 0;
             Debug.Log($"Start Currentlives: {currentLives}");
         }
@@ -80,6 +84,7 @@ namespace PintRush
         {
             points++;
             Debug.Log("Added a point... Point: " + points);
+            scoreText.text = $"Served: {points}";
         }
 
         // Life methods
@@ -91,13 +96,13 @@ namespace PintRush
             switch (currentLives)
             {
                 case 2:
-                    lifeBarOne.GetComponent<SpriteRenderer>().color = Color.black;
+                    lifeBarOne.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
                     break;
                 case 1:
-                    lifeBarTwo.GetComponent<SpriteRenderer>().color = Color.black;
+                    lifeBarTwo.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
                     break;
                 case 0:
-                    lifeBarThree.GetComponent<SpriteRenderer>().color = Color.black;
+                    lifeBarThree.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
                     break;
                 default:
                     Debug.Log("There might be an error!");

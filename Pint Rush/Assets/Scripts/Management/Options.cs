@@ -11,6 +11,7 @@ namespace PintRush
         [SerializeField] private GameObject unmuteButton;
         [SerializeField] private GameObject credits;
         private bool active = false;
+        private bool optionsActive = false;
 
         public void OnEnglish()
         {
@@ -67,20 +68,28 @@ namespace PintRush
         
         public void OnOptions()
         {
-            Time.timeScale = 0;
+            optionsActive = !optionsActive;
 
-            if (gameManagement.GetMuteState()) // Game IS muted!
+            if (optionsActive)
             {
-                // Game IS muted, setting unmute button active.
-                unmuteButton.SetActive(true);
-                muteButton.SetActive(false);
+                Time.timeScale = 0;
+                if (gameManagement.GetMuteState()) // Game IS muted!
+                {
+                    // Game IS muted, setting unmute button active.
+                    unmuteButton.SetActive(true);
+                    muteButton.SetActive(false);
+                }
+                if (!gameManagement.GetMuteState()) // Game IS NOT muted!
+                {
+                    unmuteButton.SetActive(false); // Setting unmute button DEACTIVE.
+                    muteButton.SetActive(true); // Setting mute button ACTIVE.
+                }
             }
-            if(!gameManagement.GetMuteState()) // Game IS NOT muted!
+            else
             {
-                unmuteButton.SetActive(false); // Setting unmute button DEACTIVE.
-                muteButton.SetActive(true); // Setting mute button ACTIVE.
+                Time.timeScale = 1;
             }
-            gameObject.SetActive(true); // Setting options screen ACTIVE.
+            gameObject.SetActive(optionsActive);
         }
         public void OnExitOptions()
         {

@@ -826,7 +826,8 @@ MonoBehaviour:
   patience: 100
   bc2d: {fileID: 3409957584903607254}
   direction: {x: 1, y: 0}
-  speed: 3
+  enterSpeed: 3
+  exitSpeed: 6
   enterEndPosition: {fileID: 0}
 --- !u!61 &3409957584903607254
 BoxCollider2D:

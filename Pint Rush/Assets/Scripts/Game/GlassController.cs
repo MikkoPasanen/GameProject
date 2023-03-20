@@ -15,12 +15,10 @@ namespace PintRush
         private Vector3 snapToTap; 
         private Vector3 offset;
         private Animator animator;
-        [SerializeField] private CustomerController cc;
-        [SerializeField] private GameManagement gm;
+        //[SerializeField] private CustomerController cc;
         private string glassName;
         [SerializeField] BoxCollider2D bc2d;
         [SerializeField] Rigidbody2D rb2d;
-        [SerializeField] int beerPourTime;
         private int pourTime;
         [SerializeField] private bool filling = false;
 
@@ -83,9 +81,8 @@ namespace PintRush
                     {
                         cc.SetExiting(true, false);
                     }
-
-                    gm.RemoveGlass();
                     Destroy(gameObject);
+                    csc.DespawnGlass();
                     filled = false;
                 }
             }
