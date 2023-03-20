@@ -76,6 +76,19 @@ namespace PintRush
                     if (glassName.Contains(chosenBeerName)) // CORRECT!
                     {
                         cc.SetExiting(true, true);
+
+                        if(chosenBeerName == "GlassOne")
+                        {
+                            csc.AddBeerOne();
+                        }
+                        if (chosenBeerName == "GlassTwo")
+                        {
+                            csc.AddBeerTwo();
+                        }
+                        if (chosenBeerName == "GlassThree")
+                        {
+                            csc.AddBeerThree();
+                        }
                     }
                     else // FALSE!
                     {
@@ -94,10 +107,9 @@ namespace PintRush
                 this.gameObject.transform.position = snapToTap;
                 animator.SetTrigger("TapTrigger");
                 filled = true;
-
             }
         }
-
+            
         public bool GetDragState()
         {
             return isDragging;

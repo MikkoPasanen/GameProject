@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 namespace PintRush
@@ -18,6 +20,7 @@ namespace PintRush
         private int spawnTimer = 0;
         private int gameTimer = 0;
         [SerializeField] int spawnRate;
+        public static float timer;
 
         // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
 
@@ -46,6 +49,13 @@ namespace PintRush
             }
         }
 
+        private void Update()
+        {
+            //Counts seconds
+            timer += Time.deltaTime;
+
+        }
+
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
@@ -56,10 +66,10 @@ namespace PintRush
             {
                 if (!ScanOccupiedSpaces())
                 {
-                    random = Random.Range(0, endpointPositions.Length);
+                    random = UnityEngine.Random.Range(0, endpointPositions.Length);
                     while (occupiedSpace[random] == true)
                     {
-                        random = Random.Range(0, endpointPositions.Length);
+                        random = UnityEngine.Random.Range(0, endpointPositions.Length);
                         customerSpawned = true;
                     }
                     GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
@@ -79,6 +89,21 @@ namespace PintRush
         public void DespawnGlass()
         {
             gameManagement.RemoveGlass();
+        }
+
+        public void AddBeerOne()
+        {
+            gameManagement.AddBeerOne();
+        }
+
+        public void AddBeerTwo()
+        {
+            gameManagement.AddBeerTwo();
+        }
+
+        public void AddBeerThree()
+        {
+            gameManagement.AddBeerThree();
         }
 
         public void CustomerLeftHappy(bool happy)

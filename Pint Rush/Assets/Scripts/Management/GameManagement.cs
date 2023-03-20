@@ -4,6 +4,7 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+
 namespace PintRush
 {
     public class GameManagement : MonoBehaviour
@@ -16,6 +17,7 @@ namespace PintRush
         private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
         private bool gameOver = false;
+
 
         [SerializeField] TextMeshProUGUI scoreText;
 
@@ -34,23 +36,24 @@ namespace PintRush
         [SerializeField] private int maxLives = 3;
         private int currentLives;
 
-        private int points;
-
+        public int points;
+        private int beerOne;
+        private int beerTwo;
+        private int beerThree;
         private void Start()
         {
             gameOverScreen.SetActive(false);
             currentLives = maxLives;
+            beerOne = 0;
             points = 0;
+            beerTwo = 0;
+            beerThree = 0;
             if(SceneManager.GetActiveScene().name == "Game")
             {
-                scoreText.text = $"Served: {points}";
+                //scoreText.text = $"Served: {points}";
             }
             currentGlasses = 0;
             Debug.Log($"Start Currentlives: {currentLives}");
-        }
-        private void Update()
-        {
-            //Debug.Log("GM: "+currentGlasses + " : " + maxGlasses);
         }
 
         public bool GetMuteState()
@@ -88,6 +91,23 @@ namespace PintRush
             points++;
             Debug.Log("Added a point... Point: " + points);
             scoreText.text = $"Served: {points}";
+        }
+
+        public void AddBeerOne()
+        {
+            this.beerOne =+ 1;
+            Debug.Log("BeerOne: " + this.beerOne);
+        }
+
+        public void AddBeerTwo()
+        {
+            this.beerTwo = +1;
+            Debug.Log("BeerTwo: " + this.beerTwo);
+        }
+
+        public void AddBeerThree()
+        {
+            this.beerThree = +1;
         }
 
         // Life methods
@@ -135,12 +155,20 @@ namespace PintRush
             return this.currentGlasses;
         }
 
-        /* Turha metodi?
-        public void SetCurrentGlasses(int currentGlasses)
+        public int GetBeerOneScore()
         {
-            this.currentGlasses = currentGlasses;
+            return this.beerOne;
         }
-        */
+
+        public int GetBeerTwoScore()
+        {
+            return this.beerTwo;
+        }
+
+        public int GetBeerThreeScore()
+        {
+            return this.beerThree;
+        }
 
         //Change the locale aka language and make it that it is not called more than once
         public void ChangeLocal(int localeID)

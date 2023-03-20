@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Extensions.Localization.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Extensions.Localization.IStringLocalizer">
+            <summary>
+            Represents a service that provides localized strings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.IStringLocalizer.Item(System.String)">
+            <summary>
+            Gets the string resource with the given name.
+            </summary>
+            <param name="name">The name of the string resource.</param>
+            <returns>The string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.IStringLocalizer.Item(System.String,System.Object[])">
+            <summary>
+            Gets the string resource with the given name and formatted with the supplied arguments.
+            </summary>
+            <param name="name">The name of the string resource.</param>
+            <param name="arguments">The values to format the string with.</param>
+            <returns>The formatted string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.IStringLocalizer.GetAllStrings(System.Boolean)">
+            <summary>
+            Gets all string resources.
+            </summary>
+            <param name="includeParentCultures">
+            A <see cref="T:System.Boolean"/> indicating whether to include strings from parent cultures.
+            </param>
+            <returns>The strings.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.IStringLocalizerFactory">
+            <summary>
+            Represents a factory that creates <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.IStringLocalizerFactory.Create(System.Type)">
+            <summary>
+            Creates an <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> using the <see cref="T:System.Reflection.Assembly"/> and
+            <see cref="P:System.Type.FullName"/> of the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="resourceSource">The <see cref="T:System.Type"/>.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.IStringLocalizerFactory.Create(System.String,System.String)">
+            <summary>
+            Creates an <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.
+            </summary>
+            <param name="baseName">The base name of the resource to load strings from.</param>
+            <param name="location">The location to load resources from.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.IStringLocalizer`1">
+            <summary>
+            Represents an <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> that provides strings for <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> to provide strings for.</typeparam>
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.LocalizedString">
+            <summary>
+            A locale specific string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.LocalizedString.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </summary>
+            <param name="name">The name of the string in the resource it was loaded from.</param>
+            <param name="value">The actual string.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.LocalizedString.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </summary>
+            <param name="name">The name of the string in the resource it was loaded from.</param>
+            <param name="value">The actual string.</param>
+            <param name="resourceNotFound">Whether the string was not found in a resource. Set this to <c>true</c> to indicate an alternate string value was used.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.LocalizedString.#ctor(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.
+            </summary>
+            <param name="name">The name of the string in the resource it was loaded from.</param>
+            <param name="value">The actual string.</param>
+            <param name="resourceNotFound">Whether the string was not found in a resource. Set this to <c>true</c> to indicate an alternate string value was used.</param>
+            <param name="searchedLocation">The location which was searched for a localization value.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.LocalizedString.op_Implicit(Microsoft.Extensions.Localization.LocalizedString)~System.String">
+            <summary>
+            Implicitly converts the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> to a <see cref="T:System.String"/>.
+            </summary>
+            <param name="localizedString">The string to be implicitly converted.</param>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.LocalizedString.Name">
+            <summary>
+            The name of the string in the resource it was loaded from.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.LocalizedString.Value">
+            <summary>
+            The actual string.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.LocalizedString.ResourceNotFound">
+            <summary>
+            Whether the string was not found in a resource. If <c>true</c>, an alternate string value was used.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.LocalizedString.SearchedLocation">
+            <summary>
+            The location which was searched for a localization value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.LocalizedString.ToString">
+            <summary>
+            Returns the actual string.
+            </summary>
+            <returns>The actual string.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.StringLocalizerExtensions">
+            <summary>
+            Extension methods for operating on <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizerExtensions.GetString(Microsoft.Extensions.Localization.IStringLocalizer,System.String)">
+            <summary>
+            Gets the string resource with the given name.
+            </summary>
+            <param name="stringLocalizer">The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</param>
+            <param name="name">The name of the string resource.</param>
+            <returns>The string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizerExtensions.GetString(Microsoft.Extensions.Localization.IStringLocalizer,System.String,System.Object[])">
+            <summary>
+            Gets the string resource with the given name and formatted with the supplied arguments.
+            </summary>
+            <param name="stringLocalizer">The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</param>
+            <param name="name">The name of the string resource.</param>
+            <param name="arguments">The values to format the string with.</param>
+            <returns>The formatted string resource as a <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizerExtensions.GetAllStrings(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Gets all string resources including those for parent cultures.
+            </summary>
+            <param name="stringLocalizer">The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</param>
+            <returns>The string resources.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.StringLocalizer`1">
+            <summary>
+            Provides strings for <typeparamref name="TResourceSource"/>.
+            </summary>
+            <typeparam name="TResourceSource">The <see cref="T:System.Type"/> to provide strings for.</typeparam>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizer`1.#ctor(Microsoft.Extensions.Localization.IStringLocalizerFactory)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.StringLocalizer`1"/>.
+            </summary>
+            <param name="factory">The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizerFactory"/> to use.</param>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.StringLocalizer`1.Item(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.StringLocalizer`1.Item(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizer`1.GetAllStrings(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.AllowNullAttribute">
+            <summary>Specifies that null is allowed as an input even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DisallowNullAttribute">
+            <summary>Specifies that null is disallowed as an input even if the corresponding type allows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullAttribute">
+            <summary>Specifies that an output may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullAttribute">
+            <summary>Specifies that an output will not be null even if the corresponding type allows it. Specifies that an input argument was not null when the call returns.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue"/>, the parameter may be null even if the corresponding type disallows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter may be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute">
+            <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute">
+            <summary>Specifies that the output will be non-null if the named parameter is non-null.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with the associated parameter name.</summary>
+            <param name="parameterName">
+            The associated parameter name.  The output will be non-null if the argument to the parameter specified is non-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName">
+            <summary>Gets the associated parameter name.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute">
+            <summary>Applied to a method that will never return under any circumstance.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute">
+            <summary>Specifies that the method will not return if the associated Boolean parameter is passed the specified value.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)">
+            <summary>Initializes the attribute with the specified parameter value.</summary>
+            <param name="parameterValue">
+            The condition parameter value. Code after the method will be considered unreachable by diagnostics if the argument to
+            the associated parameter matches this value.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue">
+            <summary>Gets the condition parameter value.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)">
+            <summary>Initializes the attribute with a field or property member.</summary>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])">
+            <summary>Initializes the attribute with the list of field and property members.</summary>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute">
+            <summary>Specifies that the method or property will ensure that the listed field and property members have not-null values when returning with the specified return value condition.</summary>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)">
+            <summary>Initializes the attribute with the specified return value condition and a field or property member.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="member">
+            The field or property member that is promised to be not-null.
+            </param>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])">
+            <summary>Initializes the attribute with the specified return value condition and list of field and property members.</summary>
+            <param name="returnValue">
+            The return value condition. If the method returns this value, the associated parameter will not be null.
+            </param>
+            <param name="members">
+            The list of field and property members that are promised to be not-null.
+            </param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue">
+            <summary>Gets the return value condition.</summary>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members">
+            <summary>Gets field or property member names.</summary>
+        </member>
+    </members>
+</doc>

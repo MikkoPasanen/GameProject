@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: fi
   m_SharedData: {fileID: 11400000, guid: 63cb2b4366786664d9254869ca218d80, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 5796298114008350723
   m_TableData:
   - m_Id: 67676434432
     m_Localized: "TEKIJ\xC4T"
@@ -54,6 +55,15 @@ MonoBehaviour:
     m_Localized: "TEKIJ\xC4T"
     m_Metadata:
       m_Items: []
+  - m_Id: 8739028531965952
+    m_Localized: 'Served:  {point-component.points}'
+    m_Metadata:
+      m_Items:
+      - rid: 5796298114008350723
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 5796298114008350723
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 007054a3190c1f00

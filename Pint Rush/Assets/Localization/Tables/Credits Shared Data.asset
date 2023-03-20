@@ -43,6 +43,14 @@ MonoBehaviour:
     m_Key: CreditsBtnText
     m_Metadata:
       m_Items: []
+  - m_Id: 8739028531965952
+    m_Key: Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8739029278552064
+    m_Key: New Entry 1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
