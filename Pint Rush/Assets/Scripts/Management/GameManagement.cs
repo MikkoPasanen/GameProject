@@ -90,7 +90,7 @@ namespace PintRush
         {
             points++;
             Debug.Log("Added a point... Point: " + points);
-            scoreText.text = $"Served: {points}";
+            //scoreText.text = $"Served: {points}";
         }
 
         public void AddBeerOne()
@@ -101,13 +101,13 @@ namespace PintRush
 
         public void AddBeerTwo()
         {
-            this.beerTwo = +1;
+            this.beerTwo += 1;
             Debug.Log("BeerTwo: " + this.beerTwo);
         }
 
         public void AddBeerThree()
         {
-            this.beerThree = +1;
+            this.beerThree += 1;
         }
 
         // Life methods
