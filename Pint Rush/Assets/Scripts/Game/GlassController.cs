@@ -106,6 +106,7 @@ namespace PintRush
             {
                 this.gameObject.transform.position = snapToTap;
                 animator.SetTrigger("TapTrigger");
+                Debug.Log("hei hei mutsi");
                 filled = true;
             }
         }

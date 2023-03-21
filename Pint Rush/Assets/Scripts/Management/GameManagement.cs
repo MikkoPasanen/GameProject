@@ -50,7 +50,7 @@ namespace PintRush
             beerThree = 0;
             if(SceneManager.GetActiveScene().name == "Game")
             {
-                //scoreText.text = $"Served: {points}";
+                scoreText.text = $"{points}";
             }
             currentGlasses = 0;
             Debug.Log($"Start Currentlives: {currentLives}");
@@ -90,7 +90,7 @@ namespace PintRush
         {
             points++;
             Debug.Log("Added a point... Point: " + points);
-            //scoreText.text = $"Served: {points}";
+            scoreText.text = $"{points}";
         }
 
         public void AddBeerOne()
@@ -115,7 +115,6 @@ namespace PintRush
         {
             currentLives -= 1;
             Debug.Log("Removed a life... Lives: " + currentLives);
-            if (currentLives <= 0) { SetGameOver(); }
             switch (currentLives)
             {
                 case 2:
@@ -131,7 +130,17 @@ namespace PintRush
                     Debug.Log("There might be an error!");
                     break;
             }
+            StartCoroutine(WaitForGameOver(2));
+            
+
         }
+
+        IEnumerator WaitForGameOver(int time)
+        {
+            yield return new WaitForSeconds(time);
+            if (currentLives <= 0) { SetGameOver(); }
+        }
+
         public int GetCurrentLives()
         {
             return this.currentLives;

@@ -37,6 +37,7 @@ namespace PintRush
         private bool happinessTimerActive = false;
         private bool removedLife = false;
         private bool exit = false;
+        private bool exited = false;
         private bool happy = false;
 
         private bool beerDecided = false;
@@ -106,9 +107,16 @@ namespace PintRush
             if(exit && currentPos.x <= exitEndpoint.position.x)
             {
                 transform.Translate(exitMovement);
+                transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
                 bc2d.enabled = false;
-                if(happy)
+                removedLife = true;
+                if (happy)
                 {
+                    if(!exited)
+                    {
+                        exited = true;
+                        transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(true);
+                    }
                     happinessStateOne.SetActive(true);
                     happinessStateTwo.SetActive(false);
                     happinessStateThree.SetActive(false);
@@ -117,6 +125,11 @@ namespace PintRush
                 }
                 else
                 {
+                    if(!exited)
+                    {
+                        exited = true;
+                        transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(false);
+                    }
                     happinessStateOne.SetActive(false);
                     happinessStateTwo.SetActive(false);
                     happinessStateThree.SetActive(false);
@@ -127,17 +140,8 @@ namespace PintRush
             if(exit && currentPos.x >= exitEndpoint.position.x)
             {
                 Debug.Log("Exited");
-                transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
-                removedLife = true;
                 Destroy(gameObject);
-                if(happy)
-                {
-                    transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(true);
-                }
-                else
-                {
-                    transform.parent.GetComponent<CustomerSpawnController>().CustomerLeftHappy(false);
-                }
+                
             }
         }
 
