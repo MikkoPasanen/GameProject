@@ -29,6 +29,20 @@ namespace PintRush
             Debug.Log($"This glass name:" + glassName);
         }
 
+        private void Update()
+        {
+ 
+            if (filling)
+            {
+                rb2d.simulated = false;
+            }
+            else if(!filling)
+            {
+                rb2d.simulated = true;
+            }
+     
+        }
+
         //When you hold your finger on the glass
         private void OnMouseDown()
         {
@@ -96,7 +110,6 @@ namespace PintRush
                     }
                     Destroy(gameObject);
                     csc.DespawnGlass();
-                    filled = false;
                 }
             }
 
@@ -120,6 +133,7 @@ namespace PintRush
         {
             return onCustomer;
         }
+
 
         public void SetOnCustomer(bool onCustomer)
         {

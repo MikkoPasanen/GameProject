@@ -15,6 +15,8 @@ namespace PintRush
         [SerializeField] private bool beerTwo;
         [SerializeField] private bool beerThree;
 
+        private bool occupied = false;
+
         [SerializeField] private enum BeerType {
             None = 0,
             Stout,
@@ -30,9 +32,14 @@ namespace PintRush
             {
                 if (beerOne && collision.gameObject.name.Contains("GlassOne") || beerTwo && collision.gameObject.name.Contains("GlassTwo") || beerThree && collision.gameObject.name.Contains("GlassThree"))
                 {
-                    glassController = collision.gameObject.GetComponent<GlassController>();
-                    glassController.SetIsInsideTapArea(true);
-                    glassController.SnapUnderTap(snapPos.transform.position);
+                    if (!occupied)
+                    {
+                        Debug.Log("Trigger yeet");
+                        occupied = true;
+                        glassController = collision.gameObject.GetComponent<GlassController>();
+                        glassController.SetIsInsideTapArea(true);
+                        glassController.SnapUnderTap(snapPos.transform.position);
+                    }
                 }
                 else
                 {
@@ -46,6 +53,8 @@ namespace PintRush
         {
             if(collision.gameObject.tag == "Glass")
             {
+                Debug.Log("Trigger exited");
+                occupied = false;
                 glassController = collision.gameObject.GetComponent<GlassController>();
                 glassController.SetIsInsideTapArea(false);
                 glassController.SetIsUnderTap(false);

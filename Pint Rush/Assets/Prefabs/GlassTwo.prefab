@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3981718366474747520}
   - component: {fileID: 5220893319052016712}
   - component: {fileID: 1495133877219510900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassTwo
   m_TagString: Glass
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17.58, y: -21.2}
-  m_SizeDelta: {x: 50, y: 100}
+  m_SizeDelta: {x: 55, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3189783438179332766
 MonoBehaviour:

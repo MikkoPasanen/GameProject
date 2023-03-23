@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
+using UnityEngine.SceneManagement;
 
 namespace PintRush
 {
@@ -91,6 +92,13 @@ namespace PintRush
             }
             gameObject.SetActive(optionsActive);
         }
+
+        public void OnBackToMenu()
+        {
+            SceneManager.LoadScene(0);
+            Time.timeScale = 1f;
+        }
+
         public void OnExitOptions()
         {
             //Debug.Log("Options exited!");

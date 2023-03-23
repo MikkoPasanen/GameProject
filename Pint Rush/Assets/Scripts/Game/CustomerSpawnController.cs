@@ -30,6 +30,7 @@ namespace PintRush
             occupiedSpace = new bool[endpointPositions.Length];
             Debug.Log("Endpoints length: "+endpointPositions.Length);
             SpawnCustomer();
+            timer = 0;
         }
 
         //Timer for the customer spawns

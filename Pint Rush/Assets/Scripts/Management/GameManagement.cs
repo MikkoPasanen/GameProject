@@ -95,7 +95,7 @@ namespace PintRush
 
         public void AddBeerOne()
         {
-            this.beerOne =+ 1;
+            this.beerOne += 1;
             Debug.Log("BeerOne: " + this.beerOne);
         }
 
