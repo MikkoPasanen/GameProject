@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Game Over Shared Data
   m_EditorClassIdentifier: 
   m_TableCollectionName: Game Over
-  m_TableCollectionNameGuidString: 00000000000000000000000000000000
+  m_TableCollectionNameGuidString: e88540c0be599a54eb03df5fe4b7fa3c
   m_Entries: []
   m_Metadata:
     m_Items: []

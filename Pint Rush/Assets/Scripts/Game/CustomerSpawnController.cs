@@ -10,6 +10,7 @@ namespace PintRush
         [SerializeField] private GameObject customers;
         [SerializeField] private int customerPatience;
         [SerializeField] private Transform[] endpointPositions;
+        [SerializeField] private GameObject[] customerPrefabs;
         [SerializeField] private Transform exitEndPosition;
         [SerializeField] private GameObject gmObject;
         private GameManagement gameManagement;
@@ -67,13 +68,15 @@ namespace PintRush
             {
                 if (!ScanOccupiedSpaces())
                 {
+                    //Selects a random endpoint and a random customer prefab to spawn
                     random = UnityEngine.Random.Range(0, endpointPositions.Length);
+                    randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length);
                     while (occupiedSpace[random] == true)
                     {
                         random = UnityEngine.Random.Range(0, endpointPositions.Length);
                         customerSpawned = true;
                     }
-                    GameObject customer = Instantiate(customerPrefab, transform.position, Quaternion.identity);
+                    GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
                     CustomerController customerController = customer.GetComponent<CustomerController>();
 
                     Transform randomEndpointPosition = endpointPositions[random];

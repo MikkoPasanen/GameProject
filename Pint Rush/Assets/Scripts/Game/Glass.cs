@@ -24,6 +24,7 @@ namespace PintRush
         private bool snapping = false;
         [SerializeField] private bool filled = false;
         [SerializeField] private bool pouring = false;
+        [SerializeField] private bool physics = false;
 
         private enum Type { None = 0, Lager, Stout, Mystery };
         private Type type;
@@ -46,6 +47,16 @@ namespace PintRush
                     beerTap.SetPouring(false);
                 }
             }
+            /*
+            if(!physics)
+            {
+                rb2d.simulated = true;
+            }
+            if(physics)
+            {
+                rb2d.simulated = false;
+            }
+            */
         }
 
         public void SetType(string typeName)
