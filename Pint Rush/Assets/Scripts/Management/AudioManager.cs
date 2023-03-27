@@ -14,10 +14,12 @@ namespace PintRush
             if (glassBreaking.isPlaying)
             {
                 glassBreaking.Stop();
+                Debug.Log($"Stopping: {glassBreaking.clip.name}");
             }
             if (glassBreaking != null)
             {
                 glassBreaking.Play();
+                Debug.Log($"Playing: {glassBreaking.clip.name}");
             }
         }
 
@@ -26,10 +28,13 @@ namespace PintRush
             if (beerPouring.isPlaying)
             {
                 beerPouring.Stop();
+                Debug.Log($"Stopping: {beerPouring.clip.name}");
+
             }
-            if(beerPouring != null)
+            if (beerPouring != null)
             {
                 beerPouring.Play();
+                Debug.Log($"Playing: {beerPouring.clip.name}");
             }
         }
     }

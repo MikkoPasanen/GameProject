@@ -4,60 +4,103 @@ namespace PintRush
 {
     public class GlassSpawner : MonoBehaviour
     {
+        [SerializeField] private GameManagement gameManagement;
+        [SerializeField] private AudioManager audioManager;
+
         [SerializeField] GameObject parent;
-        [SerializeField] private GameObject gmo;
-        private GameManagement gm;
-        private AudioManager audioManager;
+
+        [SerializeField] private Vector3 firstSpawn;
+        [SerializeField] private Vector3 secondSpawn;
+        [SerializeField] private Vector3 thirdSpawn;
+
+        [SerializeField] private GameObject g1Prefab;
+        [SerializeField] private GameObject g2Prefab;
+        [SerializeField] private GameObject g3Prefab;
+
+        private int currentGlasses;
+        private int maxGlasses;
+
 
         private void Start()
         {
-            gm = gmo.GetComponent<GameManagement>();
-            audioManager = gmo.GetComponent<AudioManager>();
+            currentGlasses = 0;
+            maxGlasses = gameManagement.GetMaxGlasses();
         }
 
-        //Instatiates the glass prefab in the location provided by the Game manager script
-        //Sets the glass prefab as the child of canvas
-        //Adds +1 to the current glass counter every time a glass is spawned
+        private void Update()
+        {
+            // Gets maxGlass from "master"
+            // Easy to modify
+            maxGlasses = gameManagement.GetMaxGlasses();
+        }
+
+        // Spawns a glass prefab in a specified position
+        // Used with UI buttons
         public void OnGlassOne()
         {
-            Debug.Log($"{gm.GetCurrentGlasses()} : {gm.GetMaxGlasses()}");
-            if (gm.GetCurrentGlasses() < gm.GetMaxGlasses())
+            Debug.Log($"{currentGlasses} : {maxGlasses}");
+            if (currentGlasses < maxGlasses)
             {
-                Debug.Log("Glass 1 spawned at: " + gm.glassOneSpawn);
-                GameObject firstGlass = Instantiate(gm.glassOnePrefab, gm.glassOneSpawn, Quaternion.identity);
+                // Spawn a glass
+                GameObject firstGlass = Instantiate(g1Prefab, firstSpawn, Quaternion.identity);
                 firstGlass.transform.SetParent(parent.transform, false);
+                Debug.Log($"Spawnpoint: {firstSpawn}");
+                Debug.Log($"Actual spawnpoint: {firstGlass.transform.position}");
+
                 // Setting type to beers
                 firstGlass.GetComponent<Glass>().SetType("Lager");
-                gm.AddGlass();
+
+                // Keep track of glass amount
+                currentGlasses++;
             }
         }
 
+        // Spawns a glass prefab in a specified position
+        // Used with UI buttons
         public void OnGlassTwo()
         {
-            Debug.Log($"{gm.GetCurrentGlasses()} : {gm.GetMaxGlasses()}");
-            if (gm.GetCurrentGlasses() < gm.GetMaxGlasses())
+            Debug.Log($"{currentGlasses} : {maxGlasses}");
+            if (currentGlasses < maxGlasses)
             {
-                Debug.Log("Glass 2 spawned at: " + gm.glassTwoSpawn);
-                GameObject secondGlass = Instantiate(gm.glassTwoPrefab, gm.glassTwoSpawn , Quaternion.identity);
+                // Spawn a glass
+                GameObject secondGlass = Instantiate(g2Prefab, secondSpawn, Quaternion.identity);
                 secondGlass.transform.SetParent(parent.transform, false);
+                Debug.Log($"Spawnpoint: {secondSpawn}");
+                Debug.Log($"Actual spawnpoint: {secondGlass.transform.position}");
+
+
                 // Setting type to beers
                 secondGlass.GetComponent<Glass>().SetType("Stout");
-                gm.AddGlass();
+
+                // Keep track of glass amount
+                currentGlasses++;
             }
         }
 
+        // Spawns a glass prefab in a specified position
+        // Used with UI buttons
         public void OnGlassThree()
         {
-            Debug.Log($"{gm.GetCurrentGlasses()} : {gm.GetMaxGlasses()}");
-            if (gm.GetCurrentGlasses() < gm.GetMaxGlasses())
+            Debug.Log($"{currentGlasses} : {maxGlasses}");
+            if (currentGlasses < maxGlasses)
             {
-                Debug.Log("Glass 3 spawned at: " + gm.glassThreeSpawn);
-                GameObject thirdGlass = Instantiate(gm.glassThreePrefab, gm.glassThreeSpawn, Quaternion.identity);
+                // Spawn a glass
+                GameObject thirdGlass = Instantiate(g3Prefab, thirdSpawn, Quaternion.identity);
                 thirdGlass.transform.SetParent(parent.transform, false);
+                Debug.Log($"Spawnpoint: {thirdSpawn}");
+                Debug.Log($"Actual spawnpoint: {thirdGlass.transform.position}");
+
                 // Setting type to beers
                 thirdGlass.GetComponent<Glass>().SetType("Mystery");
-                gm.AddGlass();
+
+                // Keep track of glass amount
+                currentGlasses++;
             }
+        }
+
+        public void RemoveGlass()
+        {
+            currentGlasses--;
         }
     }
 }

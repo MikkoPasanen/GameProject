@@ -9,33 +9,55 @@ namespace PintRush
         [SerializeField] private AudioManager audioManager;
 
         private Animator animator;
-        public bool animationEnded = false;
-        public bool playSound = false;
-        private bool soundPlayed = false;
+        private bool soundPlayed;
 
+        private Rigidbody2D rb2d;
+
+        // !Updated in the Animator!
+        public bool animationEnded;
+        public bool playSound;
+
+        private bool destroy;
+        
         private void Start()
         {
             animator = GetComponent<Animator>();
+            rb2d = GetComponent<Rigidbody2D>();
+            rb2d.simulated = false;
+            soundPlayed = false;
+            playSound = false;
+            animationEnded = false;
         }
 
         private void Update()
         {
-            if(playSound && !soundPlayed)
+            // playSound updated in animator
+            if(destroy && !soundPlayed)
             {
                 soundPlayed = true;
                 audioManager.PlayGlassBreaking();
             }
 
+            // animationEnded updated in animator
             if (animationEnded)
             {
                 Destroy(gameObject);
+                StartCoroutine(LifeLost(1f));
             }
         }
 
-        public void LifeLost()
+        public IEnumerator LifeLost(float waitTime)
         {
+            rb2d.simulated = true;
             animationEnded = false;
+
+            yield return new WaitForSeconds(waitTime);
             animator.SetBool("PlayLifeLostAnimation", true);
+        }
+
+        public void SetDestroy()
+        {
+            this.destroy = true;
         }
     }
 }

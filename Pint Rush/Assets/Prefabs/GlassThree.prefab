@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5220893319052016712}
   - component: {fileID: 1495133877219510900}
   m_Layer: 6
-  m_Name: GlassTwo
+  m_Name: GlassThree
   m_TagString: Glass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ Animator:
   m_GameObject: {fileID: 5788822397612179796}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9136239626ae29b44afb36f29c57e2ed, type: 2}
+  m_Controller: {fileID: 9100000, guid: 65e622ff39acc4a4caa1b90d74f1ebba, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 879095752, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
+  m_Sprite: {fileID: -1566522167, guid: 3b1191e565901ce4c9ea179f74c14491, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -22,6 +22,8 @@ namespace PintRush
         private bool filling = false;
         BeerTap beerTap;
         private bool snapping = false;
+
+        // Updated in the Animator
         [SerializeField] private bool filled = false;
         [SerializeField] private bool pouring = false;
         [SerializeField] private bool physics = false;
@@ -47,16 +49,15 @@ namespace PintRush
                     beerTap.SetPouring(false);
                 }
             }
-            /*
-            if(!physics)
-            {
-                rb2d.simulated = true;
-            }
-            if(physics)
+            
+            if(pouring)
             {
                 rb2d.simulated = false;
             }
-            */
+            else
+            {
+                rb2d.simulated = true;
+            }
         }
 
         public void SetType(string typeName)
@@ -112,13 +113,6 @@ namespace PintRush
         //It starts the filling of the glass and  triggers the animation
         private void OnMouseUp()
         {
-            if(snapping)
-            {
-                Debug.Log("Snapping");
-                transform.position = beerTap.GetSnapPos().position;
-                snapping = false;
-            }
-
             if(filled)
             {
                 int mask = 1 << LayerMask.NameToLayer("Customer");
@@ -157,7 +151,13 @@ namespace PintRush
                 }
                 isDragging = false;
             }
-           
+            else if (snapping)
+            {
+                Debug.Log("Snapping");
+                transform.position = beerTap.GetSnapPos().position;
+                snapping = false;
+            }
+
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

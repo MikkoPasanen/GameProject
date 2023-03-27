@@ -25,14 +25,6 @@ namespace PintRush
         [SerializeField] Life lifeBarTwo;
         [SerializeField] Life lifeBarThree;
 
-        // Glasses
-        public Vector3 glassOneSpawn;
-        public Vector3 glassTwoSpawn;
-        public Vector3 glassThreeSpawn;
-        public GameObject glassOnePrefab;
-        public GameObject glassTwoPrefab;
-        public GameObject glassThreePrefab;
-
         [SerializeField] private int maxLives = 3;
         private int currentLives;
 
@@ -118,13 +110,13 @@ namespace PintRush
             switch (currentLives)
             {
                 case 2:
-                    lifeBarOne.LifeLost();
+                    StartCoroutine(lifeBarOne.LifeLost(1f));
                     break;
                 case 1:
-                    lifeBarTwo.LifeLost();
+                    StartCoroutine(lifeBarTwo.LifeLost(1f));
                     break;
                 case 0:
-                    lifeBarThree.LifeLost();
+                    StartCoroutine(lifeBarThree.LifeLost(1f));
                     break;
                 default:
                     Debug.Log("There might be an error!");

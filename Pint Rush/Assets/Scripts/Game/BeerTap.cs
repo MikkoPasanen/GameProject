@@ -7,7 +7,6 @@ namespace PintRush
 {
     public class BeerTap : MonoBehaviour
     {
-        Glass glass;
         [SerializeField] private float snapOffset;
 
         [SerializeField] private bool beerOne;
@@ -15,6 +14,8 @@ namespace PintRush
         [SerializeField] private bool beerThree;
 
         [SerializeField] private Transform snapPos;
+
+        [SerializeField] private AudioManager audioManager;
 
         private bool occupied = false;
         private bool pouring = false;
@@ -49,6 +50,7 @@ namespace PintRush
             if(glassUnderTap)
             {
                 pouring = true;
+                audioManager.PlayBeerPouring();
             }
         }
 
