@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8403046231785894289}
   - component: {fileID: 3189783438179332766}
+  - component: {fileID: 698334524713954753}
   - component: {fileID: 2301253463266565952}
   - component: {fileID: 3003713240334176557}
   - component: {fileID: 3981718366474747520}
@@ -56,7 +57,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bc2d: {fileID: 3981718366474747520}
   rb2d: {fileID: 3003713240334176557}
-  filling: 0
+  filled: 0
+  pouring: 0
+  audioManager: {fileID: 0}
+--- !u!114 &698334524713954753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5788822397612179796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b2e3feb2eebe2f408f599da895a46f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glassBreaking: {fileID: 0}
+  beerPouring: {fileID: 0}
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0

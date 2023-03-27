@@ -21,9 +21,9 @@ namespace PintRush
 
         [SerializeField] TextMeshProUGUI scoreText;
 
-        [SerializeField] GameObject lifeBarOne;
-        [SerializeField] GameObject lifeBarTwo;
-        [SerializeField] GameObject lifeBarThree;
+        [SerializeField] Life lifeBarOne;
+        [SerializeField] Life lifeBarTwo;
+        [SerializeField] Life lifeBarThree;
 
         // Glasses
         public Vector3 glassOneSpawn;
@@ -118,13 +118,13 @@ namespace PintRush
             switch (currentLives)
             {
                 case 2:
-                    lifeBarOne.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
+                    lifeBarOne.LifeLost();
                     break;
                 case 1:
-                    lifeBarTwo.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
+                    lifeBarTwo.LifeLost();
                     break;
                 case 0:
-                    lifeBarThree.GetComponent<Animator>().SetBool("PlayLifeLostAnimation", true);
+                    lifeBarThree.LifeLost();
                     break;
                 default:
                     Debug.Log("There might be an error!");

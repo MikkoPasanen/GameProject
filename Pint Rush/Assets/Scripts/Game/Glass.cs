@@ -5,12 +5,11 @@ using JetBrains.Annotations;
 
 namespace PintRush
 {
-    public class GlassController : MonoBehaviour
+    public class Glass : MonoBehaviour
     {
         private bool isDragging;
         private bool isInsideTapArea = false;
         private bool isUnderTap = false;
-        private bool filled = false;
         private bool onCustomer = false;
         private Vector3 snapToTap; 
         private Vector3 offset;
@@ -20,7 +19,14 @@ namespace PintRush
         [SerializeField] BoxCollider2D bc2d;
         [SerializeField] Rigidbody2D rb2d;
         private int pourTime;
-        [SerializeField] private bool filling = false;
+        private bool filling = false;
+        BeerTap beerTap;
+        private bool snapping = false;
+        [SerializeField] private bool filled = false;
+        [SerializeField] private bool pouring = false;
+
+        private enum Type { None = 0, Lager, Stout, Mystery };
+        private Type type;
 
         private void Awake()
         {
@@ -31,22 +37,42 @@ namespace PintRush
 
         private void Update()
         {
- 
-            if (filling)
+            if(beerTap != null)
             {
-                rb2d.simulated = false;
+                if(beerTap.GetPouring() && !filling)
+                {
+                    filling = true;
+                    animator.SetBool("TapTrigger", true);
+                    beerTap.SetPouring(false);
+                }
             }
-            else if(!filling)
+        }
+
+        public void SetType(string typeName)
+        {
+            switch (typeName)
             {
-                rb2d.simulated = true;
+                case "Lager":
+                    type = Type.Lager;
+                    break;
+                case "Stout":
+                    type = Type.Stout;
+                    break;
+                case "Mystery":
+                    type = Type.Mystery;
+                    break;
+                default:
+                    type = Type.None;
+                    Debug.Log($"Glass type is {type}");
+                    break;
             }
-     
+            Debug.Log(type.ToString());
         }
 
         //When you hold your finger on the glass
         private void OnMouseDown()
         {
-            if (!filling)
+            if (!pouring)
             {
                 isDragging = true;
                 offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -57,7 +83,7 @@ namespace PintRush
         private void OnMouseDrag()
         {
             //Move the glass
-            if (!filling && isDragging)
+            if (!pouring && isDragging)
             {
                 Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition) + offset;
                 transform.position = new Vector3(newPosition.x, newPosition.y, 0);
@@ -75,11 +101,18 @@ namespace PintRush
         //It starts the filling of the glass and  triggers the animation
         private void OnMouseUp()
         {
-            int mask = 1 << LayerMask.NameToLayer("Customer");
-            RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(1, 1), 0f, new Vector2(1, 0), distance: Mathf.Infinity, layerMask: mask);
-            if(hit.collider != null)
+            if(snapping)
             {
-                if(filled)
+                Debug.Log("Snapping");
+                transform.position = beerTap.GetSnapPos().position;
+                snapping = false;
+            }
+
+            if(filled)
+            {
+                int mask = 1 << LayerMask.NameToLayer("Customer");
+                RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(1, 1), 0f, new Vector2(1, 0), distance: Mathf.Infinity, layerMask: mask);
+                if (hit.collider != null)
                 {
                     CustomerController cc = hit.collider.gameObject.GetComponent<CustomerController>();
                     CustomerSpawnController csc = hit.collider.gameObject.GetComponentInParent<CustomerSpawnController>();
@@ -91,7 +124,7 @@ namespace PintRush
                     {
                         cc.SetExiting(true, true);
 
-                        if(chosenBeerName == "GlassOne")
+                        if (chosenBeerName == "GlassOne")
                         {
                             csc.AddBeerOne();
                         }
@@ -111,17 +144,32 @@ namespace PintRush
                     Destroy(gameObject);
                     csc.DespawnGlass();
                 }
+                isDragging = false;
             }
+           
+        }
 
-            isDragging = false;
-
-            if(isInsideTapArea)
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            // If collision is with any type of beer tap
+            if(collision.gameObject.tag == "BeerTap")
             {
-                this.gameObject.transform.position = snapToTap;
-                animator.SetTrigger("TapTrigger");
-                Debug.Log("hei hei mutsi");
-                filled = true;
+                beerTap = collision.gameObject.GetComponent<BeerTap>();
+
+                // If glass and tap types match
+                if((int)this.type == (int)beerTap.type)
+                {
+                    // Snapping to place in OnMouseUp
+                    snapping = true;
+                    SetGlassUnderTap(true);
+                }
             }
+        }
+
+        public void SetGlassUnderTap(bool isUnderTap)
+        {
+            this.isUnderTap = isUnderTap;
+            beerTap.SetGlassUnderTap(isUnderTap);
         }
             
         public bool GetDragState()

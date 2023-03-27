@@ -10,31 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Points Shared Data
+  m_Name: Over Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Points
-  m_TableCollectionNameGuidString: 1a687fb0ced24dd42954602a48e57c57
-  m_Entries:
-  - m_Id: 8998121472
-    m_Key: Game Lenght
-    m_Metadata:
-      m_Items: []
-  - m_Id: 5422527574016
-    m_Key: Served
-    m_Metadata:
-      m_Items: []
-  - m_Id: 2463714394058752
-    m_Key: Main Text
-    m_Metadata:
-      m_Items: []
+  m_TableCollectionName: Over
+  m_TableCollectionNameGuidString: 00000000000000000000000000000000
+  m_Entries: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 5796298114008350724
+    rid: 7211081614258339846
   references:
     version: 2
     RefIds:
-    - rid: 5796298114008350724
+    - rid: 7211081614258339846
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1679336700375
+        m_CustomEpoch: 1679923421569

@@ -7,22 +7,52 @@ namespace PintRush
 {
     public class BeerTap : MonoBehaviour
     {
-        GlassController glassController;
-        [SerializeField] private int id;
-        [SerializeField] private GameObject snapPos;
+        Glass glass;
+        [SerializeField] private float snapOffset;
 
         [SerializeField] private bool beerOne;
         [SerializeField] private bool beerTwo;
         [SerializeField] private bool beerThree;
 
-        private bool occupied = false;
+        [SerializeField] private Transform snapPos;
 
-        [SerializeField] private enum BeerType {
-            None = 0,
-            Stout,
-            Wheat,
-            Lager
+        private bool occupied = false;
+        private bool pouring = false;
+        private bool glassUnderTap = false;
+
+        public enum Type { None = 0, Lager, Stout, Mystery };
+        public Type type;
+
+        private void Awake()
+        {
+            if (beerOne)
+            {
+                type = Type.Lager;
+            }
+            else if (beerTwo)
+            {
+                type = Type.Stout;
+            }
+            else if (beerThree) 
+            { 
+                type = Type.Mystery; 
+            }
+            else
+            {
+                type = Type.None;
+                Debug.Log($"Beer tap type is {type}");
+            }
         }
+
+        private void OnMouseDown()
+        {
+            if(glassUnderTap)
+            {
+                pouring = true;
+            }
+        }
+
+        /*
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -36,9 +66,8 @@ namespace PintRush
                     {
                         Debug.Log("Trigger yeet");
                         occupied = true;
-                        glassController = collision.gameObject.GetComponent<GlassController>();
-                        glassController.SetIsInsideTapArea(true);
-                        glassController.SnapUnderTap(snapPos.transform.position);
+                        glass = collision.gameObject.GetComponent<Glass>();
+                        glass.SetIsInsideTapArea(true);
                     }
                 }
                 else
@@ -55,10 +84,35 @@ namespace PintRush
             {
                 Debug.Log("Trigger exited");
                 occupied = false;
-                glassController = collision.gameObject.GetComponent<GlassController>();
-                glassController.SetIsInsideTapArea(false);
-                glassController.SetIsUnderTap(false);
+                glass = collision.gameObject.GetComponent<Glass>();
+                glass.SetIsInsideTapArea(false);
+                glass.SetIsUnderTap(false);
             }
         }
+        */
+        public bool GetPouring()
+        {
+            return this.pouring;
+        }
+
+        public void SetPouring(bool pouring)
+        {
+            this.pouring = pouring;
+        }
+        public void SetGlassUnderTap(bool glassUnderTap)
+        {
+            this.glassUnderTap = glassUnderTap;
+        }
+        public Transform GetSnapPos()
+        {
+            return snapPos;
+        }
+        /*
+        public Type GetType()
+        {
+            return this.type;
+        }
+        */
+
     }
 }
