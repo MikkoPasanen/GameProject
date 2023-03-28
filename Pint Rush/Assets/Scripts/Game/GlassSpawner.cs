@@ -17,10 +17,6 @@ namespace PintRush
         [SerializeField] private GameObject g2Prefab;
         [SerializeField] private GameObject g3Prefab;
 
-        private int upgrades;
-        //TEMPORARY
-        [SerializeField] bool upgraded;
-
         private int currentGlasses;
         private int maxGlasses;
 
@@ -28,7 +24,6 @@ namespace PintRush
         private void Start()
         {
             currentGlasses = 0;
-            upgrades = 0;
             maxGlasses = gameManagement.GetMaxGlasses();
         }
 
@@ -37,13 +32,6 @@ namespace PintRush
             // Gets maxGlass from "master"
             // Easy to modify
             maxGlasses = gameManagement.GetMaxGlasses();
-
-            //TEMPORARY
-            if(upgraded)
-            {
-                upgraded = false;
-                UpgradePourSpeed();
-            }
         }
 
         // Spawns a glass prefab in a specified position
@@ -113,12 +101,6 @@ namespace PintRush
         public void RemoveGlass()
         {
             currentGlasses--;
-        }
-
-        public void UpgradePourSpeed()
-        {
-            upgrades++;
-            Debug.Log($"Tap speed upgrade: {upgrades}");
         }
     }
 }
