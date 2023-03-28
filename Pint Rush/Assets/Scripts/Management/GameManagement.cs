@@ -20,6 +20,7 @@ namespace PintRush
 
 
         [SerializeField] TextMeshProUGUI scoreText;
+        [SerializeField] TextMeshProUGUI upgradePointsText;
 
         [SerializeField] Life lifeBarOne;
         [SerializeField] Life lifeBarTwo;
@@ -27,6 +28,8 @@ namespace PintRush
 
         [SerializeField] private int maxLives = 3;
         private int currentLives;
+
+        [SerializeField] private bool developerMode;
 
         public int points;
         private int beerOne;
@@ -37,13 +40,24 @@ namespace PintRush
             gameOverScreen.SetActive(false);
             currentLives = maxLives;
             beerOne = 0;
-            points = 100;
+
+            // DEVELOPER MODE
+            if(developerMode)
+            {
+                points = 5000;
+            }
+            else
+            {
+                points = 0;
+            }
+
             beerTwo = 0;
             beerThree = 0;
             maxGlasses = 1;
             if(SceneManager.GetActiveScene().name == "Game")
             {
                 scoreText.text = $"{points}";
+                upgradePointsText.text = $"{points}";
             }
             Debug.Log($"Start Currentlives: {currentLives}");
             //howToPlay.SetActive(true);
@@ -84,12 +98,14 @@ namespace PintRush
             points++;
             Debug.Log("Added a point... Point: " + points);
             scoreText.text = $"{points}";
+            upgradePointsText.text = $"{points}";
         }
         
         public void SetPoints(int points)
         {
             this.points -= points;
             scoreText.text = $"{this.points}";
+            upgradePointsText.text = $"{this.points}";
         }
 
         public void AddMaxGlasses()

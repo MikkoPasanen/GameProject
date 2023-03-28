@@ -179,6 +179,12 @@ namespace PintRush
             }
         }
 
+        public void SetAnimatorSpeed(float speed)
+        {
+            Debug.Log($"Animation speed set to: {speed}");
+            animator.speed = speed;
+        }
+
         public void SetGlassUnderTap(bool isUnderTap)
         {
             this.isUnderTap = isUnderTap;

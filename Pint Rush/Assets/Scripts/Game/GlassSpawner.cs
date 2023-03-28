@@ -6,6 +6,7 @@ namespace PintRush
     {
         [SerializeField] private GameManagement gameManagement;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private Upgrades upgrades;
 
         [SerializeField] GameObject parent;
 
@@ -17,14 +18,17 @@ namespace PintRush
         [SerializeField] private GameObject g2Prefab;
         [SerializeField] private GameObject g3Prefab;
 
+        [SerializeField] private float[] animationSpeeds = new float[4];
+        private float currentAnimationSpeed;
+
         private int currentGlasses;
         private int maxGlasses;
-
 
         private void Start()
         {
             currentGlasses = 0;
             maxGlasses = gameManagement.GetMaxGlasses();
+            currentAnimationSpeed = animationSpeeds[0];
         }
 
         private void Update()
@@ -32,6 +36,7 @@ namespace PintRush
             // Gets maxGlass from "master"
             // Easy to modify
             maxGlasses = gameManagement.GetMaxGlasses();
+            currentAnimationSpeed = animationSpeeds[upgrades.GetTapUpgraded()];
         }
 
         // Spawns a glass prefab in a specified position
@@ -44,6 +49,7 @@ namespace PintRush
                 // Spawn a glass
                 GameObject firstGlass = Instantiate(g1Prefab, firstSpawn, Quaternion.identity);
                 firstGlass.transform.SetParent(parent.transform, false);
+                firstGlass.GetComponent<Glass>().SetAnimatorSpeed(currentAnimationSpeed);
                 Debug.Log($"Spawnpoint: {firstSpawn}");
                 Debug.Log($"Actual spawnpoint: {firstGlass.transform.position}");
 
@@ -65,6 +71,7 @@ namespace PintRush
                 // Spawn a glass
                 GameObject secondGlass = Instantiate(g2Prefab, secondSpawn, Quaternion.identity);
                 secondGlass.transform.SetParent(parent.transform, false);
+                secondGlass.GetComponent<Glass>().SetAnimatorSpeed(currentAnimationSpeed);
                 Debug.Log($"Spawnpoint: {secondSpawn}");
                 Debug.Log($"Actual spawnpoint: {secondGlass.transform.position}");
 
@@ -87,6 +94,7 @@ namespace PintRush
                 // Spawn a glass
                 GameObject thirdGlass = Instantiate(g3Prefab, thirdSpawn, Quaternion.identity);
                 thirdGlass.transform.SetParent(parent.transform, false);
+                thirdGlass.GetComponent<Glass>().SetAnimatorSpeed(currentAnimationSpeed);
                 Debug.Log($"Spawnpoint: {thirdSpawn}");
                 Debug.Log($"Actual spawnpoint: {thirdGlass.transform.position}");
 

@@ -21,6 +21,8 @@ namespace PintRush
         [SerializeField] private int[] glassCosts = new int[4];
         [SerializeField] private GameObject[] glassStars = new GameObject[3];
 
+        [SerializeField] private GameObject[] glassCoasters = new GameObject[3];
+
         [SerializeField] private GameManagement gm;
  
         private void Start()
@@ -75,12 +77,15 @@ namespace PintRush
                     break;
                 case 1:
                     glassStars[0].SetActive(true);
+                    glassCoasters[0].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137,137,137,100);
                     break;
                 case 2:
                     glassStars[1].SetActive(true);
+                    glassCoasters[1].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
                     break;
                 case 3:
                     glassStars[2].SetActive(true);
+                    glassCoasters[2].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
                     break;
                 default:
                     break;
@@ -121,6 +126,11 @@ namespace PintRush
                 }
                 Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
             }
+        }
+
+        public int GetTapUpgraded()
+        {
+            return tapUpgraded;
         }
 
         public void OpenUpgradeWindow()
