@@ -94,3 +94,6 @@ TagManager:
   - name: BlackFade
     uniqueID: 567719673
     locked: 0
+  - name: New Layer 17
+    uniqueID: 2058656807
+    locked: 0
