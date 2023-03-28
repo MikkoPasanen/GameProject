@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ namespace PintRush
         private int gameTimer = 0;
         [SerializeField] int spawnRate;
         public static float timer;
+        private int spawnRateThreshold = 0;
+        private bool spawnStarted;
 
         // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
 
@@ -31,24 +34,30 @@ namespace PintRush
             gameManagement = gmObject.GetComponent<GameManagement>();
             occupiedSpace = new bool[endpointPositions.Length];
             Debug.Log("Endpoints length: "+endpointPositions.Length);
-            SpawnCustomer();
             timer = 0;
+            spawnStarted = false;
+            StartCoroutine(WaitForFirstSpawn(3f));
         }
 
         //Timer for the customer spawns
         void FixedUpdate()
         {
             gameTimer++;
-            spawnTimer++;
-            if(spawnTimer >= spawnRate)
+            if (spawnStarted)
             {
-                SpawnCustomer();
-                spawnTimer = 0;
+                spawnTimer++;
+                if (spawnTimer >= spawnRate)
+                {
+                    SpawnCustomer();
+                    spawnTimer = 0;
+                }
             }
-            if(gameTimer >= 500) // Every 10 seconds
+
+            // Every 10 customers served spawn rate is increased
+            if (spawnRateThreshold >= 10)
             {
-                spawnRate = spawnRate - 10;
-                gameTimer = 0;
+                spawnRateThreshold = 0;
+                spawnRate = spawnRate - 20;
             }
         }
 
@@ -117,6 +126,7 @@ namespace PintRush
             {
                 Debug.Log("CUSTOMER LEFT: Happy!");
                 gameManagement.AddPoint();
+                spawnRateThreshold++;
             }
             else
             {
@@ -150,6 +160,14 @@ namespace PintRush
                 }
             }
             return allOccupied;
+        }
+
+        IEnumerator WaitForFirstSpawn(float time)
+        {
+            yield return new WaitForSeconds(time);
+            SpawnCustomer();
+            spawnStarted = true;
+            Debug.Log("Spawning started!");
         }
     }
 }

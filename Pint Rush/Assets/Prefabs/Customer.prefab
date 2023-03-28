@@ -823,7 +823,7 @@ MonoBehaviour:
   beerChoices:
   - {fileID: 5788822397612179796, guid: 4439cdd41bfb0af49b967a22395226ee, type: 3}
   - {fileID: 5788822397612179796, guid: bbb1b38ffeb17484895d99bed95b680a, type: 3}
-  patience: 100
+  patience: 150
   bc2d: {fileID: 3409957584903607254}
   direction: {x: 1, y: 0}
   enterSpeed: 3

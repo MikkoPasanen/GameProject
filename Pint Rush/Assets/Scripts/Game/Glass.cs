@@ -23,6 +23,7 @@ namespace PintRush
         BeerTap beerTap;
         private bool snapping = false;
 
+
         // Updated in the Animator
         [SerializeField] private bool filled = false;
         [SerializeField] private bool pouring = false;
@@ -33,6 +34,7 @@ namespace PintRush
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            animator.speed = 1.0f;
             glassName = this.name;
             Debug.Log($"This glass name:" + glassName);
         }
