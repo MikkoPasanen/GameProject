@@ -12,7 +12,7 @@ namespace PintRush
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
         [SerializeField] private static string language = "fin";
-        [SerializeField] private int maxGlasses;
+        private int maxGlasses;
         private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
@@ -37,9 +37,10 @@ namespace PintRush
             gameOverScreen.SetActive(false);
             currentLives = maxLives;
             beerOne = 0;
-            points = 0;
+            points = 100;
             beerTwo = 0;
             beerThree = 0;
+            maxGlasses = 1;
             if(SceneManager.GetActiveScene().name == "Game")
             {
                 scoreText.text = $"{points}";
@@ -83,6 +84,22 @@ namespace PintRush
             points++;
             Debug.Log("Added a point... Point: " + points);
             scoreText.text = $"{points}";
+        }
+        
+        public void SetPoints(int points)
+        {
+            this.points -= points;
+            scoreText.text = $"{this.points}";
+        }
+
+        public void AddMaxGlasses()
+        {
+            maxGlasses++;
+        }
+
+        public int GetPoints()
+        {
+            return this.points;
         }
 
         public void AddBeerOne()

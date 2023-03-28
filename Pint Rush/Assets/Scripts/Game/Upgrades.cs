@@ -21,8 +21,8 @@ namespace PintRush
         [SerializeField] private int[] glassCosts = new int[4];
         [SerializeField] private GameObject[] glassStars = new GameObject[3];
 
-
-
+        [SerializeField] private GameManagement gm;
+ 
         private void Start()
         {
             tapUpgraded = 0;
@@ -89,29 +89,38 @@ namespace PintRush
 
         public void UpgradeTap()
         {
-            if (tapUpgraded < maxTap) 
-            { 
-                tapUpgraded++;
-            }
-            if (tapUpgraded < tapCosts.Length-1)
+            if (gm.GetPoints() > tapCurrentCost) 
             {
-                tapCurrentCost = tapCosts[tapUpgraded+1];
+                if (tapUpgraded < maxTap)
+                {
+                    tapUpgraded++;
+                    gm.SetPoints(tapCurrentCost);
+                }
+                if (tapUpgraded < tapCosts.Length - 1)
+                {
+                    tapCurrentCost = tapCosts[tapUpgraded + 1];
+                }
+                Debug.Log($"Tap upgrades: {tapUpgraded} / {maxTap}");
             }
-            Debug.Log($"Tap upgrades: {tapUpgraded} / {maxTap}");
-            
         }
 
         public void UpgradeGlasses()
         {
-            if (glassesUpgraded < maxGlasses) 
-            { 
-                glassesUpgraded++; 
-            }
-            if (glassesUpgraded < tapCosts.Length-1)
+            if(gm.GetPoints() > glassCurrentCost)
             {
-                glassCurrentCost = glassCosts[glassesUpgraded+1];
+                if (glassesUpgraded < maxGlasses)
+                {
+                    glassesUpgraded++;
+                    gm.SetPoints(glassCurrentCost);
+                    gm.AddMaxGlasses();
+
+                }
+                if (glassesUpgraded < tapCosts.Length - 1)
+                {
+                    glassCurrentCost = glassCosts[glassesUpgraded + 1];
+                }
+                Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
             }
-            Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
         }
 
         public void OpenUpgradeWindow()
