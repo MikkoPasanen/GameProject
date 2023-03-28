@@ -14,10 +14,10 @@ namespace PintRush
         [SerializeField] private bool beerThree;
 
         [SerializeField] private Transform snapPos;
+        [SerializeField] private Glass glass;
 
         [SerializeField] private AudioManager audioManager;
 
-        private bool occupied = false;
         private bool pouring = false;
         private bool glassUnderTap = false;
 
@@ -47,7 +47,7 @@ namespace PintRush
 
         private void OnMouseDown()
         {
-            if(glassUnderTap)
+            if(glassUnderTap && !pouring)
             {
                 pouring = true;
                 audioManager.PlayBeerPouring();

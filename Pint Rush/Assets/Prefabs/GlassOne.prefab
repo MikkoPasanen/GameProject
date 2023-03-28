@@ -57,9 +57,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bc2d: {fileID: 3981718366474747520}
   rb2d: {fileID: 3003713240334176557}
+  gs: {fileID: 5771592319243593033, guid: 39b46d8ce816c58459cb3c7d21f5d5ff, type: 3}
+  csc: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
   filled: 0
   pouring: 0
-  physics: 0
 --- !u!222 &2301253463266565952
 CanvasRenderer:
   m_ObjectHideFlags: 0

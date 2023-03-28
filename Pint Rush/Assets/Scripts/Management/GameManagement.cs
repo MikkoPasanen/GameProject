@@ -12,11 +12,11 @@ namespace PintRush
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
         [SerializeField] private static string language = "fin";
-        [SerializeField] private int currentGlasses;
         [SerializeField] private int maxGlasses;
         private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
-        private bool gameOver = false;
+        [SerializeField] private GameObject howToPlay;
+        //private bool gameOver = false;
 
 
         [SerializeField] TextMeshProUGUI scoreText;
@@ -44,8 +44,8 @@ namespace PintRush
             {
                 scoreText.text = $"{points}";
             }
-            currentGlasses = 0;
             Debug.Log($"Start Currentlives: {currentLives}");
+            //howToPlay.SetActive(true);
         }
 
         public bool GetMuteState()
@@ -139,21 +139,9 @@ namespace PintRush
         }
         
         // Glass methods
-        public void RemoveGlass()
-        {
-            this.currentGlasses -= 1;
-        }
-        public void AddGlass()
-        {
-            this.currentGlasses += 1;
-        }
         public int GetMaxGlasses()
         {
             return this.maxGlasses;
-        }
-        public int GetCurrentGlasses()
-        {
-            return this.currentGlasses;
         }
 
         public int GetBeerOneScore()

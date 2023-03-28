@@ -35,7 +35,7 @@ namespace PintRush
 
         private int happinessTimer;
         private bool happinessTimerActive = false;
-        private bool removedLife = false;
+        //private bool removedLife = false;
         private bool exit = false;
         private bool exited = false;
         private bool happy = false;
@@ -57,7 +57,6 @@ namespace PintRush
             chosenBeerTwo.SetActive(false);
             chosenBeerThree.SetActive(false);
             thinkBubble.SetActive(false);
-            removedLife = false;
         }
 
         private void Start()
@@ -109,7 +108,7 @@ namespace PintRush
                 transform.Translate(exitMovement);
                 transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
                 bc2d.enabled = false;
-                removedLife = true;
+                //removedLife = true;
                 if (happy)
                 {
                     if(!exited)

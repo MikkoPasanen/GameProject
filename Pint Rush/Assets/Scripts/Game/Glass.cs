@@ -26,7 +26,6 @@ namespace PintRush
         // Updated in the Animator
         [SerializeField] private bool filled = false;
         [SerializeField] private bool pouring = false;
-        [SerializeField] private bool physics = false;
 
         private enum Type { None = 0, Lager, Stout, Mystery };
         private Type type;
@@ -110,13 +109,12 @@ namespace PintRush
 
         //When you let go of the glass
         //If the glass is under the tap, it snaps into place
-        //It starts the filling of the glass and  triggers the animation
         private void OnMouseUp()
         {
             if(filled)
             {
                 int mask = 1 << LayerMask.NameToLayer("Customer");
-                RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(1, 1), 0f, new Vector2(1, 0), distance: Mathf.Infinity, layerMask: mask);
+                RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(0.3f, 0.3f), 0f, new Vector2(1, 0), distance: 1f, layerMask: mask);
                 if (hit.collider != null)
                 {
                     CustomerController cc = hit.collider.gameObject.GetComponent<CustomerController>();
@@ -142,12 +140,14 @@ namespace PintRush
                             csc.AddBeerThree();
                         }
                     }
+
                     else // FALSE!
                     {
                         cc.SetExiting(true, false);
                     }
+
+                    csc.RemoveGlass();
                     Destroy(gameObject);
-                    csc.DespawnGlass();
                 }
                 isDragging = false;
             }
@@ -192,7 +192,6 @@ namespace PintRush
         {
             return onCustomer;
         }
-
 
         public void SetOnCustomer(bool onCustomer)
         {

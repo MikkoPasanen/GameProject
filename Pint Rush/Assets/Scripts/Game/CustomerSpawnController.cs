@@ -13,6 +13,7 @@ namespace PintRush
         [SerializeField] private GameObject[] customerPrefabs;
         [SerializeField] private Transform exitEndPosition;
         [SerializeField] private GameObject gmObject;
+        [SerializeField] private GlassSpawner gs;
         private GameManagement gameManagement;
         private int random;
         private int randomCustomer;
@@ -90,11 +91,6 @@ namespace PintRush
             customerSpawned = false;
         }
 
-        public void DespawnGlass()
-        {
-            gameManagement.RemoveGlass();
-        }
-
         public void AddBeerOne()
         {
             gameManagement.AddBeerOne();
@@ -108,6 +104,11 @@ namespace PintRush
         public void AddBeerThree()
         {
             gameManagement.AddBeerThree();
+        }
+
+        public void RemoveGlass()
+        {
+            gs.RemoveGlass();
         }
 
         public void CustomerLeftHappy(bool happy)
