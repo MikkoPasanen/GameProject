@@ -14,19 +14,6 @@ namespace PintRush
         private bool active = false;
         private bool optionsActive = false;
 
-        public void OnEnglish()
-        {
-            //Debug.Log("Language changed to English!");
-
-            gameManagement.SetLanguage("eng"); // Pushing language to ENGLISH to GameManagement.
-        }
-        public void OnFinnish()
-        {
-            //Debug.Log("Language changed to Finnish!");
-
-            gameManagement.SetLanguage("fin"); // Pushing language to FINNISH to GameManagement.
-        }
-
         //Change the locale aka language and make it that it is not called more than once
         public void ChangeLocal(int localeID)
         {

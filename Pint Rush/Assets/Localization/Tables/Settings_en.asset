@@ -30,6 +30,14 @@ MonoBehaviour:
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 12668308760588288
+    m_Localized: How to play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12668286828572672
+    m_Localized: MAIN MENU
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

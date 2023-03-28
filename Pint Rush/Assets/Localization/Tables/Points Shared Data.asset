@@ -27,6 +27,26 @@ MonoBehaviour:
     m_Key: Main Text
     m_Metadata:
       m_Items: []
+  - m_Id: 2947508528771072
+    m_Key: HowToPlay header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947577684455424
+    m_Key: HowToPlay info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947629341503488
+    m_Key: HowToPlay lifes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947671137742848
+    m_Key: HowToPlay buttons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947727379165184
+    m_Key: HowToPlay taps
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
