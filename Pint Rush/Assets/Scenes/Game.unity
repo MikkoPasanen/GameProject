@@ -11313,6 +11313,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528376545395367417, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
+      propertyPath: csc
+      value: 
+      objectReference: {fileID: 1348986291}
+    - target: {fileID: 7528376545395367417, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
       propertyPath: exitButton
       value: 
       objectReference: {fileID: 985150604}
@@ -11322,7 +11326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528376545395367418, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528376545760645164, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
       propertyPath: m_Camera

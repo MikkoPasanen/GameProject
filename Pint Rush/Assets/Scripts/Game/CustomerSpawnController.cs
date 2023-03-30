@@ -36,7 +36,6 @@ namespace PintRush
             Debug.Log("Endpoints length: "+endpointPositions.Length);
             timer = 0;
             spawnStarted = false;
-            StartCoroutine(WaitForFirstSpawn(3f));
         }
 
         //Timer for the customer spawns
@@ -66,6 +65,11 @@ namespace PintRush
             //Counts seconds
             timer += Time.deltaTime;
 
+        }
+
+        public void StartSpawn()
+        {
+            StartCoroutine(WaitForFirstSpawn(3f));
         }
 
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
