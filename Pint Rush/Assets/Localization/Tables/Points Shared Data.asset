@@ -28,11 +28,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2947508528771072
-    m_Key: HowToPlay header
+    m_Key: HowToPlay 1/2  header
     m_Metadata:
       m_Items: []
   - m_Id: 2947577684455424
-    m_Key: HowToPlay info
+    m_Key: HowToPlay 1/2  info
     m_Metadata:
       m_Items: []
   - m_Id: 2947629341503488
@@ -45,6 +45,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2947727379165184
     m_Key: HowToPlay taps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3481075323584512
+    m_Key: HowToPlay Upgrades button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3482563827548160
+    m_Key: HowToPlay 2/2 header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3482598791266304
+    m_Key: HowToPlay 2/2 info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3483548822093824
+    m_Key: HowToPlay 2/2 taps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497069127483392
+    m_Key: try again button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497478848069632
+    m_Key: upgrades button
     m_Metadata:
       m_Items: []
   m_Metadata:

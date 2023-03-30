@@ -81,7 +81,6 @@ namespace PintRush
                     chosenBeerThree.SetActive(true);
                     break;
             }
-            Debug.Log("Chosen beer: " + chosenBeer.name);
             beerDecided = true;
         }
 
@@ -107,6 +106,7 @@ namespace PintRush
             {
                 transform.Translate(exitMovement);
                 transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
+                transform.parent.GetComponent<CustomerSpawnController>().RemoveCustomerCount();
                 bc2d.enabled = false;
                 //removedLife = true;
                 if (happy)
@@ -138,7 +138,6 @@ namespace PintRush
             }
             if(exit && currentPos.x >= exitEndpoint.position.x)
             {
-                Debug.Log("Exited");
                 Destroy(gameObject);
                 
             }
@@ -208,11 +207,6 @@ namespace PintRush
             this.happy = happy;
         }
 
-        public void SetOccupiedSpace(int space)
-        {
-            this.occupiedSpace = space;
-        }
-
         //Set the endpoint that the customer will walk into
         public void SetEndpoint(Transform enterEndPosition, int occupiedSpace)
         {
@@ -223,38 +217,5 @@ namespace PintRush
         {
             this.exitEndpoint = exitEndpoint;
         }
-
-
-
-        //If the customer gets his drink that is full, he will disappear
-        //Checks if the glass is filled and if the drink is the same as what the customer ordered
-        /*private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if(collision.gameObject.tag == "Glass")
-            {
-                GlassController glass = collision.gameObject.GetComponent<GlassController>();
-                if (glass.GetFill())
-                {
-                    
-                    // Get the customer's chosen beer name
-                    string chosenBeerName = chosenBeer.name;
-
-                    // Get the name of the glass that collided with the customer
-                    string glassName = collision.gameObject.name;
-
-                    // Check if the glass name contains the name of the customer's chosen beer and that the finger is up when giving the drink
-                    if (glassName.Contains(chosenBeerName))
-                    {
-                        gm.RemoveGlass();
-                        Destroy(gameObject);
-                        Destroy(collision.gameObject);
-                        transform.parent.GetComponent<CustomerSpawnController>().SetCustomerSpawned(false);
-                        glass.SetFill(false);
-                        glass.SetOnCustomer(false);
-                    }
-                }
-            }
-        }
-        */
     }
 }

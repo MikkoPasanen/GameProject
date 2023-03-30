@@ -22,6 +22,22 @@ MonoBehaviour:
     m_Localized: Play
     m_Metadata:
       m_Items: []
+  - m_Id: 13220918161129472
+    m_Localized: UPGRADES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13220939698880512
+    m_Localized: THIS UPGRADES WILL SPEED UP THE BEER POURING TIME
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13221004962250752
+    m_Localized: THIS UPGRADE WILL INCREASE THE TOTAL AMOUNT OF GLASSES BY ONE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13221040697720832
+    m_Localized: UPGRADE
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

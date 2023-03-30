@@ -30,6 +30,58 @@ MonoBehaviour:
     m_Localized: Game over
     m_Metadata:
       m_Items: []
+  - m_Id: 3481075323584512
+    m_Localized: upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947727379165184
+    m_Localized: DRAG THE right GLASS UNDER THE right TAP AND PRESS THE LEVER TO
+      START the pour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3483548822093824
+    m_Localized: BY GETTING UPGRADES YOU GET MORE GLASSES TO USE AND FASTER BEERTAPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3482563827548160
+    m_Localized: game mechanics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947671137742848
+    m_Localized: these buttons will spawn glasses to the counter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947629341503488
+    m_Localized: you have 3 lifes and if the customer is not satisfied you will lose
+      a life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947508528771072
+    m_Localized: WELCOME TO PINT RUSH!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947577684455424
+    m_Localized: 'YOUR JOB IS TO SERVE THE CUSTOMERS THEIR DRINK OF CHOICE IN TIME
+
+      TAKE
+      THE ORDER, POUR A PINT, SERVE!
+
+      BE FAST! THE CUSTOMER HEARD THAT THE
+      PUB IS OPEN THEY WILL SOON LINE UP TO GET DRINKS...
+
+
+      THERE ARE 3 DIFFERENT
+      BEERS TO SERVE:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497069127483392
+    m_Localized: try again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497478848069632
+    m_Localized: UPGRADES
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

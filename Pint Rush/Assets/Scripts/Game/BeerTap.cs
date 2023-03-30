@@ -18,6 +18,9 @@ namespace PintRush
 
         [SerializeField] private AudioManager audioManager;
 
+        [SerializeField] private Sprite[] tapSprites = new Sprite[4];
+        private SpriteRenderer spriteRenderer;
+
         private bool pouring = false;
         private bool glassUnderTap = false;
 
@@ -43,9 +46,29 @@ namespace PintRush
                 type = Type.None;
                 Debug.Log($"Beer tap type is {type}");
             }
+
+            // Set sprite to default: wooden tap
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            if(spriteRenderer != null)
+            {
+                spriteRenderer.sprite = tapSprites[0];
+            }
         }
 
-        private void OnMouseDown()
+        public void SetSprite(int index)
+        {
+            if(spriteRenderer != null)
+            {
+                spriteRenderer.sprite = tapSprites[index];
+            }
+        }
+
+        public Sprite GetNextUpgradeSprite(int index)
+        {
+            return tapSprites[index];
+        }
+
+        public void TryPouring()
         {
             if(glassUnderTap && !pouring)
             {
@@ -54,44 +77,6 @@ namespace PintRush
             }
         }
 
-        /*
-
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            // Glass is inside the beer tap area
-            // Disables the rb2d for the glass so that it cant be moved around by hitting it with another glass
-            if(collision.gameObject.tag == "Glass")
-            {
-                if (beerOne && collision.gameObject.name.Contains("GlassOne") || beerTwo && collision.gameObject.name.Contains("GlassTwo") || beerThree && collision.gameObject.name.Contains("GlassThree"))
-                {
-                    if (!occupied)
-                    {
-                        Debug.Log("Trigger yeet");
-                        occupied = true;
-                        glass = collision.gameObject.GetComponent<Glass>();
-                        glass.SetIsInsideTapArea(true);
-                    }
-                }
-                else
-                {
-                    Debug.Log("Wrong glass!");
-                }
-            }
-        }
-
-        // Glass is taken out of the tap
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if(collision.gameObject.tag == "Glass")
-            {
-                Debug.Log("Trigger exited");
-                occupied = false;
-                glass = collision.gameObject.GetComponent<Glass>();
-                glass.SetIsInsideTapArea(false);
-                glass.SetIsUnderTap(false);
-            }
-        }
-        */
         public bool GetPouring()
         {
             return this.pouring;
@@ -109,12 +94,5 @@ namespace PintRush
         {
             return snapPos;
         }
-        /*
-        public Type GetType()
-        {
-            return this.type;
-        }
-        */
-
     }
 }

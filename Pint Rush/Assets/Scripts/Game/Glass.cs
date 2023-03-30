@@ -36,7 +36,6 @@ namespace PintRush
             animator = GetComponent<Animator>();
             animator.speed = 1.0f;
             glassName = this.name;
-            Debug.Log($"This glass name:" + glassName);
         }
 
         private void Update()
@@ -76,7 +75,6 @@ namespace PintRush
                     break;
                 default:
                     type = Type.None;
-                    Debug.Log($"Glass type is {type}");
                     break;
             }
             Debug.Log(type.ToString());
@@ -155,7 +153,6 @@ namespace PintRush
             }
             else if (snapping)
             {
-                Debug.Log("Snapping");
                 transform.position = beerTap.GetSnapPos().position;
                 snapping = false;
             }

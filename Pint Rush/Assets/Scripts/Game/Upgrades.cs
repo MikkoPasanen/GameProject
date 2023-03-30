@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 namespace PintRush
 {
@@ -24,7 +26,15 @@ namespace PintRush
         [SerializeField] private GameObject[] glassCoasters = new GameObject[3];
 
         [SerializeField] private GameManagement gm;
- 
+        [SerializeField] private BeerTap beerTapOne;
+        [SerializeField] private BeerTap beerTapTwo;
+        [SerializeField] private BeerTap beerTapThree;
+
+        [SerializeField] private Image upgradeTapImage;
+
+        [SerializeField] private GameObject[] upgradeGlassImages;
+
+
         private void Start()
         {
             tapUpgraded = 0;
@@ -32,6 +42,10 @@ namespace PintRush
 
             tapCurrentCost = tapCosts[1];
             glassCurrentCost = glassCosts[1];
+
+            upgradeGlassImages[0].SetActive(false);
+            upgradeGlassImages[1].SetActive(false);
+            upgradeGlassImages[2].SetActive(false);
         }
 
         private void Update()
@@ -54,41 +68,74 @@ namespace PintRush
                 glassCostText.text = $"{glassCurrentCost}";
             }
 
-            switch(tapUpgraded)
-            {
-                case 0:
-                    break;
-                case 1:
-                    tapStars[0].SetActive(true);
-                    break;
-                case 2:
-                    tapStars[1].SetActive(true);
-                    break;
-                case 3:
-                    tapStars[2].SetActive(true);
-                    break;
-                default:
-                    break;
-            }
+            CheckTaps();
+            CheckGlasses();
 
-            switch (glassesUpgraded)
+
+            
+        }
+
+        public void CheckTaps()
+        {
+            if (tapUpgraded == 0)
             {
-                case 0:
-                    break;
-                case 1:
-                    glassStars[0].SetActive(true);
-                    glassCoasters[0].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137,137,137,100);
-                    break;
-                case 2:
-                    glassStars[1].SetActive(true);
-                    glassCoasters[1].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
-                    break;
-                case 3:
-                    glassStars[2].SetActive(true);
-                    glassCoasters[2].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
-                    break;
-                default:
-                    break;
+                upgradeTapImage.sprite = beerTapOne.GetNextUpgradeSprite(1);
+            }
+            else if (tapUpgraded == 1)
+            {
+                tapStars[0].SetActive(true);
+                beerTapOne.SetSprite(1);
+                beerTapTwo.SetSprite(1);
+                beerTapThree.SetSprite(1);
+                upgradeTapImage.sprite = beerTapOne.GetNextUpgradeSprite(2);
+            }
+            else if (tapUpgraded == 2)
+            {
+                tapStars[1].SetActive(true);
+                beerTapOne.SetSprite(2);
+                beerTapTwo.SetSprite(2);
+                beerTapThree.SetSprite(2);
+                upgradeTapImage.sprite = beerTapOne.GetNextUpgradeSprite(3);
+            }
+            else if (tapUpgraded == 3)
+            {
+                tapStars[2].SetActive(true);
+                beerTapOne.SetSprite(3);
+                beerTapTwo.SetSprite(3);
+                beerTapThree.SetSprite(3);
+            }
+            else
+            {
+                Debug.Log($"TapUpgraded: {tapUpgraded} \n Something might have gone wrong");
+            }
+        }
+
+        public void CheckGlasses()
+        {
+            if (glassesUpgraded == 0)
+            {
+                upgradeGlassImages[0].SetActive(true);
+            }
+            else if (glassesUpgraded == 1) 
+            {
+                glassStars[0].SetActive(true);
+                glassCoasters[0].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
+                upgradeGlassImages[1].SetActive(true);
+            }
+            else if (glassesUpgraded == 2)
+            {
+                glassStars[1].SetActive(true);
+                glassCoasters[1].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
+                upgradeGlassImages[2].SetActive(true);
+            }
+            else if (glassesUpgraded == 3)
+            {
+                glassStars[2].SetActive(true);
+                glassCoasters[2].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
+            }
+            else
+            {
+
             }
         }
 

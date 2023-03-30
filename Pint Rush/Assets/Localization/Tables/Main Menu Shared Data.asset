@@ -19,6 +19,26 @@ MonoBehaviour:
     m_Key: Play Button
     m_Metadata:
       m_Items: []
+  - m_Id: 13220918161129472
+    m_Key: UPGRADES HEADER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13220939698880512
+    m_Key: UPGRADES BEERTAP TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13220979595100160
+    m_Key: UPGRADES BEERTAP BUTTON
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13221004962250752
+    m_Key: UPGRADES GLASSES TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13221040697720832
+    m_Key: UPGRADES GLASSES BUTTON
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

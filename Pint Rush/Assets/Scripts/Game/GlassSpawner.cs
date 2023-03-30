@@ -50,8 +50,6 @@ namespace PintRush
                 GameObject firstGlass = Instantiate(g1Prefab, firstSpawn, Quaternion.identity);
                 firstGlass.transform.SetParent(parent.transform, false);
                 firstGlass.GetComponent<Glass>().SetAnimatorSpeed(currentAnimationSpeed);
-                Debug.Log($"Spawnpoint: {firstSpawn}");
-                Debug.Log($"Actual spawnpoint: {firstGlass.transform.position}");
 
                 // Setting type to beers
                 firstGlass.GetComponent<Glass>().SetType("Lager");

@@ -30,6 +30,52 @@ MonoBehaviour:
     m_Localized: "peli P\xC4\xC4TTYI"
     m_Metadata:
       m_Items: []
+  - m_Id: 3481075323584512
+    m_Localized: "P\xC4IVITYKSET"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947727379165184
+    m_Localized: "VED\xC4 LASI OIKEAN HANAN ALLE JA PAINA HANAN KAHVAA ALOITTAAKSESI
+      KAADON"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3483548822093824
+    m_Localized: "HANKKIMALLA P\xC4IVITYKSI\xC4 SAAT ENEMM\xC4N LASEJA  k\xC4YTETT\xC4V\xC4KSI
+      JA NOPEAMMAT HANAT"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3482563827548160
+    m_Localized: PELIMEKANIIKKA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947671137742848
+    m_Localized: "N\xC4M\xC4 NAPIT LUOVAT TISKILLE KUVANSA MUKAISEN LASIN "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947629341503488
+    m_Localized: "SINULLA ON 3 EL\xC4M\xC4\xC4 JA JOS ASIAKAS L\xC4HTEE POIS VIHAISENA
+      NIIN MENET\xC4T EL\xC4M\xC4N"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947508528771072
+    m_Localized: TERVETULOA PINT RUSHIIN!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2947577684455424
+    m_Localized: "TEHT\xC4V\xC4N\xC4SI ON TARJOILLA ASIAKKAILLE HEID\xC4N VALITSEMAT
+      JUOMAT AJOISSA\nOTA TILAUS, T\xC4YT\xC4 LASI, TARJOILE!\nOLE NOPEA! ASIAKKAAT
+      KUULIVAT ETT\xC4 PANIMO ON AUKI, HEIT\xC4 ON KOHTA JONOKSI ASTI...\n\nTARJOLLA
+      ON 3 ERI OLUTTA:\n\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497069127483392
+    m_Localized: "YRIT\xC4  UUDELLEEN"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3497478848069632
+    m_Localized: "P\xC4IVITYKSET"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

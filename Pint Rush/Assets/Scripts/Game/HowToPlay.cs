@@ -7,6 +7,8 @@ namespace PintRush
     public class HowToPlay : MonoBehaviour
     {
         [SerializeField] private CustomerSpawnController csc;
+        [SerializeField] private GameObject htp1;
+        [SerializeField] private GameObject htp2;
         private bool gameStarted;
 
         private void Awake()
@@ -29,6 +31,17 @@ namespace PintRush
             }
             gameObject.SetActive(false);
             Time.timeScale = 1.0f;
+        }
+
+        public void OnHtp1()
+        {
+            gameObject.SetActive(false);
+            htp1.gameObject.SetActive(true);
+        }
+        public void OnHtp2()
+        {
+            gameObject.SetActive(false);
+            htp2.gameObject.SetActive(true);
         }
     }
 }
