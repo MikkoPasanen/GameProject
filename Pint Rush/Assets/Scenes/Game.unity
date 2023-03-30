@@ -10884,6 +10884,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2110298646}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
+      propertyPath: points
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: lifeBar
       value: 
       objectReference: {fileID: 0}

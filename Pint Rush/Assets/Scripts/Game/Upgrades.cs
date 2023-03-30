@@ -94,7 +94,7 @@ namespace PintRush
 
         public void UpgradeTap()
         {
-            if (gm.GetPoints() > tapCurrentCost) 
+            if (gm.GetPoints() >= tapCurrentCost) 
             {
                 if (tapUpgraded < maxTap)
                 {
@@ -111,7 +111,7 @@ namespace PintRush
 
         public void UpgradeGlasses()
         {
-            if(gm.GetPoints() > glassCurrentCost)
+            if(gm.GetPoints() >= glassCurrentCost)
             {
                 if (glassesUpgraded < maxGlasses)
                 {
