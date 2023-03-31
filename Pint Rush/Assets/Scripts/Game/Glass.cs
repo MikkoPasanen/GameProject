@@ -176,6 +176,14 @@ namespace PintRush
             }
         }
 
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if(collision.gameObject.tag == "BeerTap")
+            {
+                SetGlassUnderTap(false);
+            }
+        }
+
         public void SetAnimatorSpeed(float speed)
         {
             Debug.Log($"Animation speed set to: {speed}");

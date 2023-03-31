@@ -45,6 +45,7 @@ namespace PintRush
 
         private CustomerSpawnController csc;
         private int occupiedSpace;
+        private bool left = false;
 
         private void Awake()
         {
@@ -105,7 +106,7 @@ namespace PintRush
             if(exit && currentPos.x <= exitEndpoint.position.x)
             {
                 transform.Translate(exitMovement);
-                transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
+                FreeSpace();
                 transform.parent.GetComponent<CustomerSpawnController>().RemoveCustomerCount();
                 bc2d.enabled = false;
                 //removedLife = true;
@@ -216,6 +217,15 @@ namespace PintRush
         public void SetExitEndpoint(Transform exitEndpoint)
         {
             this.exitEndpoint = exitEndpoint;
+        }
+
+        public void FreeSpace()
+        {
+            if(!left)
+            {
+                transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
+                left = true;
+            }
         }
     }
 }

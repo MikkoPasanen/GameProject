@@ -78,8 +78,6 @@ namespace PintRush
         {
             //Counts seconds
             timer += Time.deltaTime;
-            allSpacesOccupied = ScanOccupiedSpaces();
-            Debug.Log($"All occupied: {allSpacesOccupied}");
         }
 
         public void StartSpawn()
@@ -90,48 +88,35 @@ namespace PintRush
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
-            bool doContinue = true;
             // Because otherwise it would start another random generation
             // Now if there is a customer random being generated in the while loop
             // it doesn't start the process again.
             if (!customerSpawned) 
             {
-                if (!allSpacesOccupied)
-                {
-                    customerSpawned = true;
-                    //Debug.Log(allSpacesOccupied);
-                    //Selects a random endpoint and a random customer prefab to spawn
-                    random = UnityEngine.Random.Range(0, 3); // Select a random point for the customer to occupie
-                    //Debug.Log($"Random {random}");
-                    if (occupiedSpace[random] == true) //If the random customer place is already occupied, then choose another 
-                    {
-                        for(int i = 0; i< 3; i++)
-                        {
-                            if (occupiedSpace[i] == false)
-                            {
-                                random = i;
-                                doContinue = true;
-                                break;
-                            }
-                            doContinue = false;
-                        }
-                    }
-                    if(doContinue)
-                    {
-                        occupiedSpace[random] = true;
+              
+                  customerSpawned = true;
+                  //Debug.Log(allSpacesOccupied);
+                  //Selects a random endpoint and a random customer prefab to spawn
+                  random = UnityEngine.Random.Range(0, 3); // Select a random point for the customer to occupie
+                  //Debug.Log($"Random {random}");
+                  
+                  while(occupiedSpace[random] == true)
+                  {
+                      random = UnityEngine.Random.Range(0, 3);
+                  }
+                  occupiedSpace[random] = true;
 
-                        randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length); //Select a random customer to spawn from an array (different sprite for the customer)
-                        GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
-                        AddCustomerCount();
-                        CustomerController customerController = customer.GetComponent<CustomerController>();
+                  randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length); //Select a random customer to spawn from an array (different sprite for the customer)
+                  GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
+                  AddCustomerCount();
+                  CustomerController customerController = customer.GetComponent<CustomerController>();
 
-                        Transform randomEndpointPosition = endpointPositions[random];
+                  Transform randomEndpointPosition = endpointPositions[random];
 
-                        customerController.SetEndpoint(randomEndpointPosition, random);
-                        customerController.SetExitEndpoint(exitEndPosition);
-                        customer.transform.SetParent(customers.transform, false);
-                    }
-                }
+                  customerController.SetEndpoint(randomEndpointPosition, random);
+                  customerController.SetExitEndpoint(exitEndPosition);
+                  customer.transform.SetParent(customers.transform, false); 
+            
             }
             customerSpawned = false;
         }
@@ -186,42 +171,12 @@ namespace PintRush
         {
             this.occupiedSpace[space] = occupied;
         }
-        public bool ScanOccupiedSpaces()
-        {
-            bool one = false;
-            bool two = false;
-            bool three = false;
-
-            if (occupiedSpace[0] == true)
-            {
-                one = true;
-            }
-            if (occupiedSpace[1] == true)
-            {
-                two = true;
-            }
-            if (occupiedSpace[2] == true)
-            {
-                three = true;
-            }
-            Debug.Log($"{one}, {two}, {three}");
-
-            if (one && two && three)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         IEnumerator WaitForFirstSpawn(float time)
         {
             yield return new WaitForSeconds(time);
             SpawnCustomer();
             spawnStarted = true;
-            Debug.Log("Spawning started!");
         }
     }
 }

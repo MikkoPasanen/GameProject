@@ -44,7 +44,6 @@ namespace PintRush
             else
             {
                 type = Type.None;
-                Debug.Log($"Beer tap type is {type}");
             }
 
             // Set sprite to default: wooden tap

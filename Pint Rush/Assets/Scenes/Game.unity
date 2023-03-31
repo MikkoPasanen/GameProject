@@ -14056,7 +14056,7 @@ PrefabInstance:
       objectReference: {fileID: 1966582467}
     - target: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
       propertyPath: spawnRate
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
       propertyPath: gameManagement
