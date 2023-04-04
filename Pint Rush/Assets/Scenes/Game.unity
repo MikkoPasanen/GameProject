@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dcf838a6065a554caad16c5ff71d3f3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14159,7 +14159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14167,7 +14167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchorMin.y
@@ -14175,11 +14175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 170
+      value: -327
       objectReference: {fileID: 0}
     - target: {fileID: 665139888140486280, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -160
+      value: -152
       objectReference: {fileID: 0}
     - target: {fileID: 1475333638786453977, guid: 600faa346d917b24783f0a2e2f27dafa, type: 3}
       propertyPath: m_LocalScale.x
@@ -15478,7 +15478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7528376545395367418, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528376545760645164, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
       propertyPath: m_Camera
