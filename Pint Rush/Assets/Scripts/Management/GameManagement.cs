@@ -12,7 +12,6 @@ namespace PintRush
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
         private int maxGlasses;
-        private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
         //private bool gameOver = false;
@@ -59,7 +58,7 @@ namespace PintRush
                 upgradePointsText.text = $"{points}";
             }
             Debug.Log($"Start Currentlives: {currentLives}");
-            //howToPlay.SetActive(true);
+            howToPlay.SetActive(true);
         }
 
         public bool GetMuteState()

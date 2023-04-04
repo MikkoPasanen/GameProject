@@ -2056,7 +2056,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.34}
+  m_Offset: {x: -0.01, y: 0.34}
   m_Size: {x: 0.3, y: 0.58}
   m_Direction: 0
 --- !u!114 &357494022
@@ -4817,10 +4817,10 @@ MonoBehaviour:
   glass: {fileID: 0}
   audioManager: {fileID: 1099670453}
   tapSprites:
-  - {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
-  - {fileID: 21300000, guid: 886b004561cb1284cbe3b4f82b61642a, type: 3}
-  - {fileID: 21300000, guid: 378cb999ba1f0804b9e188192e0ea12b, type: 3}
-  - {fileID: 21300000, guid: 862b50efb2a71bb4783abf4713d6d232, type: 3}
+  - {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
+  - {fileID: -612342653, guid: 8069f91a4ad2f4d4b86c1ca235516e44, type: 3}
+  - {fileID: -2011932307, guid: 4bdcb32470ea76b43bee84fceaf58d00, type: 3}
+  - {fileID: 1085946524, guid: f099c74eb80e6d24caba71ecf23098b7, type: 3}
   type: 0
 --- !u!61 &835117733
 BoxCollider2D:
@@ -4839,7 +4839,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 1.4}
+    oldSize: {x: 0.38, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4889,7 +4889,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
+  m_Sprite: {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4909,8 +4909,8 @@ RectTransform:
   m_GameObject: {fileID: 835117731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 178.58751, y: 178.58751, z: 178.58751}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 178.58751, y: 176, z: 178.58751}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 530683935}
   - {fileID: 1019681452}
@@ -4920,8 +4920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 65, y: 45.699997}
-  m_SizeDelta: {x: 0.64, y: 1.15}
+  m_AnchoredPosition: {x: 65, y: 39.25}
+  m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!58 &835117736
 CircleCollider2D:
@@ -4936,7 +4936,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0.46}
+  m_Offset: {x: 0, y: 0.49}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!1 &842244194
@@ -6047,7 +6047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000000003958121, y: 0.461}
+  m_AnchoredPosition: {x: -0.003, y: 0.507}
   m_SizeDelta: {x: 0.58, y: 1.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1019681453
@@ -7142,10 +7142,10 @@ MonoBehaviour:
   glass: {fileID: 0}
   audioManager: {fileID: 1099670453}
   tapSprites:
-  - {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
-  - {fileID: 21300000, guid: 886b004561cb1284cbe3b4f82b61642a, type: 3}
-  - {fileID: 21300000, guid: 378cb999ba1f0804b9e188192e0ea12b, type: 3}
-  - {fileID: 21300000, guid: 862b50efb2a71bb4783abf4713d6d232, type: 3}
+  - {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
+  - {fileID: -612342653, guid: 8069f91a4ad2f4d4b86c1ca235516e44, type: 3}
+  - {fileID: -2011932307, guid: 4bdcb32470ea76b43bee84fceaf58d00, type: 3}
+  - {fileID: 1085946524, guid: f099c74eb80e6d24caba71ecf23098b7, type: 3}
   type: 0
 --- !u!61 &1147690534
 BoxCollider2D:
@@ -7164,7 +7164,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 1.4}
+    oldSize: {x: 0.38, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7214,7 +7214,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
+  m_Sprite: {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7234,8 +7234,8 @@ RectTransform:
   m_GameObject: {fileID: 1147690532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 178.58751, y: 178.58751, z: 178.58751}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 178.58751, y: 176, z: 178.58751}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1414420034}
   - {fileID: 2071214700}
@@ -7245,8 +7245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138.94, y: 45.699997}
-  m_SizeDelta: {x: 0.64, y: 1.15}
+  m_AnchoredPosition: {x: 138.94, y: 39.25}
+  m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!58 &1147690537
 CircleCollider2D:
@@ -7261,7 +7261,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.46}
+  m_Offset: {x: 0, y: 0.49}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!1 &1154921100 stripped
@@ -7699,7 +7699,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.34}
+  m_Offset: {x: -0.01, y: 0.34}
   m_Size: {x: 0.3, y: 0.58}
   m_Direction: 0
 --- !u!114 &1259920024
@@ -8611,7 +8611,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.001, y: 0.461}
+  m_AnchoredPosition: {x: -0.004000035, y: 0.5069999}
   m_SizeDelta: {x: 0.58, y: 1.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1426663969
@@ -9008,7 +9008,7 @@ RectTransform:
   m_GameObject: {fileID: 1485505220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.04, y: 3.04, z: 3.04}
+  m_LocalScale: {x: 3.3, y: 3.3, z: 3.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1140419240}
@@ -9016,8 +9016,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 175, y: 0}
-  m_SizeDelta: {x: 54, y: 110}
+  m_AnchoredPosition: {x: 175, y: -50}
+  m_SizeDelta: {x: 37, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1485505222
 MonoBehaviour:
@@ -10273,7 +10273,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
+  m_Sprite: {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10301,7 +10301,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 1.4}
+    oldSize: {x: 0.38, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10330,10 +10330,10 @@ MonoBehaviour:
   glass: {fileID: 0}
   audioManager: {fileID: 1099670453}
   tapSprites:
-  - {fileID: 21300000, guid: d3f2aacef88c5d740830d81a7d3d2994, type: 3}
-  - {fileID: 21300000, guid: 886b004561cb1284cbe3b4f82b61642a, type: 3}
-  - {fileID: 21300000, guid: 378cb999ba1f0804b9e188192e0ea12b, type: 3}
-  - {fileID: 21300000, guid: 862b50efb2a71bb4783abf4713d6d232, type: 3}
+  - {fileID: -681836714, guid: b797e48bfae0a5541870103a6f49e926, type: 3}
+  - {fileID: -612342653, guid: 8069f91a4ad2f4d4b86c1ca235516e44, type: 3}
+  - {fileID: -2011932307, guid: 4bdcb32470ea76b43bee84fceaf58d00, type: 3}
+  - {fileID: 1085946524, guid: f099c74eb80e6d24caba71ecf23098b7, type: 3}
   type: 0
 --- !u!224 &1675261466
 RectTransform:
@@ -10344,8 +10344,8 @@ RectTransform:
   m_GameObject: {fileID: 1675261460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 178.58751, y: 178.58751, z: 178.58751}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 178.58751, y: 176, z: 178.58751}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1764580923}
   - {fileID: 1426663968}
@@ -10355,8 +10355,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.9375, y: 45.699997}
-  m_SizeDelta: {x: 0.64, y: 1.15}
+  m_AnchoredPosition: {x: -8.9375, y: 39.25}
+  m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!58 &1675261467
 CircleCollider2D:
@@ -10371,7 +10371,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0.46}
+  m_Offset: {x: 0, y: 0.49}
   serializedVersion: 2
   m_Radius: 0.15
 --- !u!1 &1694905951
@@ -12564,7 +12564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -4.35, y: 12}
+  m_AnchoredPosition: {x: -4.3500004, y: 12}
   m_SizeDelta: {x: 60, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986205363
@@ -12650,7 +12650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.459}
+  m_AnchoredPosition: {x: -0.003000035, y: 0.50499994}
   m_SizeDelta: {x: 0.58, y: 1.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &2021289283
@@ -13020,7 +13020,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.34}
+  m_Offset: {x: -0.01, y: 0.34}
   m_Size: {x: 0.3, y: 0.58}
   m_Direction: 0
 --- !u!114 &2071214702
@@ -15061,7 +15061,7 @@ PrefabInstance:
       objectReference: {fileID: 1611362801}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: developerMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: gameOverScreen
@@ -15136,7 +15136,7 @@ PrefabInstance:
       objectReference: {fileID: 1966582467}
     - target: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
       propertyPath: spawnRate
-      value: 200
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
       propertyPath: gameManagement

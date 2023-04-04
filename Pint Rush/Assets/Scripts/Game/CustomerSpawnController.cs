@@ -52,6 +52,7 @@ namespace PintRush
         void FixedUpdate()
         {
             gameTimer++;
+
             if (spawnStarted)
             {
                 spawnTimer++;
@@ -63,12 +64,15 @@ namespace PintRush
                 }
             }
 
-            // Every 10 customers served spawn rate is increased
-            if (spawnRateThreshold >= 10)
+            if(spawnRate >= 100)
             {
-                spawnRateThreshold = 0;
-                spawnRate = spawnRate - 20;
+                if (spawnRateThreshold >= 10)
+                {
+                    spawnRateThreshold = 0;
+                    spawnRate = spawnRate - 20;
+                }
             }
+            // Every 10 customers served spawn rate is increased
         }
 
         private void Update()

@@ -48,6 +48,7 @@ namespace PintRush
 
             // Set sprite to default: wooden tap
             spriteRenderer = GetComponent<SpriteRenderer>();
+
             if(spriteRenderer != null)
             {
                 spriteRenderer.sprite = tapSprites[0];
