@@ -24,6 +24,7 @@ namespace PintRush
         [SerializeField] private bool[] occupiedSpace;
         private bool allSpacesOccupied;
         private bool customerSpawned;
+        private bool doContinue;
 
         private int spawnTimer = 0;
         private int gameTimer = 0;
@@ -44,6 +45,7 @@ namespace PintRush
             Debug.Log("Endpoints length: "+endpointPositions.Length);
             timer = 0;
             spawnStarted = false;
+            doContinue = false;
         }
 
         //Timer for the customer spawns
@@ -53,16 +55,11 @@ namespace PintRush
             if (spawnStarted)
             {
                 spawnTimer++;
+
                 if (spawnTimer >= spawnRate)
                 {
-                    if(customerCount < 3)
-                    {
-                        if (!customerSpawned)
-                        {
-                            spawnTimer = 0;
-                            SpawnCustomer();
-                        }
-                    }
+                    spawnTimer = 0;
+                    SpawnCustomer();
                 }
             }
 
@@ -93,29 +90,45 @@ namespace PintRush
             // it doesn't start the process again.
             if (!customerSpawned) 
             {
-              
                   customerSpawned = true;
+                  doContinue = false;
                   //Debug.Log(allSpacesOccupied);
                   //Selects a random endpoint and a random customer prefab to spawn
                   random = UnityEngine.Random.Range(0, 3); // Select a random point for the customer to occupie
                   //Debug.Log($"Random {random}");
                   
-                  while(occupiedSpace[random] == true)
+                  if(occupiedSpace[random])
                   {
-                      random = UnityEngine.Random.Range(0, 3);
+                        for(int i = 0; i < occupiedSpace.Length; i++)
+                        {
+                            if(!occupiedSpace[i])
+                            {
+                                doContinue = true;
+                                random = i;
+                                break;
+                            }
+                        }
                   }
-                  occupiedSpace[random] = true;
+                  else
+                  {
+                    doContinue = true;
+                  }
 
-                  randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length); //Select a random customer to spawn from an array (different sprite for the customer)
-                  GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
-                  AddCustomerCount();
-                  CustomerController customerController = customer.GetComponent<CustomerController>();
+                  if(doContinue)
+                  {
+                      occupiedSpace[random] = true;
 
-                  Transform randomEndpointPosition = endpointPositions[random];
+                      randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length); //Select a random customer to spawn from an array (different sprite for the customer)
+                      GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
+                      AddCustomerCount();
+                      CustomerController customerController = customer.GetComponent<CustomerController>();
 
-                  customerController.SetEndpoint(randomEndpointPosition, random);
-                  customerController.SetExitEndpoint(exitEndPosition);
-                  customer.transform.SetParent(customers.transform, false); 
+                      Transform randomEndpointPosition = endpointPositions[random];
+
+                      customerController.SetEndpoint(randomEndpointPosition, random);
+                      customerController.SetExitEndpoint(exitEndPosition);
+                      customer.transform.SetParent(customers.transform, false); 
+                  }
             
             }
             customerSpawned = false;
