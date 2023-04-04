@@ -57,8 +57,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bc2d: {fileID: 3981718366474747520}
   rb2d: {fileID: 3003713240334176557}
-  gs: {fileID: 5771592319243593033, guid: 39b46d8ce816c58459cb3c7d21f5d5ff, type: 3}
-  csc: {fileID: 4134407062381602052, guid: 9326b007d55b3af499f186a3e7b419ef, type: 3}
   filled: 0
   pouring: 0
 --- !u!222 &2301253463266565952
@@ -89,7 +87,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1566522167, guid: 3b1191e565901ce4c9ea179f74c14491, type: 3}
+  m_Sprite: {fileID: -542065133, guid: 56df2ebc500916d48a7a3333fd371952, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

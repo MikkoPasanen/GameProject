@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1063377901, guid: 91ceb9162541b0b4f855d2f69a521200, type: 3}
+  m_Sprite: {fileID: -655787129, guid: 56df2ebc500916d48a7a3333fd371952, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 2280442038562104568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.39000002, y: 0.30999994, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.74999994, z: 0.74999994}
+  m_LocalScale: {x: 0.75, y: 0.74999994, z: 0.74999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8337244094614392144}
@@ -241,7 +241,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1701568944, guid: aa12c04cf59b7334aab31ccaafd1967c, type: 3}
+  m_Sprite: {fileID: -1893177534, guid: 3d96cfe7075ee11459c339be1b5a4734, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -450,7 +450,7 @@ Transform:
   m_GameObject: {fileID: 5362088078990940499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.38, y: 0.3, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8337244094614392144}
@@ -497,7 +497,7 @@ SpriteRenderer:
   m_SortingLayerID: 1303766379
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 82d6719ec4d8c6f48aa0eed8c9b11f37, type: 3}
+  m_Sprite: {fileID: 1043968644, guid: 760b0143f72e62e4b95eb6be16c8cb9c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -823,6 +823,7 @@ MonoBehaviour:
   beerChoices:
   - {fileID: 5788822397612179796, guid: 4439cdd41bfb0af49b967a22395226ee, type: 3}
   - {fileID: 5788822397612179796, guid: bbb1b38ffeb17484895d99bed95b680a, type: 3}
+  - {fileID: 5788822397612179796, guid: e9252e5fd58e1da4da61aced5f183ccf, type: 3}
   patience: 150
   bc2d: {fileID: 3409957584903607254}
   direction: {x: 1, y: 0}
