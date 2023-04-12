@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace PintRush
@@ -96,31 +97,42 @@ namespace PintRush
             beerDecided = true;
         }
 
-
         private void Update()
         {
             Vector2 enterMovement = direction * enterSpeed * Time.deltaTime;
             Vector2 exitMovement = direction * exitSpeed * Time.deltaTime;
             currentPos = transform.position;
 
+            // Customer at the bar counter
             if(currentPos.x >= enterEndPosition.position.x)
             {
                 happinessTimerActive = true;
                 bc2d.enabled = true;
+
+                // Setting layer to be displayed on top
+                ChangeCustomerLayer("CustomerTwo");
             }
+
+            // Customer arriving
             if(currentPos.x <= enterEndPosition.position.x)
             {
                 transform.Translate(enterMovement);
                 bc2d.enabled = false;
+
+                ChangeCustomerLayer("Customer");
             }
 
+            // Customer leaving
             if(exit && currentPos.x <= exitEndpoint.position.x)
             {
                 transform.Translate(exitMovement);
                 FreeSpace();
                 transform.parent.GetComponent<CustomerSpawnController>().RemoveCustomerCount();
                 bc2d.enabled = false;
-                //removedLife = true;
+
+                // Setting layer back
+                ChangeCustomerLayer("Customer");
+
                 if (happy)
                 {
                     if(!exited)
@@ -250,6 +262,18 @@ namespace PintRush
             hairSprites[hair].SetActive(true);
             shirtSprites[shirt].SetActive(true);
             pantsSprites[pants].SetActive(true);
+        }
+
+        private void ChangeCustomerLayer(string sortingLayer)
+        {
+            SpriteRenderer[] spritesInChildren = gameObject.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer sprite in spritesInChildren)
+            {
+                if(sprite.sortingLayerName == "Customer" || sprite.sortingLayerName == "CustomerTwo")
+                {
+                    sprite.sortingLayerName = sortingLayer;
+                }
+            }
         }
     }
 }

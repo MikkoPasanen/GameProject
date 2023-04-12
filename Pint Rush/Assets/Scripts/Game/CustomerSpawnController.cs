@@ -10,7 +10,6 @@ namespace PintRush
     {
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private GameObject customers;
-        [SerializeField] private int customerPatience;
 
         [SerializeField] private Transform[] endpointPositions;
         [SerializeField] private GameObject customerPre;
@@ -66,13 +65,13 @@ namespace PintRush
 
             if(spawnRate >= 100)
             {
-                if (spawnRateThreshold >= 10)
+                if (spawnRateThreshold >= 8)
                 {
                     spawnRateThreshold = 0;
-                    spawnRate = spawnRate - 20;
+                    spawnRate = spawnRate - 25;
                 }
             }
-            // Every 10 customers served spawn rate is increased
+            // Every 8 customers served spawn rate is increased
         }
 
         private void Update()

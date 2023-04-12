@@ -9,6 +9,7 @@ TagManager:
   - Customer
   - BeerTap
   - LifeBottle
+  - Clothes
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Customer
     uniqueID: 494143697
+    locked: 0
+  - name: CustomerTwo
+    uniqueID: 1067970637
     locked: 0
   - name: Chimney n stuff
     uniqueID: 3251309387

@@ -201,7 +201,10 @@ namespace PintRush
         public void SetGlassUnderTap(bool isUnderTap)
         {
             this.isUnderTap = isUnderTap;
-            beerTap.SetGlassUnderTap(isUnderTap);
+            if(beerTap!= null )
+            {
+                beerTap.SetGlassUnderTap(isUnderTap);
+            }
         }
             
         public bool GetDragState()
