@@ -18,11 +18,15 @@ namespace PintRush
 
         [SerializeField] private AudioManager audioManager;
 
-        [SerializeField] private Sprite[] tapSprites = new Sprite[4];
+        [SerializeField] private Sprite[] tapSpritesUp = new Sprite[4];
+        [SerializeField] private Sprite[] tapSpritesDown = new Sprite[4];
+        [SerializeField] private GameObject beerImage;
         private SpriteRenderer spriteRenderer;
 
         private bool pouring = false;
         private bool glassUnderTap = false;
+
+        [SerializeField] private Upgrades upgrades;
 
         public enum Type { None = 0, Lager, Stout, Mystery };
         public Type type;
@@ -51,21 +55,31 @@ namespace PintRush
 
             if(spriteRenderer != null)
             {
-                spriteRenderer.sprite = tapSprites[0];
+                spriteRenderer.sprite = tapSpritesUp[0];
             }
         }
 
-        public void SetSprite(int index)
+        public void SetTapUp()
         {
             if(spriteRenderer != null)
             {
-                spriteRenderer.sprite = tapSprites[index];
+                spriteRenderer.sprite = tapSpritesUp[upgrades.GetTapUpgraded()];
+                beerImage.SetActive(true);
+            }
+        }
+
+        public void SetTapDown()
+        {
+            if(spriteRenderer != null)
+            {
+                spriteRenderer.sprite = tapSpritesDown[upgrades.GetTapUpgraded()];
+                beerImage.SetActive(false);
             }
         }
 
         public Sprite GetNextUpgradeSprite(int index)
         {
-            return tapSprites[index];
+            return tapSpritesUp[index];
         }
 
         public void TryPouring()

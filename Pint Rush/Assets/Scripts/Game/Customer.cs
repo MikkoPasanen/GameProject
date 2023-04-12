@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PintRush
 {
-    public class CustomerController : MonoBehaviour
+    public class Customer : MonoBehaviour
     {
         //Patience 
         [SerializeField] private GameObject happinessStateOne;
@@ -15,6 +15,16 @@ namespace PintRush
         [SerializeField] private GameObject chosenBeerOne;
         [SerializeField] private GameObject chosenBeerTwo;
         [SerializeField] private GameObject chosenBeerThree;
+
+        //Clothing
+        private int head;
+        private int hair;
+        private int shirt;
+        private int pants;
+        [SerializeField] private GameObject[] headSprites;
+        [SerializeField] private GameObject[] hairSprites;
+        [SerializeField] private GameObject[] shirtSprites;
+        [SerializeField] private GameObject[] pantsSprites;
 
         //Think bubble that showcases the patience and beer choice
         [SerializeField] private GameObject thinkBubble;
@@ -63,6 +73,7 @@ namespace PintRush
         private void Start()
         {
             direction = direction.normalized;
+            SelectClothes();
         }
 
         public void ChooseRandomBeer()
@@ -226,6 +237,19 @@ namespace PintRush
                 transform.parent.GetComponent<CustomerSpawnController>().SetOccupiedSpace(occupiedSpace, false);
                 left = true;
             }
+        }
+
+        public void SelectClothes()
+        {
+            head = Random.Range(0, headSprites.Length);
+            hair = Random.Range(0, hairSprites.Length);
+            shirt = Random.Range(0, shirtSprites.Length);
+            pants = Random.Range(0, pantsSprites.Length);
+
+            headSprites[head].SetActive(true);
+            hairSprites[hair].SetActive(true);
+            shirtSprites[shirt].SetActive(true);
+            pantsSprites[pants].SetActive(true);
         }
     }
 }

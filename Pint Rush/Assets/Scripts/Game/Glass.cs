@@ -53,10 +53,18 @@ namespace PintRush
             if(pouring)
             {
                 rb2d.simulated = false;
+                if(beerTap != null)
+                {
+                    beerTap.SetTapDown();
+                }
             }
             else
             {
                 rb2d.simulated = true;
+                if(beerTap != null)
+                {
+                    beerTap.SetTapUp();
+                }
             }
         }
 
@@ -117,7 +125,7 @@ namespace PintRush
                 RaycastHit2D hit = Physics2D.BoxCast((Vector2)transform.position - new Vector2(0.5f, 0), new Vector2(0.3f, 0.3f), 0f, new Vector2(1, 0), distance: 1f, layerMask: mask);
                 if (hit.collider != null)
                 {
-                    CustomerController cc = hit.collider.gameObject.GetComponent<CustomerController>();
+                    Customer cc = hit.collider.gameObject.GetComponent<Customer>();
                     CustomerSpawnController csc = hit.collider.gameObject.GetComponentInParent<CustomerSpawnController>();
 
                     string chosenBeerName = cc.GetBeerName();
@@ -164,11 +172,11 @@ namespace PintRush
             // If collision is with any type of beer tap
             if(collision.gameObject.tag == "BeerTap")
             {
-                beerTap = collision.gameObject.GetComponent<BeerTap>();
-
                 // If glass and tap types match
-                if((int)this.type == (int)beerTap.type)
+                if((int)this.type == (int)collision.gameObject.GetComponent<BeerTap>().type)
                 {
+                    beerTap = collision.gameObject.GetComponent<BeerTap>();
+
                     // Snapping to place in OnMouseUp
                     snapping = true;
                     SetGlassUnderTap(true);

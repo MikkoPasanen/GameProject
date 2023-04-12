@@ -71,6 +71,14 @@ MonoBehaviour:
     m_Key: upgrades button
     m_Metadata:
       m_Items: []
+  - m_Id: 8237939333554176
+    m_Key: Total served
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8238045004849152
+    m_Key: Points
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

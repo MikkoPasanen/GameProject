@@ -16,12 +16,15 @@ namespace PintRush
 
         [SerializeField] TextMeshProUGUI scoreText;
         [SerializeField] TextMeshProUGUI upgradePointsText;
+        [SerializeField] TextMeshProUGUI totalPointText;
 
         [SerializeField] private Life life;
 
         [SerializeField] private bool developerMode;
+        [SerializeField] private bool allowSpawn;
 
-        public int points;
+        public int upgradePoints;
+        public int totalPoints;
         private int beerOne;
         private int beerTwo;
         private int beerThree;
@@ -34,11 +37,11 @@ namespace PintRush
             // DEVELOPER MODE
             if(developerMode)
             {
-                points = 5000;
+                upgradePoints = 5000;
             }
             else
             {
-                points = 0;
+                upgradePoints = 0;
             }
 
             beerTwo = 0;
@@ -46,8 +49,9 @@ namespace PintRush
             maxGlasses = 1;
             if(SceneManager.GetActiveScene().name == "Game")
             {
-                scoreText.text = $"{points}";
-                upgradePointsText.text = $"{points}";
+                scoreText.text = $"{upgradePoints}";
+                upgradePointsText.text = $"{upgradePoints}";
+                totalPointText.text = $"{totalPoints}";
             }
             howToPlay.SetActive(true);
         }
@@ -76,17 +80,20 @@ namespace PintRush
         // Point methods
         public void AddPoint()
         {
-            points++;
-            Debug.Log("Added a point... Point: " + points);
-            scoreText.text = $"{points}";
-            upgradePointsText.text = $"{points}";
+            upgradePoints++;
+            totalPoints++;
+            Debug.Log("Added a point... Point: " + upgradePoints);
+            scoreText.text = $"{upgradePoints}";
+            upgradePointsText.text = $"{upgradePoints}";
+            totalPointText.text = $"{totalPoints}";
         }
         
         public void SetPoints(int points)
         {
-            this.points -= points;
-            scoreText.text = $"{this.points}";
-            upgradePointsText.text = $"{this.points}";
+            this.upgradePoints -= points;
+            scoreText.text = $"{this.upgradePoints}";
+            upgradePointsText.text = $"{this.upgradePoints}";
+            totalPointText.text = $"{this.totalPoints}";
         }
 
         public void AddMaxGlasses()
@@ -96,7 +103,7 @@ namespace PintRush
 
         public int GetPoints()
         {
-            return this.points;
+            return this.upgradePoints;
         }
 
         public void AddBeerOne()
@@ -149,6 +156,11 @@ namespace PintRush
         public int GetBeerThreeScore()
         {
             return this.beerThree;
+        }
+
+        public bool CheckAllowSpawn()
+        {
+            return allowSpawn;
         }
     }
 }
