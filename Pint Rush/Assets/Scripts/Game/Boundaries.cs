@@ -16,11 +16,6 @@ namespace PintRush
                 Debug.Log($"Destroyed: {collision.gameObject.name}");
                 glassSpawner.RemoveGlass();
             }
-
-            if(collision.gameObject.tag == "LifeBottle")
-            {
-                collision.GetComponent<Life>().SetDestroy();
-            }
         }
     }
 }

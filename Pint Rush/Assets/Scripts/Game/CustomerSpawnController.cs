@@ -152,13 +152,11 @@ namespace PintRush
         {
             if (happy)
             {
-                //Debug.Log("CUSTOMER LEFT: Happy!");
                 gameManagement.AddPoint();
                 spawnRateThreshold++;
             }
             else
             {
-                //Debug.Log("CUSTOMER LEFT: Not happy!");
                 gameManagement.RemoveLife();
             }
         }

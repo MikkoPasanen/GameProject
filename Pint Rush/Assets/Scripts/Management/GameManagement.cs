@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -14,18 +13,11 @@ namespace PintRush
         private int maxGlasses;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
-        //private bool gameOver = false;
-
 
         [SerializeField] TextMeshProUGUI scoreText;
         [SerializeField] TextMeshProUGUI upgradePointsText;
 
-        [SerializeField] Life lifeBarOne;
-        [SerializeField] Life lifeBarTwo;
-        [SerializeField] Life lifeBarThree;
-
-        [SerializeField] private int maxLives = 3;
-        private int currentLives;
+        [SerializeField] private Life life;
 
         [SerializeField] private bool developerMode;
 
@@ -33,10 +25,10 @@ namespace PintRush
         private int beerOne;
         private int beerTwo;
         private int beerThree;
+
         private void Start()
         {
             gameOverScreen.SetActive(false);
-            currentLives = maxLives;
             beerOne = 0;
 
             // DEVELOPER MODE
@@ -57,7 +49,6 @@ namespace PintRush
                 scoreText.text = $"{points}";
                 upgradePointsText.text = $"{points}";
             }
-            Debug.Log($"Start Currentlives: {currentLives}");
             howToPlay.SetActive(true);
         }
 
@@ -111,13 +102,11 @@ namespace PintRush
         public void AddBeerOne()
         {
             this.beerOne += 1;
-            Debug.Log("BeerOne: " + this.beerOne);
         }
 
         public void AddBeerTwo()
         {
             this.beerTwo += 1;
-            Debug.Log("BeerTwo: " + this.beerTwo);
         }
 
         public void AddBeerThree()
@@ -128,37 +117,17 @@ namespace PintRush
         // Life methods
         public void RemoveLife()
         {
-            currentLives -= 1;
-            Debug.Log("Removed a life... Lives: " + currentLives);
-            switch (currentLives)
+            life.LifeLost();
+            if(life.GetALife())
             {
-                case 2:
-                    StartCoroutine(lifeBarOne.LifeLost(1f));
-                    break;
-                case 1:
-                    StartCoroutine(lifeBarTwo.LifeLost(1f));
-                    break;
-                case 0:
-                    StartCoroutine(lifeBarThree.LifeLost(1f));
-                    break;
-                default:
-                    Debug.Log("There might be an error!");
-                    break;
+                StartCoroutine(WaitForGameOver(2));
             }
-            StartCoroutine(WaitForGameOver(2));
-            
-
         }
 
         IEnumerator WaitForGameOver(int time)
         {
             yield return new WaitForSeconds(time);
-            if (currentLives <= 0) { SetGameOver(); }
-        }
-
-        public int GetCurrentLives()
-        {
-            return this.currentLives;
+            SetGameOver();
         }
         
         // Glass methods
