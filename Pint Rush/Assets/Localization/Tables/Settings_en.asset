@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: MAIN MENU
     m_Metadata:
       m_Items: []
+  - m_Id: 19023617942908928
+    m_Localized: SHOW INSTRUCTIONS?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
