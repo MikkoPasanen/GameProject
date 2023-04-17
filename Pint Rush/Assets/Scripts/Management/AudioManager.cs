@@ -6,26 +6,45 @@ namespace PintRush
 {
     public class AudioManager : MonoBehaviour
     {
-        [SerializeField] private AudioSource glassBreaking;
+        [SerializeField] private AudioSource backgroundMusic;
         [SerializeField] private AudioSource beerPouring;
+        [SerializeField] private AudioSource upgradeSuccessSound;
+        [SerializeField] private AudioSource upgradeFailedSound;
+        [SerializeField] private AudioSource pointSound;
 
-        public void PlayGlassBreaking()
+        [SerializeField] private GameManagement gameManagement;
+
+        private AudioSource[] allAudio;
+
+
+        private void Start()
         {
-            if (glassBreaking.isPlaying)
+            // Stores all audioSources in an array
+            allAudio = gameObject.GetComponents<AudioSource>();
+        }
+
+        private void Update()
+        {
+            // Mute is on mute all sounds
+            if ( gameManagement.GetMuteState() )
             {
-                glassBreaking.Stop();
-                Debug.Log($"Stopping: {glassBreaking.clip.name}");
+                foreach ( AudioSource source in allAudio )
+                {
+                    source.mute = true;
+                }
             }
-            if (glassBreaking != null)
+            else
             {
-                glassBreaking.Play();
-                Debug.Log($"Playing: {glassBreaking.clip.name}");
+                foreach ( AudioSource source in allAudio )
+                {
+                    source.mute = false;
+                }
             }
         }
 
         public void PlayBeerPouring()
         {
-            if (beerPouring.isPlaying)
+            if (beerPouring != null && beerPouring.isPlaying)
             {
                 beerPouring.Stop();
                 Debug.Log($"Stopping: {beerPouring.clip.name}");
@@ -36,6 +55,34 @@ namespace PintRush
                 beerPouring.Play();
                 Debug.Log($"Playing: {beerPouring.clip.name}");
             }
+        }
+
+        public void PlayUpgradeSuccessSound()
+        {
+            if (upgradeSuccessSound != null)
+            {
+                upgradeSuccessSound.Play();
+            }
+        }
+        public void PlayUpgradeFailedSound()
+        {
+            if(upgradeFailedSound != null)
+            {
+                upgradeFailedSound.Play();
+            }
+        }
+
+        public void PlayPointSound()
+        {
+            if(pointSound != null)
+            {
+                pointSound.Play();
+            }
+        }
+
+        public bool GetVibrationState()
+        {
+            return gameManagement.GetVibrationState();
         }
     }
 }

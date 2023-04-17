@@ -26,6 +26,8 @@ namespace PintRush
         [SerializeField] private GameObject[] glassCoasters = new GameObject[3];
 
         [SerializeField] private GameManagement gm;
+        [SerializeField] private AudioManager audioManager;
+
         [SerializeField] private BeerTap beerTapOne;
         [SerializeField] private BeerTap beerTapTwo;
         [SerializeField] private BeerTap beerTapThree;
@@ -147,12 +149,29 @@ namespace PintRush
                 {
                     tapUpgraded++;
                     gm.SetPoints(tapCurrentCost);
+                    audioManager.PlayUpgradeSuccessSound();
+                }
+                else
+                {
+                    audioManager.PlayUpgradeFailedSound();
+                    if(audioManager.GetVibrationState())
+                    {
+                        Handheld.Vibrate();
+                    }
                 }
                 if (tapUpgraded < tapCosts.Length - 1)
                 {
                     tapCurrentCost = tapCosts[tapUpgraded + 1];
                 }
                 Debug.Log($"Tap upgrades: {tapUpgraded} / {maxTap}");
+            }
+            else
+            {
+                audioManager.PlayUpgradeFailedSound();
+                if(audioManager.GetVibrationState())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 
@@ -165,13 +184,30 @@ namespace PintRush
                     glassesUpgraded++;
                     gm.SetPoints(glassCurrentCost);
                     gm.AddMaxGlasses();
+                    audioManager.PlayUpgradeSuccessSound();
 
+                }
+                else
+                {
+                    audioManager.PlayUpgradeFailedSound();
+                    if(audioManager.GetVibrationState())
+                    {
+                        Handheld.Vibrate();
+                    }
                 }
                 if (glassesUpgraded < tapCosts.Length - 1)
                 {
                     glassCurrentCost = glassCosts[glassesUpgraded + 1];
                 }
                 Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
+            }
+            else
+            {
+                audioManager.PlayUpgradeFailedSound();
+                if(audioManager.GetVibrationState())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 

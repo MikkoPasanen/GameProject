@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace PintRush
 {
@@ -17,6 +18,8 @@ namespace PintRush
         [SerializeField] private GameObject g1Prefab;
         [SerializeField] private GameObject g2Prefab;
         [SerializeField] private GameObject g3Prefab;
+
+        [SerializeField] TextMeshProUGUI glassCounterText;
 
         [SerializeField] private float[] animationSpeeds = new float[4];
         private float currentAnimationSpeed;
@@ -37,6 +40,7 @@ namespace PintRush
             // Easy to modify
             maxGlasses = gameManagement.GetMaxGlasses();
             currentAnimationSpeed = animationSpeeds[upgrades.GetTapUpgraded()];
+            glassCounterText.text = $"{currentGlasses} / {maxGlasses}";
         }
 
         // Spawns a glass prefab in a specified position

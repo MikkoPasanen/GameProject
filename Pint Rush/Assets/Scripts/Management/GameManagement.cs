@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using UnityEditor;
 
 namespace PintRush
 {
@@ -10,6 +10,8 @@ namespace PintRush
     {
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
+        private static bool vibrationOn = true;
+
         private int maxGlasses;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
@@ -17,9 +19,11 @@ namespace PintRush
         [SerializeField] TextMeshProUGUI scoreText;
         [SerializeField] TextMeshProUGUI upgradePointsText;
         [SerializeField] TextMeshProUGUI totalPointText;
+        
 
         [SerializeField] private Life life;
         [SerializeField] private CustomerSpawnController csc;
+        [SerializeField] private AudioManager audioManager;
 
         [SerializeField] private bool developerMode;
         [SerializeField] private bool allowSpawn;
@@ -33,6 +37,7 @@ namespace PintRush
         //Playerprefs
         private string playerPrefKey = "HowToPlay";
         private bool defaultValue = true;
+
         [SerializeField] private GameObject checkMark;
         [SerializeField] private GameObject checkMarkTwo;
 
@@ -80,11 +85,20 @@ namespace PintRush
         {
             return isMuted;
         }
-
-        public void SetMuteState(bool newIsMuted)
+        public void SetMuteState(bool newMuteState)
         {
-            isMuted = newIsMuted;
+            isMuted = newMuteState;
         }
+
+        public bool GetVibrationState()
+        {
+            return vibrationOn;
+        }
+        public void SetVibrationState(bool newVibrationState)
+        {
+            vibrationOn = newVibrationState;
+        }
+
         public void SetGameOver()
         {
             Debug.Log("Game Over!");
@@ -102,6 +116,7 @@ namespace PintRush
         {
             upgradePoints++;
             totalPoints++;
+            audioManager.PlayPointSound();
             Debug.Log("Added a point... Point: " + upgradePoints);
             scoreText.text = $"{upgradePoints}";
             upgradePointsText.text = $"{upgradePoints}";
@@ -144,6 +159,7 @@ namespace PintRush
         // Life methods
         public void RemoveLife()
         {
+            Debug.Log("Removing a life");
             life.LifeLost();
             if(life.GetALife())
             {

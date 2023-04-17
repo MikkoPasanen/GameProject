@@ -13,6 +13,8 @@ namespace PintRush
         [SerializeField] private SpriteRenderer lifeTwo;
         [SerializeField] private SpriteRenderer lifeThree;
 
+        [SerializeField] private AudioManager audioManager;
+
         private void Start()
         {
             currentLives = 3;
@@ -25,6 +27,10 @@ namespace PintRush
 
         public void LifeLost()
         {
+            if(audioManager.GetVibrationState())
+            {
+                Handheld.Vibrate();
+            }
             currentLives--;
 
             switch (currentLives)
@@ -43,6 +49,7 @@ namespace PintRush
                     Debug.Log("tomato");
                     break;
             }
+            audioManager.PlayUpgradeFailedSound();
             
         }
         public bool GetALife() 

@@ -10,6 +10,8 @@ namespace PintRush
         [SerializeField] private GameManagement gameManagement;
         [SerializeField] private GameObject muteButton;
         [SerializeField] private GameObject unmuteButton;
+        [SerializeField] private GameObject vibrateOnButton;
+        [SerializeField] private GameObject vibrateOffButton;
         [SerializeField] private GameObject credits;
         private bool active = false;
         private bool optionsActive = false;
@@ -49,6 +51,20 @@ namespace PintRush
             unmuteButton.SetActive(false); // Setting unmute button DEACTIVE.
             muteButton.SetActive(true); // Setting mute button ACTIVE.
         }
+        public void OnVibrateOn()
+        {
+            Debug.Log("Vibrate on");
+            gameManagement.SetVibrationState(true);
+            vibrateOnButton.SetActive(false);
+            vibrateOffButton.SetActive(true);
+        }
+        public void OnVibrateOff()
+        {
+            Debug.Log("Vibrate off");
+            gameManagement.SetVibrationState(false);
+            vibrateOffButton.SetActive(false);
+            vibrateOnButton.SetActive(true);
+        }
         public void OnCredits()
         {
             credits.SetActive(true);
@@ -71,6 +87,16 @@ namespace PintRush
                 {
                     unmuteButton.SetActive(false); // Setting unmute button DEACTIVE.
                     muteButton.SetActive(true); // Setting mute button ACTIVE.
+                }
+                if(gameManagement.GetVibrationState())
+                {
+                    vibrateOffButton.SetActive(true);
+                    vibrateOnButton.SetActive(false);
+                }
+                if(!gameManagement.GetVibrationState())
+                {
+                    vibrateOnButton.SetActive(true);
+                    vibrateOffButton.SetActive(false);
                 }
             }
             else
