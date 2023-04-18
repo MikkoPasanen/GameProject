@@ -30,7 +30,6 @@ namespace PintRush
                 gameStarted = true;
             }
             gameObject.SetActive(false);
-            Time.timeScale = 1.0f;
         }
 
         public void OnHtp1()
