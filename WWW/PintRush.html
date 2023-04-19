@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+    </style>
+    <title>Pint Rush</title>
+</head>
+
+    <body>
+        <div class="header">
+            <h1>SecretDam Studios</h1>
+            <div class="header-links">
+                <ul>
+                    <li><a href="#portal">Portaalisivu</a></li>
+                    <li><a href="#info">Tietoa</a></li>
+                    <li><a href="#pictures">Kuvia</a></li>
+                    <li><a href="#team">Tiimimme</a></li>
+                    <li><a href="#english">In English</a></li>
+                </ul>
+            </div>
+
+            <div class="hamburger">
+                <button class="menu-btn">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+                <div class="hamburger-content">
+                    <ul>
+                        <li><a href="#portal">Portaalisivu</a></li>
+                        <li><a href="#info">Tietoa</a></li>
+                        <li><a href="#pictures">Kuvia</a></li>
+                        <li><a href="#team">Tiimimme</a></li>
+                        <li><a href="#english">In English</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--Tervetuloa-->
+        <div id="introduction">
+            <img src="hero-placeholder.png" alt="yeet">
+        </div>
+
+        <br>
+
+        <div id="info">
+            <h2>Tietoa</h2>
+            <span class="line2"></span>
+            <div id="info-container">
+                <div id="info-text">
+                    <p>Pint Rush on nopeatempoinen oluen tarjoilupeli, jossa pelaaja tarjoilee saapuville asiakkaille heidän
+                        tilaamansa juomat nopeutuvassa ympäristössä. 
+                        <br>
+                        <br>
+                        Peli vaatii nopeita sormia ja rautaisia hermoja.
+                        <br>
+                        <br>
+                        Ota tilaus, kaada olut ja tarjoile! Kuinka pitkälle pääset?
+                    </p>
+                </div>
+    
+                <div id="info-trailer">
+                    <iframe 
+                        class="video"
+                        src="https://www.youtube.com/embed/C0BMx-qxsP4" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                </iframe>        
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div id="pictures">
+            <h2>Kuvia</h2>
+            <span class="line2"></span>
+            <div id="pictures-container">
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+                <div class="picture">
+                    <img src="cat.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        
+        <div id="team">
+            <h2>Kehitystiimi</h2>
+            <span class="line2"></span>
+            <div id="team-container">
+                <div class="team-member">
+                    <h3>Scrum Master</h3>
+                    <br>
+                    <img src="sf_1.gif" alt="Santtu">
+                    <p>Santtu Lattunen
+                        <br>
+                        santtu.lattunen@tuni.fi
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Graafikko</h3>
+                    <br>
+                    <img src="rf_1.gif" alt="Riku">
+                    <p>Riku Saarijärvi
+                        <br>
+                        riku.saarijarvi@tuni.fi
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Ohjelmoija</h3>
+                    <br>
+                    <img src="mf_1.gif" alt="Mikko">
+                    <p>Mikko Pasanen
+                        <br>
+                        mikko.pasanen@tuni.fi
+                    </p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Ohjelmoija</h3>
+                    <br>
+                    <img src="tf_1.gif" alt="Teemu">
+                    <p>Teemu Tontti
+                        <br>
+                       teemu.tontti@tuni.fi
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="logos">
+            <h2>Yhteistyössä</h2>
+            <span class="line2"></span>
+            <div id="logos-container">
+
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div id="footer">
+            <p>&copy; 2023 <br>  SecretDam Studios</p>
+        </div>
+        
+        <script>
+            // Toggle hamburger menu
+            document.querySelector('.menu-btn').addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        </script>
+    </body>
+    
+</html>
