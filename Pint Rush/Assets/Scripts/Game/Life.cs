@@ -6,58 +6,55 @@ namespace PintRush
 {
     public class Life : MonoBehaviour
     {
+        private int currentLives;
+        private bool allLivesLost;
+
+        [SerializeField] private SpriteRenderer lifeOne;
+        [SerializeField] private SpriteRenderer lifeTwo;
+        [SerializeField] private SpriteRenderer lifeThree;
+
         [SerializeField] private AudioManager audioManager;
 
-        private Animator animator;
-        private bool soundPlayed;
-
-        private Rigidbody2D rb2d;
-
-        // !Updated in the Animator!
-        public bool animationEnded;
-        public bool playSound;
-
-        private bool destroy;
-        
         private void Start()
         {
-            animator = GetComponent<Animator>();
-            rb2d = GetComponent<Rigidbody2D>();
-            rb2d.simulated = false;
-            soundPlayed = false;
-            playSound = false;
-            animationEnded = false;
+            currentLives = 3;
+            allLivesLost = false;
+
+            lifeOne.color = Color.red;
+            lifeTwo.color = Color.red;
+            lifeThree.color = Color.red;
         }
 
-        private void Update()
+        public void LifeLost()
         {
-            // playSound updated in animator
-            if(destroy && !soundPlayed)
+            if(audioManager.GetVibrationState())
             {
-                soundPlayed = true;
-                audioManager.PlayGlassBreaking();
+                Handheld.Vibrate();
             }
+            currentLives--;
 
-            // animationEnded updated in animator
-            if (animationEnded)
+            switch (currentLives)
             {
-                Destroy(gameObject);
-                StartCoroutine(LifeLost(1f));
+                case 2:
+                    lifeOne.color = Color.black;
+                    break;
+                case 1:
+                    lifeTwo.color = Color.black;
+                    break;
+                case 0: 
+                    lifeThree.color = Color.black;
+                    allLivesLost = true;
+                    break;
+                default:
+                    Debug.Log("tomato");
+                    break;
             }
+            audioManager.PlayUpgradeFailedSound();
+            
         }
-
-        public IEnumerator LifeLost(float waitTime)
+        public bool GetALife() 
         {
-            rb2d.simulated = true;
-            animationEnded = false;
-
-            yield return new WaitForSeconds(waitTime);
-            animator.SetBool("PlayLifeLostAnimation", true);
-        }
-
-        public void SetDestroy()
-        {
-            this.destroy = true;
+            return this.allLivesLost;
         }
     }
 }

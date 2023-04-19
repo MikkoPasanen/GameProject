@@ -76,6 +76,14 @@ MonoBehaviour:
     m_Localized: "P\xC4IVITYKSET"
     m_Metadata:
       m_Items: []
+  - m_Id: 8237939333554176
+    m_Localized: tarjoiltu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8238045004849152
+    m_Localized: Pisteet
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

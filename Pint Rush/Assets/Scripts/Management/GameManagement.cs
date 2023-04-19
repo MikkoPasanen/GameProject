@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using UnityEditor;
 
 namespace PintRush
 {
@@ -11,43 +10,52 @@ namespace PintRush
     {
         // Mute set by default to false!
         [SerializeField] private static bool isMuted = false;
+        private static bool vibrationOn = true;
+
         private int maxGlasses;
-        private bool active = false;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
-        //private bool gameOver = false;
-
 
         [SerializeField] TextMeshProUGUI scoreText;
         [SerializeField] TextMeshProUGUI upgradePointsText;
+        [SerializeField] TextMeshProUGUI totalPointText;
+        
 
-        [SerializeField] Life lifeBarOne;
-        [SerializeField] Life lifeBarTwo;
-        [SerializeField] Life lifeBarThree;
-
-        [SerializeField] private int maxLives = 3;
-        private int currentLives;
+        [SerializeField] private Life life;
+        [SerializeField] private CustomerSpawnController csc;
+        [SerializeField] private AudioManager audioManager;
 
         [SerializeField] private bool developerMode;
+        [SerializeField] private bool allowSpawn;
 
-        public int points;
+        public int upgradePoints;
+        public int totalPoints;
         private int beerOne;
         private int beerTwo;
         private int beerThree;
+
+        //Playerprefs
+        private string playerPrefKey = "HowToPlay";
+        private bool defaultValue = true;
+
+        [SerializeField] private GameObject checkMark;
+        [SerializeField] private GameObject checkMarkTwo;
+
         private void Start()
         {
+            bool showHowToPlay = PlayerPrefs.GetInt(playerPrefKey, defaultValue ? 1 : 0) == 1;
+
             gameOverScreen.SetActive(false);
-            currentLives = maxLives;
             beerOne = 0;
 
             // DEVELOPER MODE
             if(developerMode)
             {
-                points = 5000;
+                upgradePoints = 5000;
             }
             else
             {
-                points = 0;
+                upgradePoints = 0;
             }
 
             beerTwo = 0;
@@ -55,22 +63,42 @@ namespace PintRush
             maxGlasses = 1;
             if(SceneManager.GetActiveScene().name == "Game")
             {
-                scoreText.text = $"{points}";
-                upgradePointsText.text = $"{points}";
+                scoreText.text = $"{upgradePoints}";
+                upgradePointsText.text = $"{upgradePoints}";
+                totalPointText.text = $"{totalPoints}";
             }
-            Debug.Log($"Start Currentlives: {currentLives}");
-            //howToPlay.SetActive(true);
+
+            if(showHowToPlay)
+            {
+                howToPlay.SetActive(true);
+                checkMarkTwo.SetActive(true);
+
+            }
+            else
+            {
+                csc.StartSpawn();
+                checkMarkTwo.SetActive(false);
+            }
         }
 
         public bool GetMuteState()
         {
             return isMuted;
         }
-
-        public void SetMuteState(bool newIsMuted)
+        public void SetMuteState(bool newMuteState)
         {
-            isMuted = newIsMuted;
+            isMuted = newMuteState;
         }
+
+        public bool GetVibrationState()
+        {
+            return vibrationOn;
+        }
+        public void SetVibrationState(bool newVibrationState)
+        {
+            vibrationOn = newVibrationState;
+        }
+
         public void SetGameOver()
         {
             Debug.Log("Game Over!");
@@ -86,17 +114,21 @@ namespace PintRush
         // Point methods
         public void AddPoint()
         {
-            points++;
-            Debug.Log("Added a point... Point: " + points);
-            scoreText.text = $"{points}";
-            upgradePointsText.text = $"{points}";
+            upgradePoints++;
+            totalPoints++;
+            audioManager.PlayPointSound();
+            Debug.Log("Added a point... Point: " + upgradePoints);
+            scoreText.text = $"{upgradePoints}";
+            upgradePointsText.text = $"{upgradePoints}";
+            totalPointText.text = $"{totalPoints}";
         }
         
         public void SetPoints(int points)
         {
-            this.points -= points;
-            scoreText.text = $"{this.points}";
-            upgradePointsText.text = $"{this.points}";
+            this.upgradePoints -= points;
+            scoreText.text = $"{this.upgradePoints}";
+            upgradePointsText.text = $"{this.upgradePoints}";
+            totalPointText.text = $"{this.totalPoints}";
         }
 
         public void AddMaxGlasses()
@@ -106,19 +138,17 @@ namespace PintRush
 
         public int GetPoints()
         {
-            return this.points;
+            return this.upgradePoints;
         }
 
         public void AddBeerOne()
         {
             this.beerOne += 1;
-            Debug.Log("BeerOne: " + this.beerOne);
         }
 
         public void AddBeerTwo()
         {
             this.beerTwo += 1;
-            Debug.Log("BeerTwo: " + this.beerTwo);
         }
 
         public void AddBeerThree()
@@ -129,37 +159,18 @@ namespace PintRush
         // Life methods
         public void RemoveLife()
         {
-            currentLives -= 1;
-            Debug.Log("Removed a life... Lives: " + currentLives);
-            switch (currentLives)
+            Debug.Log("Removing a life");
+            life.LifeLost();
+            if(life.GetALife())
             {
-                case 2:
-                    StartCoroutine(lifeBarOne.LifeLost(1f));
-                    break;
-                case 1:
-                    StartCoroutine(lifeBarTwo.LifeLost(1f));
-                    break;
-                case 0:
-                    StartCoroutine(lifeBarThree.LifeLost(1f));
-                    break;
-                default:
-                    Debug.Log("There might be an error!");
-                    break;
+                StartCoroutine(WaitForGameOver(2));
             }
-            StartCoroutine(WaitForGameOver(2));
-            
-
         }
 
         IEnumerator WaitForGameOver(int time)
         {
             yield return new WaitForSeconds(time);
-            if (currentLives <= 0) { SetGameOver(); }
-        }
-
-        public int GetCurrentLives()
-        {
-            return this.currentLives;
+            SetGameOver();
         }
         
         // Glass methods
@@ -181,6 +192,58 @@ namespace PintRush
         public int GetBeerThreeScore()
         {
             return this.beerThree;
+        }
+
+        public bool CheckAllowSpawn()
+        {
+            return allowSpawn;
+        }
+
+        public void SetShowHowToPlay()
+        {
+            defaultValue = !defaultValue;
+            PlayerPrefs.SetInt(playerPrefKey, defaultValue ? 1 : 0);
+            PlayerPrefs.Save();
+
+            if(defaultValue)
+            {
+                checkMark.SetActive(true);
+                Debug.Log("SHOW DEM OHJEET");
+                checkMarkTwo.SetActive(true);
+            }
+            else if(!defaultValue)
+            {
+                checkMark.SetActive(false);
+                Debug.Log("DONT SHOW DEM OHJEET");
+                checkMarkTwo.SetActive(false);
+            }
+        }
+
+        public void ShowHowToPlay()
+        {
+            /*
+            defaultValue = true;
+            PlayerPrefs.SetInt(playerPrefKey, defaultValue ? 1 : 0);
+            PlayerPrefs.Save();
+            Debug.Log("show ohjeet ysdrtfd sw");
+            checkMarkTwo.SetActive(true);
+            */
+
+            defaultValue = !defaultValue;
+            PlayerPrefs.SetInt(playerPrefKey, defaultValue ? 1 : 0);
+            PlayerPrefs.Save();
+
+            if (defaultValue)
+            {
+                Debug.Log("SHOW DEM OHJEET");
+                checkMarkTwo.SetActive(true);
+            }
+            else if (!defaultValue)
+            {
+                Debug.Log("DONT SHOW DEM OHJEET");
+                checkMarkTwo.SetActive(false);
+            }
+
         }
     }
 }

@@ -26,6 +26,8 @@ namespace PintRush
         [SerializeField] private GameObject[] glassCoasters = new GameObject[3];
 
         [SerializeField] private GameManagement gm;
+        [SerializeField] private AudioManager audioManager;
+
         [SerializeField] private BeerTap beerTapOne;
         [SerializeField] private BeerTap beerTapTwo;
         [SerializeField] private BeerTap beerTapThree;
@@ -84,25 +86,25 @@ namespace PintRush
             else if (tapUpgraded == 1)
             {
                 tapStars[0].SetActive(true);
-                beerTapOne.SetSprite(1);
-                beerTapTwo.SetSprite(1);
-                beerTapThree.SetSprite(1);
+                beerTapOne.SetTapUp();
+                beerTapTwo.SetTapUp();
+                beerTapThree.SetTapUp();
                 upgradeTapImage.sprite = beerTapOne.GetNextUpgradeSprite(2);
             }
             else if (tapUpgraded == 2)
             {
                 tapStars[1].SetActive(true);
-                beerTapOne.SetSprite(2);
-                beerTapTwo.SetSprite(2);
-                beerTapThree.SetSprite(2);
+                beerTapOne.SetTapUp();
+                beerTapTwo.SetTapUp();
+                beerTapThree.SetTapUp();
                 upgradeTapImage.sprite = beerTapOne.GetNextUpgradeSprite(3);
             }
             else if (tapUpgraded == 3)
             {
                 tapStars[2].SetActive(true);
-                beerTapOne.SetSprite(3);
-                beerTapTwo.SetSprite(3);
-                beerTapThree.SetSprite(3);
+                beerTapOne.SetTapUp();
+                beerTapTwo.SetTapUp();
+                beerTapThree.SetTapUp();
             }
             else
             {
@@ -147,12 +149,29 @@ namespace PintRush
                 {
                     tapUpgraded++;
                     gm.SetPoints(tapCurrentCost);
+                    audioManager.PlayUpgradeSuccessSound();
+                }
+                else
+                {
+                    audioManager.PlayUpgradeFailedSound();
+                    if(audioManager.GetVibrationState())
+                    {
+                        Handheld.Vibrate();
+                    }
                 }
                 if (tapUpgraded < tapCosts.Length - 1)
                 {
                     tapCurrentCost = tapCosts[tapUpgraded + 1];
                 }
                 Debug.Log($"Tap upgrades: {tapUpgraded} / {maxTap}");
+            }
+            else
+            {
+                audioManager.PlayUpgradeFailedSound();
+                if(audioManager.GetVibrationState())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 
@@ -165,13 +184,30 @@ namespace PintRush
                     glassesUpgraded++;
                     gm.SetPoints(glassCurrentCost);
                     gm.AddMaxGlasses();
+                    audioManager.PlayUpgradeSuccessSound();
 
+                }
+                else
+                {
+                    audioManager.PlayUpgradeFailedSound();
+                    if(audioManager.GetVibrationState())
+                    {
+                        Handheld.Vibrate();
+                    }
                 }
                 if (glassesUpgraded < tapCosts.Length - 1)
                 {
                     glassCurrentCost = glassCosts[glassesUpgraded + 1];
                 }
                 Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
+            }
+            else
+            {
+                audioManager.PlayUpgradeFailedSound();
+                if(audioManager.GetVibrationState())
+                {
+                    Handheld.Vibrate();
+                }
             }
         }
 

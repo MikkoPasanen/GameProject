@@ -10,10 +10,9 @@ namespace PintRush
     {
         [SerializeField] private GameObject customerPrefab;
         [SerializeField] private GameObject customers;
-        [SerializeField] private int customerPatience;
 
         [SerializeField] private Transform[] endpointPositions;
-        [SerializeField] private GameObject[] customerPrefabs;
+        [SerializeField] private GameObject customerPre;
 
         [SerializeField] private Transform exitEndPosition;
         [SerializeField] private GameObject gmObject;
@@ -52,7 +51,8 @@ namespace PintRush
         void FixedUpdate()
         {
             gameTimer++;
-            if (spawnStarted)
+
+            if (spawnStarted && gameManagement.CheckAllowSpawn())
             {
                 spawnTimer++;
 
@@ -63,12 +63,15 @@ namespace PintRush
                 }
             }
 
-            // Every 10 customers served spawn rate is increased
-            if (spawnRateThreshold >= 10)
+            if(spawnRate >= 100)
             {
-                spawnRateThreshold = 0;
-                spawnRate = spawnRate - 20;
+                if (spawnRateThreshold >= 8)
+                {
+                    spawnRateThreshold = 0;
+                    spawnRate = spawnRate - 25;
+                }
             }
+            // Every 8 customers served spawn rate is increased
         }
 
         private void Update()
@@ -118,10 +121,9 @@ namespace PintRush
                   {
                       occupiedSpace[random] = true;
 
-                      randomCustomer = UnityEngine.Random.Range(0, customerPrefabs.Length); //Select a random customer to spawn from an array (different sprite for the customer)
-                      GameObject customer = Instantiate(customerPrefabs[randomCustomer], transform.position, Quaternion.identity);
+                      GameObject customer = Instantiate(customerPre, transform.position, Quaternion.identity);
                       AddCustomerCount();
-                      CustomerController customerController = customer.GetComponent<CustomerController>();
+                      Customer customerController = customer.GetComponent<Customer>();
 
                       Transform randomEndpointPosition = endpointPositions[random];
 
@@ -148,13 +150,11 @@ namespace PintRush
         {
             if (happy)
             {
-                //Debug.Log("CUSTOMER LEFT: Happy!");
                 gameManagement.AddPoint();
                 spawnRateThreshold++;
             }
             else
             {
-                //Debug.Log("CUSTOMER LEFT: Not happy!");
                 gameManagement.RemoveLife();
             }
         }

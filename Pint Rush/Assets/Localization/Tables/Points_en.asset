@@ -82,6 +82,14 @@ MonoBehaviour:
     m_Localized: UPGRADES
     m_Metadata:
       m_Items: []
+  - m_Id: 8237939333554176
+    m_Localized: Served
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8238045004849152
+    m_Localized: Points
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

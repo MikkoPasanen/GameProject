@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: "P\xC4\xC4VALIKKOON"
     m_Metadata:
       m_Items: []
+  - m_Id: 19023617942908928
+    m_Localized: "N\xC4YT\xC4 OHJEET?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

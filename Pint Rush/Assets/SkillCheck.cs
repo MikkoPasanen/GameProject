@@ -12,10 +12,10 @@ namespace PintRush
 
         [SerializeField] bool rotatingRight = false;
 
-        RectTransform transform;
+        //RectTransform transform;
         private void Start()
         {
-            transform = GetComponent<RectTransform>();
+            //transform = GetComponent<RectTransform>();
             rotatingRight = true;
         }
 
