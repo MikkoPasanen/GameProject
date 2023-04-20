@@ -179,7 +179,7 @@ ul {
 #introduction img {
     background-color: wheat;
     width: 100%;
-    height: 250px;
+    height: 47vw;
     margin-top: 5.5rem;
 }
 
@@ -227,6 +227,18 @@ ul {
     height: auto;
 }
 
+#pictures {
+    padding-top: 7rem;
+}
+
+#team {
+    padding-top: 7rem;
+}
+
+#info {
+    padding-top: 7rem;
+}
+
 
 #pictures-container {
     margin: 2rem;
@@ -242,6 +254,30 @@ ul {
 }
 
 .picture img{
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+#logos-container {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    background-color: rgb(245, 245, 245);
+}
+
+.logo {
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.logo img {
     max-width: 100%;
     height: auto;
     margin-bottom: 1rem;
@@ -266,7 +302,7 @@ ul {
     }
 
     a {
-        font-size: 1.3rem;
+        font-size: 2.7vw;
     }
 
     h2 {
@@ -281,7 +317,7 @@ ul {
     }
 
     li {
-        padding-left: 15px;
+        padding-left: 18px;
     }
 
     .header-links {
@@ -291,10 +327,6 @@ ul {
 
     .header-links a:hover {
         color: whitesmoke;
-    }
-
-    #introduction img {
-        height: 400px;
     }
 
     #info-container {
@@ -326,27 +358,31 @@ ul {
         grid-template-rows: repeat(1, auto);
         gap: 2rem;
     }
-}
 
-@media screen and (min-width: 1000px) {
-    
-    a {
-        font-size: 1.7rem;
+    .logo {
+        max-width: 50vw;
     }
     
+}
+
+@media screen and (min-width: 900px) {
+    
+    #logos-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+        max-width: 100%;
+    }
+
+    .logo {
+        margin: 1rem;
+        max-width: 30vw;
+    }
 }
 
 @media screen and (min-width: 1200px) {
-
-
-    #introduction img {
-        height: 500px;
-        margin-top: 6rem;
-    }
-
-    a {
-        font-size: 2rem;
-    }
 
     #pictures-container {
         grid-area: pictures-container;
@@ -356,7 +392,27 @@ ul {
         gap: 2rem;
     }
     
+    li {
+        padding-left: 25px;
+    }
 
+    a {
+        font-size: 2.3vw;
+    }
+
+    #logos-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin: auto;
+        max-width: 100%;
+    }
+
+    .logo {
+        margin: 1rem;
+        max-width: 30vw;
+    }
 
 }
 
@@ -370,5 +426,9 @@ ul {
         margin: auto;
         max-width: 100%;
         text-align: center;
+    }
+
+    li {
+        padding-left: 40px;
     }
 }
