@@ -36,6 +36,8 @@ namespace PintRush
 
         [SerializeField] private GameObject[] upgradeGlassImages;
 
+        [SerializeField] private GameObject[] locks;
+
 
         private void Start()
         {
@@ -69,12 +71,9 @@ namespace PintRush
             {
                 glassCostText.text = $"{glassCurrentCost}";
             }
-
+            
             CheckTaps();
             CheckGlasses();
-
-
-            
         }
 
         public void CheckTaps()
@@ -122,22 +121,21 @@ namespace PintRush
             {
                 glassStars[0].SetActive(true);
                 glassCoasters[0].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
+                locks[0].SetActive(false);
                 upgradeGlassImages[1].SetActive(true);
             }
             else if (glassesUpgraded == 2)
             {
                 glassStars[1].SetActive(true);
                 glassCoasters[1].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
+                locks[1].SetActive(false);
                 upgradeGlassImages[2].SetActive(true);
             }
             else if (glassesUpgraded == 3)
             {
                 glassStars[2].SetActive(true);
                 glassCoasters[2].GetComponent<SpriteRenderer>().color = new UnityEngine.Color32(137, 137, 137, 100);
-            }
-            else
-            {
-
+                locks[2].SetActive(false);
             }
         }
 
