@@ -11,9 +11,15 @@ namespace PintRush
 
         [SerializeField] GameObject parent;
 
-        [SerializeField] private Vector3 firstSpawn;
-        [SerializeField] private Vector3 secondSpawn;
-        [SerializeField] private Vector3 thirdSpawn;
+        [SerializeField] private Transform coasterOne;
+        [SerializeField] private Transform coasterTwo;
+        [SerializeField] private Transform coasterThree;
+
+        [SerializeField] private float glassSpawnOffset;
+
+        private Vector3 firstSpawn;
+        private Vector3 secondSpawn;
+        private Vector3 thirdSpawn;
 
         [SerializeField] private GameObject g1Prefab;
         [SerializeField] private GameObject g2Prefab;
@@ -32,6 +38,9 @@ namespace PintRush
             currentGlasses = 0;
             maxGlasses = gameManagement.GetMaxGlasses();
             currentAnimationSpeed = animationSpeeds[0];
+            firstSpawn = new Vector3(coasterOne.position.x, coasterOne.position.y +glassSpawnOffset);
+            secondSpawn = new Vector3(coasterTwo.position.x, coasterTwo.position.y +glassSpawnOffset);
+            thirdSpawn = new Vector3(coasterThree.position.x, coasterThree.position.y +glassSpawnOffset);
         }
 
         private void Update()
