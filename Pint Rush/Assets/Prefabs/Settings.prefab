@@ -208,8 +208,8 @@ RectTransform:
   - {fileID: 363257717970956237}
   - {fileID: 363257718301415607}
   - {fileID: 363257717849245351}
-  - {fileID: 363257718161412511}
   - {fileID: 363257718437607074}
+  - {fileID: 363257718161412511}
   - {fileID: 9221471817860149297}
   - {fileID: 8523458981134627067}
   m_Father: {fileID: 363257717640843207}
@@ -417,9 +417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03dc5265b14ecf54390636294f89eeeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagement: {fileID: 0}
-  muteButton: {fileID: 363257718437607075}
-  unmuteButton: {fileID: 363257718161412499}
+  settingsCanvas: {fileID: 363257718280174167}
+  muteButton: {fileID: 363257718161412499}
+  unmuteButton: {fileID: 363257718437607075}
+  vibrateOnButton: {fileID: 1536228010623613289}
+  vibrateOffButton: {fileID: 964538613987796532}
   credits: {fileID: 0}
 --- !u!1 &363257717640843204
 GameObject:
@@ -779,7 +781,7 @@ GameObject:
   - component: {fileID: 363257718161412509}
   - component: {fileID: 363257718161412498}
   m_Layer: 0
-  m_Name: MuteOffBtn
+  m_Name: AudioOnBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +801,7 @@ RectTransform:
   m_Children:
   - {fileID: 363257716904659936}
   m_Father: {fileID: 363257716856066616}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -889,13 +891,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 363257717454393601}
-        m_TargetAssemblyTypeName: PintRush.Options, Assembly-CSharp
-        m_MethodName: OnUnmute
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PintRush.Settings, Assembly-CSharp
+        m_MethodName: ChangeAudio
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1323,7 +1325,7 @@ GameObject:
   - component: {fileID: 363257718437607084}
   - component: {fileID: 363257718437607085}
   m_Layer: 0
-  m_Name: MuteOnBtn
+  m_Name: AudioOffBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1343,7 +1345,7 @@ RectTransform:
   m_Children:
   - {fileID: 363257717099807206}
   m_Father: {fileID: 363257716856066616}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1433,9 +1435,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 363257717454393601}
-        m_TargetAssemblyTypeName: PintRush.Options, Assembly-CSharp
-        m_MethodName: OnMute
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PintRush.Settings, Assembly-CSharp
+        m_MethodName: ChangeAudio
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1567,9 +1569,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 363257717454393601}
-        m_TargetAssemblyTypeName: PintRush.Options, Assembly-CSharp
-        m_MethodName: OnUnmute
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PintRush.Settings, Assembly-CSharp
+        m_MethodName: ChangeVibration
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1701,13 +1703,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 363257717454393601}
-        m_TargetAssemblyTypeName: PintRush.Options, Assembly-CSharp
-        m_MethodName: OnMute
-        m_Mode: 1
+        m_TargetAssemblyTypeName: PintRush.Settings, Assembly-CSharp
+        m_MethodName: ChangeVibration
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

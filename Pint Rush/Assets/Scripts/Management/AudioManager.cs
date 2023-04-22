@@ -12,7 +12,7 @@ namespace PintRush
         [SerializeField] private AudioSource upgradeFailedSound;
         [SerializeField] private AudioSource pointSound;
 
-        [SerializeField] private GameManagement gameManagement;
+        [SerializeField] private Settings settings;
 
         private AudioSource[] allAudio;
 
@@ -26,7 +26,7 @@ namespace PintRush
         private void Update()
         {
             // Mute is on mute all sounds
-            if ( gameManagement.GetMuteState() )
+            if (!settings.GetAudioState())
             {
                 foreach ( AudioSource source in allAudio )
                 {
@@ -78,11 +78,6 @@ namespace PintRush
             {
                 pointSound.Play();
             }
-        }
-
-        public bool GetVibrationState()
-        {
-            return gameManagement.GetVibrationState();
         }
     }
 }

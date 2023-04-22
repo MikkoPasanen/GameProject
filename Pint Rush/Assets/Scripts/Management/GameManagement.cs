@@ -8,10 +8,6 @@ namespace PintRush
 {
     public class GameManagement : MonoBehaviour
     {
-        // Mute set by default to false!
-        [SerializeField] private static bool isMuted = false;
-        private static bool vibrationOn = true;
-
         private int maxGlasses;
         [SerializeField] private GameObject gameOverScreen;
         [SerializeField] private GameObject howToPlay;
@@ -24,8 +20,8 @@ namespace PintRush
         [SerializeField] private Life life;
         [SerializeField] private CustomerSpawnController csc;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private Settings settings;
 
-        [SerializeField] private bool developerMode;
         [SerializeField] private int developerPoints;
         [SerializeField] private bool allowSpawn;
 
@@ -35,8 +31,12 @@ namespace PintRush
         private int beerTwo;
         private int beerThree;
 
+        private int highScore;
+        private int savedHighscore;
+
         //Playerprefs
-        private string playerPrefKey = "HowToPlay";
+        private const string playerPrefKey = "HowToPlay";
+        private const string highscoreKey = "HIGHSCORE";
         private bool defaultValue = true;
 
         [SerializeField] private GameObject checkMark;
@@ -45,12 +45,14 @@ namespace PintRush
         private void Start()
         {
             bool showHowToPlay = PlayerPrefs.GetInt(playerPrefKey, defaultValue ? 1 : 0) == 1;
+            defaultValue = showHowToPlay;
+            highScore = PlayerPrefs.HasKey(highscoreKey) ? PlayerPrefs.GetInt(highscoreKey) : 0;
 
             gameOverScreen.SetActive(false);
             beerOne = 0;
 
             // DEVELOPER MODE
-            if(developerMode)
+            if(settings.CheckDeveloperMode())
             {
                 upgradePoints = developerPoints;
             }
@@ -62,13 +64,11 @@ namespace PintRush
             beerTwo = 0;
             beerThree = 0;
             maxGlasses = 1;
-            if(SceneManager.GetActiveScene().name == "Game")
-            {
-                scoreText.text = $"{upgradePoints}";
-                upgradePointsText.text = $"{upgradePoints}";
-                totalPointText.text = $"{totalPoints}";
-            }
 
+            scoreText.text = $"{upgradePoints}";
+            upgradePointsText.text = $"{upgradePoints}";
+            totalPointText.text = $"{totalPoints}";
+                
             if(showHowToPlay)
             {
                 howToPlay.SetActive(true);
@@ -82,29 +82,18 @@ namespace PintRush
             }
         }
 
-        public bool GetMuteState()
-        {
-            return isMuted;
-        }
-        public void SetMuteState(bool newMuteState)
-        {
-            isMuted = newMuteState;
-        }
-
-        public bool GetVibrationState()
-        {
-            return vibrationOn;
-        }
-        public void SetVibrationState(bool newVibrationState)
-        {
-            vibrationOn = newVibrationState;
-        }
-
         public void SetGameOver()
         {
             Debug.Log("Game Over!");
             gameOverScreen.SetActive(true);
             Time.timeScale = 0;
+
+            savedHighscore = PlayerPrefs.HasKey(highscoreKey) ? PlayerPrefs.GetInt(highscoreKey) : 0;
+            if(totalPoints > savedHighscore)
+            {
+                PlayerPrefs.SetInt(highscoreKey, totalPoints);
+                Debug.Log($"New high score: {totalPoints}");
+            }
         }
         public void RestartGame()
         {

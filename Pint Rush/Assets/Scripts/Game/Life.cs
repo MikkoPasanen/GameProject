@@ -14,6 +14,8 @@ namespace PintRush
         [SerializeField] private SpriteRenderer lifeThree;
 
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private Settings settings;
+
 
         private void Start()
         {
@@ -27,7 +29,7 @@ namespace PintRush
 
         public void LifeLost()
         {
-            if(audioManager.GetVibrationState())
+            if(settings.GetVibrationState())
             {
                 Handheld.Vibrate();
             }

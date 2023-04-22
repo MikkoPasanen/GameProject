@@ -8,7 +8,10 @@ namespace PintRush
         [SerializeField] private GameManagement gameManagement;
         [SerializeField] private GameObject bottle;
         [SerializeField] private GameObject playButton;
-        
+        [SerializeField] private Settings settings;
+
+        private int counter = 0;
+
         public void OnPlay()
         {
             //Debug.Log("Play clicked!");
@@ -25,9 +28,17 @@ namespace PintRush
 
         public void OnBarrel()
         {
-            //Debug.Log("Barrels clicked!");
-
             bottle.SetActive(true); // Setting easter egg bottle ACTIVE.
+        }
+
+        public void OnHouse()
+        {
+            Debug.Log($"House clicked {counter}");
+            counter++;
+            if(counter >= 10)
+            {
+                settings.ActivateCodeField();
+            }
         }
     }
 }

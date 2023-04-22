@@ -27,6 +27,7 @@ namespace PintRush
 
         [SerializeField] private GameManagement gm;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private Settings settings;
 
         [SerializeField] private BeerTap beerTapOne;
         [SerializeField] private BeerTap beerTapTwo;
@@ -152,7 +153,7 @@ namespace PintRush
                 else
                 {
                     audioManager.PlayUpgradeFailedSound();
-                    if(audioManager.GetVibrationState())
+                    if(settings.GetVibrationState())
                     {
                         Handheld.Vibrate();
                     }
@@ -166,7 +167,7 @@ namespace PintRush
             else
             {
                 audioManager.PlayUpgradeFailedSound();
-                if(audioManager.GetVibrationState())
+                if(settings.GetVibrationState())
                 {
                     Handheld.Vibrate();
                 }
@@ -188,7 +189,7 @@ namespace PintRush
                 else
                 {
                     audioManager.PlayUpgradeFailedSound();
-                    if(audioManager.GetVibrationState())
+                    if(settings.GetVibrationState())
                     {
                         Handheld.Vibrate();
                     }
@@ -202,7 +203,7 @@ namespace PintRush
             else
             {
                 audioManager.PlayUpgradeFailedSound();
-                if(audioManager.GetVibrationState())
+                if(settings.GetVibrationState())
                 {
                     Handheld.Vibrate();
                 }
