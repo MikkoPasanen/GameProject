@@ -26,6 +26,7 @@ namespace PintRush
         [SerializeField] private AudioManager audioManager;
 
         [SerializeField] private bool developerMode;
+        [SerializeField] private int developerPoints;
         [SerializeField] private bool allowSpawn;
 
         public int upgradePoints;
@@ -51,7 +52,7 @@ namespace PintRush
             // DEVELOPER MODE
             if(developerMode)
             {
-                upgradePoints = 5000;
+                upgradePoints = developerPoints;
             }
             else
             {

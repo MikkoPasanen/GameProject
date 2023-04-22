@@ -352,9 +352,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63145312}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 775084870}
@@ -362,7 +362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -232, y: -163}
+  m_AnchoredPosition: {x: -248, y: -181.25}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &63145314
@@ -2202,13 +2202,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapCostText: {fileID: 107806860}
-  tapCosts: 000000000a0000001900000050000000
+  tapCosts: 000000000a0000001e00000050000000
   tapStars:
   - {fileID: 1156869999}
   - {fileID: 194441472}
   - {fileID: 1092876306}
   glassCostText: {fileID: 546036064}
-  glassCosts: 000000000a0000001e00000096000000
+  glassCosts: 000000000a0000003200000078000000
   glassStars:
   - {fileID: 1263053982}
   - {fileID: 234379967}
@@ -5957,8 +5957,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00005340576, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.0000010728836, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &814941880
 MonoBehaviour:
@@ -5980,7 +5980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: UPGRADES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0757e3391cab314e80f4ad75a4ebae9, type: 2}
   m_sharedMaterial: {fileID: 6789555229714618113, guid: b0757e3391cab314e80f4ad75a4ebae9, type: 2}
@@ -6007,8 +6007,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6198,7 +6198,6 @@ GameObject:
   - component: {fileID: 835117734}
   - component: {fileID: 835117733}
   - component: {fileID: 835117732}
-  - component: {fileID: 835117736}
   m_Layer: 0
   m_Name: BeerTap2
   m_TagString: BeerTap
@@ -6339,22 +6338,6 @@ RectTransform:
   m_AnchoredPosition: {x: 65, y: 39.25}
   m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!58 &835117736
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835117731}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.49}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!1 &842244194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9479,7 +9462,6 @@ GameObject:
   - component: {fileID: 1147690535}
   - component: {fileID: 1147690534}
   - component: {fileID: 1147690533}
-  - component: {fileID: 1147690537}
   m_Layer: 0
   m_Name: BeerTap3
   m_TagString: BeerTap
@@ -9620,22 +9602,6 @@ RectTransform:
   m_AnchoredPosition: {x: 138.94, y: 39.25}
   m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!58 &1147690537
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147690532}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.49}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!1 &1154921100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7528376545395367418, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
@@ -13091,7 +13057,6 @@ GameObject:
   - component: {fileID: 1675261461}
   - component: {fileID: 1675261464}
   - component: {fileID: 1675261465}
-  - component: {fileID: 1675261467}
   m_Layer: 0
   m_Name: BeerTap1
   m_TagString: BeerTap
@@ -13232,22 +13197,6 @@ RectTransform:
   m_AnchoredPosition: {x: -8.9375, y: 39.25}
   m_SizeDelta: {x: 0.64, y: 1.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!58 &1675261467
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675261460}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.49}
-  serializedVersion: 2
-  m_Radius: 0.15
 --- !u!1 &1694905951
 GameObject:
   m_ObjectHideFlags: 0
@@ -18843,7 +18792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: developerMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: gameOverScreen
@@ -18853,6 +18802,10 @@ PrefabInstance:
       propertyPath: totalPointText
       value: 
       objectReference: {fileID: 176825226}
+    - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
+      propertyPath: developerPoints
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 4112612057779676649, guid: 9ea8a5e74b3727442b5593f0384863db, type: 3}
       propertyPath: upgradePointsText
       value: 
@@ -19402,5 +19355,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8719183388216476121, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 857672336}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b13c4180335d1ca43a055e49e909974f, type: 3}
