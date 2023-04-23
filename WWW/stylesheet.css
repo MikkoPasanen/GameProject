@@ -17,9 +17,9 @@ html {
     z-index: 800;
     background: wheat;
     box-shadow: 0 20px 100px rgba(0,0,0, 0.5);
-    padding: 20px;
+    padding: 5px;
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 /*Yleisilme, fontityyli, koko, taustaväri*/
@@ -58,7 +58,7 @@ h2 {
 
 .hamburger {
     position: fixed;
-    top: 30px;
+    top: 17px;
     right: 30px;
     z-index: 800;
     display: inline-block;
@@ -180,7 +180,7 @@ ul {
     background-color: wheat;
     width: 100%;
     height: 47vw;
-    margin-top: 5.5rem;
+    margin-top: 3.5rem;
 }
 
 #info-container {
@@ -300,9 +300,8 @@ ul {
 @media screen and (min-width: 700px) {
 
     .header {
-        padding: 10px;
         justify-content: space-between;
-        padding: 25px;
+        padding: 5px;
     }
 
     .menu-btn {
@@ -355,13 +354,7 @@ ul {
         margin: 2rem;
     }
 
-    #team-container {
-        grid-area: team-container;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(1, auto);
-        gap: 2rem;
-    }
+   
 
     #pictures-container {
         grid-area: pictures-container;
@@ -391,6 +384,14 @@ ul {
     .logo {
         margin: 1rem;
         max-width: 30vw;
+    }
+
+    #team-container {
+        grid-area: team-container;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, auto);
+        gap: 2rem;
     }
 }
 
@@ -428,7 +429,7 @@ ul {
 
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1500px) {
 
     #team-container {
         display: flex;
