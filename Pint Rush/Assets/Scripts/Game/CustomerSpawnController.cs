@@ -24,27 +24,31 @@ namespace PintRush
         private bool allSpacesOccupied;
         private bool customerSpawned;
         private bool doContinue;
+        private bool stageTwoEnabled;
 
         private int spawnTimer = 0;
         private int gameTimer = 0;
 
-        [SerializeField] int spawnRate;
+        [SerializeField] private int spawnRate;
+        [SerializeField] private int spawnRateUpdateFrequency;
+        [SerializeField] private int spawnRateSubstractAmount;
+
+        [SerializeField] private int patience;
+        [SerializeField] private int patienceUpdateFrequency;
+        [SerializeField] private int patienceSubstractAmount;
+
         public static float timer;
-        private int spawnRateThreshold = 0;
+        private int successfulServings = 0;
         private bool spawnStarted;
-
-        private int customerCount;
-
-        // Currently only 1 customer can be spawned at the same time! TO BE FIXED!
 
         private void Start()
         {
             gameManagement = gmObject.GetComponent<GameManagement>();
-            occupiedSpace = new bool[3];
             Debug.Log("Endpoints length: "+endpointPositions.Length);
             timer = 0;
             spawnStarted = false;
             doContinue = false;
+            stageTwoEnabled = false;
         }
 
         //Timer for the customer spawns
@@ -65,13 +69,25 @@ namespace PintRush
 
             if(spawnRate >= 100)
             {
-                if (spawnRateThreshold >= 8)
+                if (successfulServings >= spawnRateUpdateFrequency)
                 {
-                    spawnRateThreshold = 0;
-                    spawnRate = spawnRate - 25;
+                    successfulServings = 0;
+                    spawnRate -= spawnRateSubstractAmount;
                 }
             }
-            // Every 8 customers served spawn rate is increased
+            else
+            {
+                stageTwoEnabled = true;
+            }
+
+            if(stageTwoEnabled && patience >= 100)
+            {
+                if(successfulServings >= patienceUpdateFrequency)
+                {
+                    successfulServings = 0;
+                    patience -= patienceSubstractAmount;
+                }
+            }
         }
 
         private void Update()
@@ -88,62 +104,46 @@ namespace PintRush
         //Spawns a random customer and then gives the customer a random endpoint where he will walk into
         public void SpawnCustomer()
         {
-            // Because otherwise it would start another random generation
-            // Now if there is a customer random being generated in the while loop
-            // it doesn't start the process again.
             if (!customerSpawned) 
             {
-                  customerSpawned = true;
-                  doContinue = false;
-                  //Debug.Log(allSpacesOccupied);
-                  //Selects a random endpoint and a random customer prefab to spawn
-                  random = UnityEngine.Random.Range(0, 3); // Select a random point for the customer to occupie
-                  //Debug.Log($"Random {random}");
+                customerSpawned = true;
+                doContinue = false;
+                random = UnityEngine.Random.Range(0, 3);
                   
-                  if(occupiedSpace[random])
-                  {
-                        for(int i = 0; i < occupiedSpace.Length; i++)
+                if(occupiedSpace[random])
+                {
+                    for(int i = 0; i < occupiedSpace.Length; i++)
+                    {
+                        if(!occupiedSpace[i])
                         {
-                            if(!occupiedSpace[i])
-                            {
-                                doContinue = true;
-                                random = i;
-                                break;
-                            }
+                            doContinue = true;
+                            random = i;
+                            break;
                         }
-                  }
-                  else
-                  {
+                    }
+                }
+                else
+                {
                     doContinue = true;
-                  }
+                }
 
-                  if(doContinue)
-                  {
-                      occupiedSpace[random] = true;
+                if(doContinue)
+                {
+                    occupiedSpace[random] = true;
 
-                      GameObject customer = Instantiate(customerPre, transform.position, Quaternion.identity);
-                      AddCustomerCount();
-                      Customer customerController = customer.GetComponent<Customer>();
+                    GameObject customer = Instantiate(customerPre, transform.position, Quaternion.identity);
+                    Customer customerController = customer.GetComponent<Customer>();
 
-                      Transform randomEndpointPosition = endpointPositions[random];
+                    Transform randomEndpointPosition = endpointPositions[random];
 
-                      customerController.SetEndpoint(randomEndpointPosition, random);
-                      customerController.SetExitEndpoint(exitEndPosition);
-                      customer.transform.SetParent(customers.transform, false); 
-                  }
+                    customerController.SetEndpoint(randomEndpointPosition, random);
+                    customerController.SetExitEndpoint(exitEndPosition);
+                    customerController.SetPatience(patience);
+                    customer.transform.SetParent(customers.transform, false);
+                }
             
             }
             customerSpawned = false;
-        }
-
-        public void AddCustomerCount()
-        {
-            customerCount++;
-        }
-
-        public void RemoveCustomerCount()
-        {
-            customerCount--;
         }
 
         public void CustomerLeftHappy(bool happy)
@@ -151,7 +151,7 @@ namespace PintRush
             if (happy)
             {
                 gameManagement.AddPoint();
-                spawnRateThreshold++;
+                successfulServings++;
             }
             else
             {

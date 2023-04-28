@@ -56,6 +56,9 @@ TagManager:
   - name: CustomerTwo
     uniqueID: 1067970637
     locked: 0
+  - name: CustomerThree
+    uniqueID: 1012394351
+    locked: 0
   - name: Chimney n stuff
     uniqueID: 3251309387
     locked: 0

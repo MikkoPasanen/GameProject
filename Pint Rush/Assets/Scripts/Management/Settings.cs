@@ -30,6 +30,8 @@ namespace PintRush
         private static int language;
         private const string languageKey = "LANGUAGE";
 
+        private static bool titleScreenPlayed = false;
+
         private void Start()
         {
             language = PlayerPrefs.GetInt(languageKey, 0);
@@ -189,6 +191,16 @@ namespace PintRush
         public bool CheckDeveloperMode()
         {
             return developerMode;
+        }
+
+        public void SetTitleScreenPlayed()
+        {
+            titleScreenPlayed = true;
+        }
+
+        public bool GetTitleScreenState()
+        {
+            return titleScreenPlayed;
         }
 
     }

@@ -44,6 +44,7 @@ namespace PintRush
             {
                 if(beerTap.GetPouring() && !filling)
                 {
+                    
                     filling = true;
                     animator.SetBool("TapTrigger", true);
                     beerTap.SetPouring(false);

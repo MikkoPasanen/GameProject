@@ -26,6 +26,9 @@ namespace PintRush
         [SerializeField] private GameObject[] hairSprites;
         [SerializeField] private GameObject[] shirtSprites;
         [SerializeField] private GameObject[] pantsSprites;
+        [SerializeField] private GameObject secretShirt;
+
+        [SerializeField] private int rareRandom;
 
         //Think bubble that showcases the patience and beer choice
         [SerializeField] private GameObject thinkBubble;
@@ -34,7 +37,7 @@ namespace PintRush
         [SerializeField] private GameObject[] beerChoices;
         private GameObject chosenBeer; 
 
-        [SerializeField] private int patience;
+        private int patience;
         [SerializeField] BoxCollider2D bc2d;
 
         private Vector2 currentPos;
@@ -110,7 +113,7 @@ namespace PintRush
                 bc2d.enabled = true;
 
                 // Setting layer to be displayed on top
-                ChangeCustomerLayer("CustomerTwo");
+                ChangeCustomerLayer("CustomerThree");
             }
 
             // Customer arriving
@@ -119,7 +122,7 @@ namespace PintRush
                 transform.Translate(enterMovement);
                 bc2d.enabled = false;
 
-                ChangeCustomerLayer("Customer");
+                ChangeCustomerLayer("CustomerTwo");
             }
 
             // Customer leaving
@@ -127,7 +130,6 @@ namespace PintRush
             {
                 transform.Translate(exitMovement);
                 FreeSpace();
-                transform.parent.GetComponent<CustomerSpawnController>().RemoveCustomerCount();
                 bc2d.enabled = false;
 
                 // Setting layer back
@@ -225,6 +227,11 @@ namespace PintRush
             return chosenBeerName;
         }
 
+        public void SetPatience(int patience)
+        {
+            this.patience = patience;
+        }
+
         public void SetExiting(bool exit, bool happy)
         {
             this.exit = exit;
@@ -253,15 +260,25 @@ namespace PintRush
 
         public void SelectClothes()
         {
+            rareRandom = Random.Range(0, 1000); // 0 / 1000 = 0.1% chance
+            Debug.Log($"Rare: {rareRandom}");
+
             head = Random.Range(0, headSprites.Length);
             hair = Random.Range(0, hairSprites.Length);
             shirt = Random.Range(0, shirtSprites.Length);
             pants = Random.Range(0, pantsSprites.Length);
 
             headSprites[head].SetActive(true);
-            hairSprites[hair].SetActive(true);
-            shirtSprites[shirt].SetActive(true);
             pantsSprites[pants].SetActive(true);
+            hairSprites[hair].SetActive(true);
+            if(rareRandom == 1)
+            {
+                secretShirt.SetActive(true);
+            }
+            else
+            {
+                shirtSprites[shirt].SetActive(true);
+            }
         }
 
         private void ChangeCustomerLayer(string sortingLayer)
@@ -269,7 +286,7 @@ namespace PintRush
             SpriteRenderer[] spritesInChildren = gameObject.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer sprite in spritesInChildren)
             {
-                if(sprite.sortingLayerName == "Customer" || sprite.sortingLayerName == "CustomerTwo")
+                if(sprite.sortingLayerName == "Customer" || sprite.sortingLayerName == "CustomerTwo" || sprite.sortingLayerName == "CustomerThree")
                 {
                     sprite.sortingLayerName = sortingLayer;
                 }
