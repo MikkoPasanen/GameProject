@@ -14001,7 +14001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956315874975, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_text
-      value: 
+      value: "NARVAN KYL\xC4PANIMO"
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956315874975, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_fontSize
@@ -14197,7 +14197,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956636953586, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_text
-      value: 
+      value: "Narvan Kyl\xC4panimo on kahden naisen py\xD6ritt\xC4m\xC4 k\xC4sity\xD6l\xC4ispanimo
+        Vesilahdella, Narvan historiallisessa meijeriss\xC4."
       objectReference: {fileID: 0}
     - target: {fileID: 1818966956636953586, guid: cc480f8dd7ad16840aeeb95113024df7, type: 3}
       propertyPath: m_fontSize

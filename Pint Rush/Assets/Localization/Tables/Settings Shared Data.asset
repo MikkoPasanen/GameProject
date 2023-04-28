@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: ShowHowToPlay
     m_Metadata:
       m_Items: []
+  - m_Id: 23753933756592128
+    m_Key: WantToSeeHowToPlay
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

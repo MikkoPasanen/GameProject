@@ -42,6 +42,10 @@ MonoBehaviour:
     m_Localized: SHOW INSTRUCTIONS?
     m_Metadata:
       m_Items: []
+  - m_Id: 23753933756592128
+    m_Localized: Do you want to see the instructions again?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
