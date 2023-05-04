@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4aef733f52304264397cc58b8e2887fd
+guid: 1165c7203415cbf4491a3f160047458f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: riku_gif_griddy_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 543
+        width: 441
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd6b612c78e7704b80b8b904945dac8
+      internalID: -542495774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: riku_gif_griddy_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 285
+        width: 441
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fdcda40edf7fc149beb7c0d71783b83
+      internalID: 1134362417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: riku_gif_griddy_4
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 27
+        width: 441
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab5ae01e86af4044a7b63b0411c7bcb
+      internalID: 704482835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +189,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      riku_gif_griddy_5: 1954683550
+      riku_gif_griddy_3: 506444129
+      riku_gif_griddy_1: 1380897934
+      riku_gif_griddy_2: 1134362417
+      riku_gif_griddy_0: -542495774
+      riku_gif_griddy_4: 704482835
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

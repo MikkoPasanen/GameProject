@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4aef733f52304264397cc58b8e2887fd
+guid: 57cf91547e513e2489cfcc2812b17dd3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: santtu_gif_griddy_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 342
+        width: 464
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eacc25ba30d7ce4bb8279c1ba8e84c5
+      internalID: -716515304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: santtu_gif_griddy_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 23
+        width: 464
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78a6188ee4f586b44a41b91118a5b747
+      internalID: -503947088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +168,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      santtu_gif_griddy_3: -865692221
+      santtu_gif_griddy_2: -503947088
+      santtu_gif_griddy_0: -716515304
+      santtu_gif_griddy_1: 1111463178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

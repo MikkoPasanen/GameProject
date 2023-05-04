@@ -9,6 +9,7 @@ namespace PintRush
     {
         private int tapUpgraded;
         private int glassesUpgraded;
+        private int timesUpgraded;
 
         private int maxTap = 3;
         private int maxGlasses = 3;
@@ -22,6 +23,8 @@ namespace PintRush
         [SerializeField] private TextMeshProUGUI glassCostText;
         [SerializeField] private int[] glassCosts = new int[4];
         [SerializeField] private GameObject[] glassStars = new GameObject[3];
+
+        [SerializeField] private int[] upgradeCosts;
 
         [SerializeField] private GameObject[] glassCoasters = new GameObject[3];
 
@@ -44,9 +47,10 @@ namespace PintRush
         {
             tapUpgraded = 0;
             glassesUpgraded = 0;
+            timesUpgraded = 0;
 
-            tapCurrentCost = tapCosts[1];
-            glassCurrentCost = glassCosts[1];
+            tapCurrentCost = upgradeCosts[0];
+            glassCurrentCost = upgradeCosts[0];
 
             upgradeGlassImages[0].SetActive(false);
             upgradeGlassImages[1].SetActive(false);
@@ -147,6 +151,7 @@ namespace PintRush
                 if (tapUpgraded < maxTap)
                 {
                     tapUpgraded++;
+                    timesUpgraded++;
                     gm.SetPoints(tapCurrentCost);
                     audioManager.PlayUpgradeSuccessSound();
                 }
@@ -158,9 +163,13 @@ namespace PintRush
                         Handheld.Vibrate();
                     }
                 }
-                if (tapUpgraded < tapCosts.Length - 1)
+                if (tapUpgraded < 3)
                 {
-                    tapCurrentCost = tapCosts[tapUpgraded + 1];
+                    tapCurrentCost = upgradeCosts[timesUpgraded];
+                }
+                if (glassesUpgraded < 3)
+                {
+                    glassCurrentCost = upgradeCosts[timesUpgraded];
                 }
                 Debug.Log($"Tap upgrades: {tapUpgraded} / {maxTap}");
             }
@@ -181,6 +190,7 @@ namespace PintRush
                 if (glassesUpgraded < maxGlasses)
                 {
                     glassesUpgraded++;
+                    timesUpgraded++;
                     gm.SetPoints(glassCurrentCost);
                     gm.AddMaxGlasses();
                     audioManager.PlayUpgradeSuccessSound();
@@ -194,9 +204,13 @@ namespace PintRush
                         Handheld.Vibrate();
                     }
                 }
-                if (glassesUpgraded < tapCosts.Length - 1)
+                if (tapUpgraded < 3)
                 {
-                    glassCurrentCost = glassCosts[glassesUpgraded + 1];
+                    tapCurrentCost = upgradeCosts[timesUpgraded];
+                }
+                if (glassesUpgraded < 3)
+                {
+                    glassCurrentCost = upgradeCosts[timesUpgraded];
                 }
                 Debug.Log($"Glass upgrades: {glassesUpgraded} / {maxGlasses}");
             }

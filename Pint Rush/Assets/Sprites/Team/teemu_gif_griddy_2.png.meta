@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4aef733f52304264397cc58b8e2887fd
+guid: 96412908d01781241a4f0d75969d2853
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,7 +115,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: teemu_gif_griddy_2_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 991
+        width: 461
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb43ce2f686b2f41a99572811ccd072
+      internalID: 1492539995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teemu_gif_griddy_2_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 741
+        width: 461
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eed57950effa5b47aaa0d1141ca3cd9
+      internalID: 1309050479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teemu_gif_griddy_2_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 491
+        width: 461
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b3987380c2d7c4cb2295855b7052bd
+      internalID: 762705808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teemu_gif_griddy_2_6
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 241
+        width: 461
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e55e4e29c2853c4a818514b91eb7cf5
+      internalID: -163721505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: teemu_gif_griddy_2_8
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 461
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd3004712b3f694da88f3fcd4693d92
+      internalID: -258688207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +231,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      teemu_gif_griddy_2_9: 1625553160
+      teemu_gif_griddy_2_4: 762705808
+      teemu_gif_griddy_2_7: -737665930
+      teemu_gif_griddy_2_0: 1492539995
+      teemu_gif_griddy_2_6: -163721505
+      teemu_gif_griddy_2_1: 799036955
+      teemu_gif_griddy_2_2: 1309050479
+      teemu_gif_griddy_2_3: 1793103218
+      teemu_gif_griddy_2_8: -258688207
+      teemu_gif_griddy_2_5: 1223871503
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

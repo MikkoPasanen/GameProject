@@ -16,7 +16,6 @@ namespace PintRush
         [SerializeField] private GameObject startingScreenLogo;
 
         private int counter = 0;
-        private float timer = 0;
 
         private void Start()
         {

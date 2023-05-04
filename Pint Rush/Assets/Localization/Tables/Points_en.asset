@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 8998121472
-    m_Localized: Service Lasted
+    m_Localized: TIME
     m_Metadata:
       m_Items: []
   - m_Id: 5422527574016
-    m_Localized: Served
+    m_Localized: SERVED
     m_Metadata:
       m_Items: []
   - m_Id: 2463714394058752

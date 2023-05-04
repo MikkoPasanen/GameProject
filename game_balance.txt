@@ -1,0 +1,19 @@
+Upgradet
+20 -> 25 -> 30 -> 35 -> 40 -> 50
+Yhteensä 200
+
+Spawn rate 
+	Alussa: 850
+	Frequency: 2
+	Amount: 25
+	Lopussa 60 tarjoilun jälkeen
+
+Patience
+	Alussa: 250
+	Frequency: 5
+	Amount: 5
+
+60 tarjoilun jälkeen spawnrate nopeutus loppuu 
+ja patience nopeutus alkaa
+60 + 150 = 210 tarjoilun jälkeen patience nopeutus loppuu
+ja peli on tapissaan! 
