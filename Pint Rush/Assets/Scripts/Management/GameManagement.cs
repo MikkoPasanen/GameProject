@@ -189,6 +189,11 @@ namespace PintRush
             return allowSpawn;
         }
 
+        public int GetTotalPoints()
+        { 
+            return totalPoints;
+        }
+
         public void SetShowHowToPlay()
         {
             defaultValue = !defaultValue;

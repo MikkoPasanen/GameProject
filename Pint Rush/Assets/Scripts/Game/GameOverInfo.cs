@@ -12,6 +12,8 @@ namespace PintRush
         [SerializeField] TextMeshProUGUI beerThree;
         [SerializeField] TextMeshProUGUI secondsText;
         [SerializeField] GameManagement gm;
+        [SerializeField] TextMeshProUGUI totalText; 
+
         public CustomerSpawnController csc;
         // Start is called before the first frame update
         void Start()
@@ -20,6 +22,7 @@ namespace PintRush
             beerOne.text = gm.GetBeerOneScore().ToString();
             beerTwo.text = gm.GetBeerTwoScore().ToString();
             beerThree.text = gm.GetBeerThreeScore().ToString();
+            totalText.text = gm.GetTotalPoints().ToString();
 
             int minutes = Mathf.FloorToInt(CustomerSpawnController.timer / 60);
             int seconds = Mathf.FloorToInt(CustomerSpawnController.timer % 60);
