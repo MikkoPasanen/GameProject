@@ -1,13 +1,13 @@
 # GameProject
 TAMK's Business Information Systems first year's game project for Narvan kyläpanimo oy.
 
-##Devs:
+## Devs:
   Mikko Pasanen - Programmer  |
   Teemu Tontti - Programmer  |
   Riku Saarijärvi - Artist  |
   Santtu Lattunen - Scrum / 2nd artist
 
-##About
+## About
 Pint Rush is a mobile game build for android devices.
 It's downloadable here: https://play.google.com/store/apps/details?id=com.SecretDamStudios.PintRush
 
